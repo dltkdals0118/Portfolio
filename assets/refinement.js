@@ -78,3 +78,53 @@
   });
   syncTabs();
 })();
+
+(() => {
+  const story = document.querySelector('.agent-story');
+  const stage = story.querySelector('.agent-stage');
+  const steps = [...story.querySelectorAll('[data-agent-step]')];
+  const frames = [...story.querySelectorAll('[data-agent-frame]')];
+  const buttons = [...story.querySelectorAll('[data-agent-jump]')];
+  const kicker = story.querySelector('[data-agent-kicker]');
+  const title = story.querySelector('[data-agent-title]');
+  let current = -1;
+  const activate = index => {
+    if (current === index) return;
+    current = index;
+    const step = steps[index];
+    steps.forEach((s, i) => s.classList.toggle('active', i === index));
+    frames.forEach(f => {
+      const active = f.dataset.agentFrame === step.dataset.frame;
+      f.classList.toggle('active', active);
+      f.setAttribute('aria-hidden', String(!active));
+    });
+    buttons.forEach((b, i) => b.setAttribute('aria-pressed', String(i === index)));
+    kicker.textContent = step.dataset.kicker;
+    title.textContent = step.dataset.title;
+  };
+  const update = () => {
+    const touchLayout = matchMedia('(max-width:1100px)').matches;
+    const landscape = innerHeight <= 540;
+    const stageBottom = stage.getBoundingClientRect().bottom;
+    const line = touchLayout && !landscape
+      ? Math.min(innerHeight * .88, stageBottom + Math.max(48, (innerHeight - stageBottom) * .35))
+      : innerHeight * .5;
+    let index = 0;
+    steps.forEach((step, i) => { if (step.getBoundingClientRect().top <= line) index = i; });
+    activate(index);
+  };
+  let scheduled = false;
+  const schedule = () => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => { scheduled = false; update(); });
+  };
+  buttons.forEach((button, index) => button.addEventListener('click', () => {
+    steps[index].scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth' });
+  }));
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule, { passive: true });
+  addEventListener('load', update);
+  activate(0);
+  update();
+})();

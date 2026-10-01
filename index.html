@@ -372,7 +372,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 .evidence-tile{background-image:none}.evidence-tile>img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
 .practice-media img{height:auto;object-fit:contain}
 </style>
-  <link rel="stylesheet" href="assets/refinement.css" />
+  <link rel="stylesheet" href="assets/refinement.css?v=mobile-2" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -421,10 +421,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
       <a href="#product">Product</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="section-menu-toggle" type="button" aria-expanded="false" aria-controls="section-rail" aria-label="전체 섹션 메뉴">MENU <span aria-hidden="true">＋</span></button>
     <a class="header-cta" href="https://github.com/dltkdals0118" target="_blank" rel="noreferrer">GitHub ↗</a>
   </header>
 
-<button class="section-menu-toggle" type="button" aria-expanded="false" aria-controls="section-rail">INDEX <span aria-hidden="true">＋</span></button>
 <nav class="section-rail" id="section-rail" aria-label="섹션 바로가기">
 <a href="#top" aria-label="Top 섹션으로 이동"><span class="rail-label">Top</span><span class="rail-line" aria-hidden="true"></span></a>
 <a href="#profile" aria-label="Profile 섹션으로 이동"><span class="rail-label">Profile</span><span class="rail-line" aria-hidden="true"></span></a>
@@ -726,7 +726,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
           <div class="agent-frame privacy-frame privacy-agent privacy-agent-one" data-agent-frame="1"><img width="700" height="703" src="assets/evidence-1d1d870c5960.webp" alt="실제 역할 기반 AI Agent 파이프라인 관제 화면" loading="lazy" /><span class="local-mask mask-agent-left" aria-hidden="true"></span><span class="local-mask mask-agent-top" aria-hidden="true"></span><span class="local-mask mask-agent-right" aria-hidden="true"></span></div>
           <div class="agent-frame privacy-frame privacy-agent privacy-agent-two" data-agent-frame="2"><img width="854" height="720" src="assets/automation-execution-redacted.webp" alt="Claude Code에서 실제 업무를 수행하고 검수하는 화면" loading="lazy" /><span class="local-mask mask-agent-left" aria-hidden="true"></span><span class="local-mask mask-agent-top" aria-hidden="true"></span><span class="local-mask mask-agent-right" aria-hidden="true"></span></div>
 
-          <div class="privacy-badge">SENSITIVE LABELS MASKED</div><div class="agent-stage-bottom"><span data-agent-kicker>01 · REQUEST</span><strong data-agent-title>업무를 자연어로 요청</strong><small>scroll to inspect the workflow</small></div>
+          <div class="privacy-badge">SENSITIVE LABELS MASKED</div><div class="agent-stage-bottom"><span data-agent-kicker>01 · REQUEST</span><strong data-agent-title>업무를 자연어로 요청</strong><div class="agent-step-controls" role="group" aria-label="자동화 단계 선택"><button type="button" data-agent-jump="0" aria-label="1단계 요청">01</button><button type="button" data-agent-jump="1" aria-label="2단계 분배">02</button><button type="button" data-agent-jump="2" aria-label="3단계 실행">03</button><button type="button" data-agent-jump="3" aria-label="4단계 검수">04</button><button type="button" data-agent-jump="4" aria-label="5단계 산출물">05</button></div></div>
         </div>
 
         <div class="agent-steps">
@@ -933,23 +933,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 
   document.querySelectorAll('[data-count]').forEach(el => { el.textContent = el.dataset.count; });
 
-  // AI scrollytelling
-  const agentFrames=[...document.querySelectorAll('[data-agent-frame]')];
-  const agentSteps=[...document.querySelectorAll('[data-agent-step]')];
-  const agentKicker=document.querySelector('[data-agent-kicker]');
-  const agentTitle=document.querySelector('[data-agent-title]');
-  const setAgentStep=(step)=>{
-    const idx=step.dataset.frame;
-    agentFrames.forEach(f=>f.classList.toggle('active',f.dataset.agentFrame===idx));
-    agentSteps.forEach(s=>s.classList.toggle('active',s===step));
-    if(agentKicker) agentKicker.textContent=step.dataset.kicker || '';
-    if(agentTitle) agentTitle.textContent=step.dataset.title || '';
-  };
-  const agentIO=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting) setAgentStep(e.target); });
-  },{rootMargin:'-38% 0px -38% 0px',threshold:0});
-  agentSteps.forEach(s=>agentIO.observe(s));
-
   // Figma proof tabs
   const figmaTabs=[...document.querySelectorAll('[data-figma-tab]')];
   const figmaPanels=[...document.querySelectorAll('[data-figma-panel]')];
@@ -986,6 +969,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 })();
 
 </script>
-  <script src="assets/refinement.js"></script>
+  <script src="assets/refinement.js?v=mobile-2"></script>
 </body>
 </html>
