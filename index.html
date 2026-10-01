@@ -362,6 +362,12 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   .mask-agent-left{width:13.5%}.mask-agent-right{width:18.5%}.mask-claude-right{width:21%}
 }
 
+
+/* Source-backed Technical SEO case study */
+.technical-grid{align-items:start;gap:5vw}.technical h2{font-size:clamp(44px,5.8vw,86px)}
+.audit-summary{background:#111;color:#fff;padding:36px;border-radius:18px}.audit-summary>.eyebrow{color:#fc6a39}.audit-numbers{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:12px 0 25px;border-bottom:1px solid #3b3b3b}.audit-numbers strong{font-size:86px;letter-spacing:-.07em;line-height:1.1}.audit-numbers strong span{font-size:28px;margin-left:8px;color:#ff6835}.audit-numbers p{font-size:13px;color:#ccc}.audit-summary dl{margin:24px 0}.audit-summary dl>div{margin:18px 0}.audit-summary dt{font-size:11px;color:#999;margin-bottom:7px}.audit-summary dd{font-size:14px;line-height:1.7;margin:0}.audit-status{font-size:12px!important;line-height:1.8!important;color:#777}.audit-summary .audit-status{color:#aaa;border-top:1px solid #3b3b3b;padding-top:18px}
+.audit-gallery{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:54px}.audit-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.audit-card button{display:block;width:100%;padding:0;border:0;background:#eff0f2;position:relative;cursor:zoom-in}.audit-card button:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}.audit-card img{display:block;width:100%;height:auto}.audit-card button>span{position:absolute;right:12px;bottom:12px;background:#111;color:#fff;padding:8px 12px;border-radius:20px;font-size:11px}.audit-card-copy{padding:25px}.audit-card h3{font-size:22px;letter-spacing:-.04em;margin:10px 0}.audit-card-copy>p:last-child{font-size:14px;color:#615c56;line-height:1.8;margin-bottom:0}.audit-card .eyebrow{font-size:10px}.handoff-note{border-left:3px solid var(--orange);padding:8px 26px;margin-top:40px;max-width:900px}.handoff-note h3{font-size:24px;margin:10px 0}.handoff-note>p{font-size:14px;line-height:1.8;color:#615c56}.lightbox img{display:block;max-width:94vw;object-fit:contain}
+@media(max-width:720px){.audit-gallery{grid-template-columns:1fr;gap:22px;margin-top:30px}.audit-summary{padding:25px;margin-top:20px}.audit-numbers strong{font-size:70px}.audit-card-copy{padding:20px}.handoff-note{padding:6px 18px}.technical h2{font-size:48px}}
 </style>
   <script type="application/ld+json">
   {
@@ -625,39 +631,22 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
       <div class="section-label"><span>04</span> TECHNICAL SEO</div>
       <div class="technical-grid">
         <div class="technical-copy">
-          <p class="eyebrow">DIAGNOSE → REQUEST → VERIFY</p>
-          <h2>문제를 찾는 데서 끝내지 않고,<br /><em>개발자가 고칠 수 있는 형태</em>로 전달합니다.</h2>
-          <p>크롤링과 색인, canonical, sitemap, robots, hreflang, Schema, Rendering 이슈를 확인하고 실제 수정 요청서와 배포 후 검증까지 연결합니다.</p>
-          <div class="tag-list">
-            <span>robots.txt</span><span>sitemap.xml</span><span>canonical</span><span>noindex</span><span>301</span><span>hreflang</span><span>JSON-LD</span><span>SSR / Rendering</span>
-          </div>
+          <p class="eyebrow">AUDIT → SPECIFICATION → DEV HANDOFF</p>
+          <h2>진단을<br /><em>실행 가능한<br />수정 요청으로.</em></h2>
+          <p>병원 웹사이트의 중복 URL·메타데이터·사이트맵 문제를 정리하고, 개발팀과 퍼블리셔가 작업할 수 있도록 화면 설명과 구현 참고 코드를 함께 작성했습니다.</p>
+          <div class="tag-list"><span>URL 정규화</span><span>canonical / OG</span><span>MedicalClinic</span><span>sitemap</span><span>개발 협업</span></div>
         </div>
-        <div class="code-panel reveal" aria-label="Technical SEO 작업 예시">
-          <div class="code-bar"><i></i><i></i><i></i><span>seo-audit.md</span></div>
-          <pre><code><span class="c-dim"># Crawl / Index</span>
-GET /robots.txt      <span class="c-ok">200 OK</span>
-GET /sitemap.xml     <span class="c-ok">200 OK</span>
-
-<span class="c-dim"># Canonical</span>
-&lt;link rel="canonical"
-  href="https://example.com/page" /&gt;
-
-<span class="c-dim"># Structured Data</span>
-MedicalWebPage
-BreadcrumbList
-Organization
-
-<span class="c-dim"># Verify</span>
-Search Console → URL Inspection
-Naver Search Advisor → 수집 요청</code></pre>
-        </div>
+        <aside class="audit-summary">
+          <p class="eyebrow">CLIENT A · SEO DEVELOPMENT BRIEF</p>
+          <div class="audit-numbers"><div><strong>26<span>P</span></strong><p>실무 수정 요청서</p></div><div><strong>11</strong><p>수정·신규·확인 요청</p></div></div>
+          <dl><div><dt>담당 범위</dt><dd>이슈 진단 · 수정 사양 작성 · 구현 참고 코드 · 개발 전달</dd></div><div><dt>문서 구성</dt><dd>현재 상태 → 목표 상태 → 적용 위치 → 예외·순서</dd></div><div><dt>증빙 기준</dt><dd>2026.10.01 작성 문서 · 고객사 식별정보 비공개</dd></div></dl>
+          <p class="audit-status">이 사례는 진단·수정 요청서 작성의 증빙입니다. 배포 완료나 색인·순위 개선 성과를 의미하지 않습니다.</p>
+        </aside>
       </div>
-      <div class="process-row reveal">
-        <article><span>01</span><b>Observe</b><p>Search Console · Search Advisor · HTTP 상태 · 렌더링 점검</p></article>
-        <article><span>02</span><b>Diagnose</b><p>크롤링·색인·중복·구조화 데이터 원인 분리</p></article>
-        <article><span>03</span><b>Implement</b><p>개발/퍼블리싱팀이 실행 가능한 수정 요청으로 구체화</p></article>
-        <article><span>04</span><b>Verify</b><p>배포 후 응답코드·태그·색인 상태 재검증</p></article>
-      </div>
+      <div class="audit-gallery">
+<article class="audit-card"><button type="button" data-lightbox="assets/technical-url-normalization.png" aria-label="중복 URL 30건, 전환 순서까지 요청서 02쪽 확대"><img src="assets/technical-url-normalization.png" loading="lazy" width="1728" height="972" alt="고객사 정보 비식별 처리된 SEO 수정 요청서 02쪽: 중복 URL 30건, 전환 순서까지" /><span>문서 확대 ↗</span></button><div class="audit-card-copy"><p class="eyebrow">01 / URL NORMALIZATION · P.02</p><h3>중복 URL 30건, 전환 순서까지</h3><p>같은 문서가 두 주소로 열리는 문제를 정리하고, canonical → 영구 리다이렉트 → sitemap 순서와 제외 대상을 명시했습니다.</p></div></article><article class="audit-card"><button type="button" data-lightbox="assets/technical-metadata.png" aria-label="페이지별 메타데이터를 개발 사양으로 요청서 05쪽 확대"><img src="assets/technical-metadata.png" loading="lazy" width="1728" height="972" alt="고객사 정보 비식별 처리된 SEO 수정 요청서 05쪽: 페이지별 메타데이터를 개발 사양으로" /><span>문서 확대 ↗</span></button><div class="audit-card-copy"><p class="eyebrow">02 / CANONICAL + OG · P.05</p><h3>페이지별 메타데이터를 개발 사양으로</h3><p>대표 URL·공유 제목·설명을 공용 함수로 연결하고, 목록 페이지의 페이지네이션 처리 기준을 작성했습니다.</p></div></article><article class="audit-card"><button type="button" data-lightbox="assets/technical-schema.png" aria-label="병원 정보를 구조화하는 설계 요청서 06쪽 확대"><img src="assets/technical-schema.png" loading="lazy" width="1728" height="972" alt="고객사 정보 비식별 처리된 SEO 수정 요청서 06쪽: 병원 정보를 구조화하는 설계" /><span>문서 확대 ↗</span></button><div class="audit-card-copy"><p class="eyebrow">03 / STRUCTURED DATA · P.06</p><h3>병원 정보를 구조화하는 설계</h3><p>MedicalClinic의 기관 정보·진료시간·채널 연결을 설계하고, 화면 정보와 일치하도록 입력 기준을 정리했습니다.</p></div></article><article class="audit-card"><button type="button" data-lightbox="assets/technical-sitemap.png" aria-label="404·누락·갱신일을 나눠서 요청 요청서 08쪽 확대"><img src="assets/technical-sitemap.png" loading="lazy" width="1728" height="972" alt="고객사 정보 비식별 처리된 SEO 수정 요청서 08쪽: 404·누락·갱신일을 나눠서 요청" /><span>문서 확대 ↗</span></button><div class="audit-card-copy"><p class="eyebrow">04 / SITEMAP INTEGRITY · P.08</p><h3>404·누락·갱신일을 나눠서 요청</h3><p>404 주소 3건, 누락 경로 5건, lastmod 기준과 리다이렉트 적용 후 URL 교체 시점을 구분했습니다.</p></div></article></div>
+      <div class="handoff-note"><p class="eyebrow">DEVELOPMENT COLLABORATION / REDMINE</p><h3>요청 내용과 진행 이력을 남깁니다.</h3><p>별도 커뮤니티 프로젝트에서는 robots.txt 변경 요청을 Redmine 일감으로 등록하고 진척도 변경 이력을 관리했습니다. 관리자 기능 개발 건은 작업 범위와 완료 기준을 정리해 개발팀과 협업했습니다.</p><p class="audit-status">공유된 캡처의 요청 내용·진척 이력을 요약했습니다. 진척도 100% 표기와 실제 검색 제외 검증은 구분합니다.</p></div>
+      <div class="process-row"><article><span>01 / AUDIT</span><b>문제 구체화</b><p>중복 응답·메타데이터 불일치·sitemap 누락을 URL 단위로 정리</p></article><article><span>02 / SPECIFICATION</span><b>수정 사양 작성</b><p>현재·목표 상태, 대상 범위, 참고 코드와 예외를 함께 명시</p></article><article><span>03 / HANDOFF</span><b>개발 전달</b><p>적용 순서와 완료 기준을 정리해 개발팀·퍼블리셔와 협업</p></article><article><span>04 / VERIFICATION PLAN</span><b>검증 기준 정의</b><p>배포 후 확인할 응답 코드·대표 URL·메타데이터·사이트맵 기준 수립</p></article></div>
     </section>
 
     <section class="section ux" id="ux">
@@ -900,6 +889,7 @@ Naver Search Advisor → 수집 요청</code></pre>
     btn.addEventListener('click', () => {
       if (!dialog || !dialogImg) return;
       dialogImg.src = btn.dataset.lightbox;
+      dialogImg.alt = btn.getAttribute("aria-label") || btn.querySelector("img")?.alt || "포트폴리오 증빙 이미지";
       dialog.showModal();
     });
   });
