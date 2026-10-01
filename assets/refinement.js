@@ -104,7 +104,7 @@
   };
   const update = () => {
     const touchLayout = matchMedia('(max-width:1100px)').matches;
-    const landscape = innerHeight <= 540;
+    const landscape = innerHeight <= 540 || (innerWidth >= 900 && innerWidth <= 1100);
     const stageBottom = stage.getBoundingClientRect().bottom;
     const line = touchLayout && !landscape
       ? Math.min(innerHeight * .88, stageBottom + Math.max(48, (innerHeight - stageBottom) * .35))
