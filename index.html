@@ -311,12 +311,17 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 .proof-card-meta span{color:var(--orange)}.proof-card-meta b{font-size:11px}
 .evidence-tile{
   position:relative;display:block;width:100%;height:330px;border:0;border-radius:9px;padding:0;
-  background-image:url("assets/search-evidence.svg");background-size:200% 300%;background-repeat:no-repeat;
-  background-color:#fff;cursor:zoom-in;overflow:hidden;box-shadow:inset 0 0 0 1px #ddd;
+  background-image:var(--evidence-image);background-size:contain;background-position:center;background-repeat:no-repeat;
+  background-color:#f3f3f3;cursor:zoom-in;overflow:hidden;box-shadow:inset 0 0 0 1px #ddd;
 }
 .evidence-tile>span{position:absolute;right:10px;bottom:10px;background:rgba(17,17,17,.86);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 9px;font:800 8px/1 "Inter",sans-serif;letter-spacing:.1em;opacity:0;transform:translateY(5px);transition:.22s}
 .evidence-tile:hover>span{opacity:1;transform:none}
-.tile-01{background-position:0% 0%}.tile-02{background-position:100% 0%}.tile-03{background-position:0% 50%}.tile-04{background-position:100% 50%}.tile-05{background-position:0% 100%}.tile-06{background-position:100% 100%}
+.tile-01{--evidence-image:url("assets/search-google-local.webp")}
+.tile-02{--evidence-image:url("assets/search-google-procedure.webp")}
+.tile-03{--evidence-image:url("assets/search-google-intent.webp")}
+.tile-04{--evidence-image:url("assets/search-naver-surface.webp")}
+.tile-05{--evidence-image:url("assets/aeo-naver-ai-briefing.webp")}
+.tile-06{--evidence-image:url("assets/aeo-google-ai-overview.webp")}
 .proof-card h3{font-size:22px;line-height:1.15;letter-spacing:-.045em;margin:18px 0 8px}
 .proof-card p{font-size:12px;line-height:1.75;color:#66615b;margin:0}
 .proof-card-wide .evidence-tile{height:430px}
@@ -538,28 +543,28 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
       <div class="proof-grid">
         <article class="proof-card reveal">
           <div class="proof-card-meta"><span>GOOGLE ORGANIC</span><b>01</b></div>
-          <button class="evidence-tile tile-01" type="button" data-lightbox="assets/search-evidence.svg" aria-label="Google 지역 안과 키워드 검색 결과 증빙 확대"><span>EXPAND ↗</span></button>
+          <button class="evidence-tile tile-01" type="button" data-lightbox="assets/search-google-local.webp" aria-label="Google 지역 안과 키워드 검색 결과 증빙 확대"><span>EXPAND ↗</span></button>
           <h3>지역 + 진료과 핵심 키워드</h3>
           <p>지역 의료 키워드에서 실제 Organic SERP 상위 노출을 확인했습니다.</p>
         </article>
 
         <article class="proof-card reveal">
           <div class="proof-card-meta"><span>GOOGLE ORGANIC</span><b>02</b></div>
-          <button class="evidence-tile tile-02" type="button" data-lightbox="assets/search-evidence.svg" aria-label="Google 시술 키워드 검색 결과 증빙 확대"><span>EXPAND ↗</span></button>
+          <button class="evidence-tile tile-02" type="button" data-lightbox="assets/search-google-procedure.webp" aria-label="Google 시술 키워드 검색 결과 증빙 확대"><span>EXPAND ↗</span></button>
           <h3>시술 일반 키워드 · 렌즈삽입술</h3>
           <p>브랜드 검색이 아닌 시술 일반 키워드에서도 상위 검색면 진입 사례를 확보했습니다.</p>
         </article>
 
         <article class="proof-card reveal">
           <div class="proof-card-meta"><span>GOOGLE ORGANIC</span><b>03</b></div>
-          <button class="evidence-tile tile-03" type="button" data-lightbox="assets/search-evidence.svg" aria-label="Google 망막 관련 검색어 증빙 확대"><span>EXPAND ↗</span></button>
+          <button class="evidence-tile tile-03" type="button" data-lightbox="assets/search-google-intent.webp" aria-label="Google 망막 관련 검색어 증빙 확대"><span>EXPAND ↗</span></button>
           <h3>질환 · 선택 의도형 키워드</h3>
           <p>사용자의 실제 질문에 가까운 고의도 검색어까지 콘텐츠 구조와 노출 범위를 확장했습니다.</p>
         </article>
 
         <article class="proof-card reveal proof-card-wide">
           <div class="proof-card-meta"><span>NAVER SEARCH SURFACE</span><b>04</b></div>
-          <button class="evidence-tile tile-04" type="button" data-lightbox="assets/search-evidence.svg" aria-label="Naver 일반 검색 결과 증빙 확대"><span>EXPAND ↗</span></button>
+          <button class="evidence-tile tile-04" type="button" data-lightbox="assets/search-naver-surface.webp" aria-label="Naver 일반 검색 결과 증빙 확대"><span>EXPAND ↗</span></button>
           <div class="proof-wide-copy">
             <h3>Naver에서도 추가 검색면 확보</h3>
             <p>웹사이트·블로그·보조 콘텐츠 자산을 검색 주제에 맞게 운영하며 일반 검색 결과에서 추가 노출면을 확보했습니다.</p>
@@ -580,7 +585,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 
       <div class="aeo-grid">
         <article class="aeo-card reveal">
-          <button class="evidence-tile tile-05 evidence-aeo" type="button" data-lightbox="assets/search-evidence.svg" aria-label="Naver AI 브리핑 인용 증빙 확대"><span>VIEW EVIDENCE ↗</span></button>
+          <button class="evidence-tile tile-05 evidence-aeo" type="button" data-lightbox="assets/aeo-naver-ai-briefing.webp" aria-label="Naver AI 브리핑 인용 증빙 확대"><span>VIEW EVIDENCE ↗</span></button>
           <div class="aeo-copy">
             <span>NAVER AI BRIEFING</span>
             <h3>질문형 검색에서 AI 답변 영역 진입</h3>
@@ -589,7 +594,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
         </article>
 
         <article class="aeo-card reveal">
-          <button class="evidence-tile tile-06 evidence-aeo" type="button" data-lightbox="assets/search-evidence.svg" aria-label="Google AI Overview 인용 증빙 확대"><span>VIEW EVIDENCE ↗</span></button>
+          <button class="evidence-tile tile-06 evidence-aeo" type="button" data-lightbox="assets/aeo-google-ai-overview.webp" aria-label="Google AI Overview 인용 증빙 확대"><span>VIEW EVIDENCE ↗</span></button>
           <div class="aeo-copy">
             <span>GOOGLE AI OVERVIEW</span>
             <h3>Naver Blog → Google AI citation</h3>
