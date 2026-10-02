@@ -103,6 +103,7 @@
       f.classList.toggle('active', active);
       f.setAttribute('aria-hidden', String(!active));
       f.inert = !active;
+      if (!active) f.querySelectorAll('video').forEach(video => video.pause());
     });
     buttons.forEach((b, i) => b.setAttribute('aria-pressed', String(i === index)));
     kicker.textContent = step.dataset.kicker;
