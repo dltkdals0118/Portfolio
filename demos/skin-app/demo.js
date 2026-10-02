@@ -19,10 +19,14 @@
  const status=document.querySelector('.statusbar');
  if(status){const span=document.createElement('span');span.className='sample-chip';span.textContent='SAMPLE · CLINIC B';status.insertBefore(span,status.lastElementChild);}
  addEventListener('message',event=>{if(!embedded||event.source!==parent)return;if(event.data?.type==='wacus:navigate')navigate(event.data.scene);});
+ const viewport=document.getElementById('vp');
+ const syncScreens=()=>{const active=stack[stack.length-1]?.el;viewport.querySelectorAll(':scope > .screen').forEach(el=>{const current=el===active;el.inert=!current;el.setAttribute('aria-hidden',String(!current));});};
+ new MutationObserver(syncScreens).observe(viewport,{childList:true});
  const roots=['modal','sheet'];
  const sync=()=>roots.forEach(id=>{const el=document.getElementById(id);if(el){const open=el.classList.contains('on');el.inert=!open;el.setAttribute('aria-hidden',String(!open));}});
  roots.forEach(id=>new MutationObserver(sync).observe(document.getElementById(id),{attributes:true,attributeFilter:['class']}));sync();
  addEventListener('keydown',event=>{if(event.key!=='Escape')return;if(roots.some(id=>document.getElementById(id).classList.contains('on')))closeModal();else if(embedded)parent.postMessage({type:'wacus:escape'},'*');});
  if(embedded||params.get('start')==='1')navigate(params.get('scene')||'home');
+ syncScreens();
  if(embedded)parent.postMessage({type:'wacus:ready'},'*');
 })();
