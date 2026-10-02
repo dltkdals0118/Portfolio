@@ -66,7 +66,10 @@
  .entry-illustration{width:156px}.entry-wordmark{font-size:112px;margin-top:0}.entry-disciplines{flex-basis:100%;justify-content:center;margin:0}
 }
 @media(prefers-reduced-motion:reduce){
- .entry-intro{display:none!important}
+ .entry-intro:not([hidden]){display:grid;transition:none}
+ .entry-intro.is-playing *{animation:none!important}
+ .entry-wordmark>span,.entry-node,.entry-disciplines>*{opacity:1;transform:none}
+ .entry-trace{stroke-dashoffset:0}
  .hero h1{transform:none!important}
  .hero h1>span,.hero h1>.hero-cross{animation:none!important;opacity:1;transform:none;clip-path:none}
 }

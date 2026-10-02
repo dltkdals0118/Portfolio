@@ -12,44 +12,20 @@
     html.intro-pending:not(.hero-entered) .hero h1>span,
     html.intro-pending:not(.hero-entered) .hero-bottom{animation:none!important;opacity:0}
   </style>
-  <script>
-  (() => {
-    const oldSections = {"seo": "seo.html#seo", "search-proof": "seo.html#search-proof", "aeo": "seo.html#aeo", "technical": "seo.html#technical", "ux": "seo.html#ux", "automation": "automation.html#automation", "practice": "automation.html#practice", "product": "product.html#product", "wacus-prototype": "product.html#wacus-prototype", "beyond": "index.html#career"};
-    const destination = oldSections[location.hash.slice(1)];
-    if (destination) { location.replace(destination); return; }
-    const root = document.documentElement;
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const navigation = performance.getEntriesByType('navigation')[0];
-    if (navigation?.type === 'back_forward') return;
-    window.portfolioIntroEligible = true;
-    root.classList.add('intro-pending');
-    // The page stays usable if the enhancement script cannot load.
-    window.portfolioIntroFailsafe = setTimeout(() => {
-      root.classList.remove('intro-pending', 'intro-leaving');
-      root.classList.add('hero-entered');
-      const intro = document.getElementById('entry-intro');
-      if (intro) intro.hidden = true;
-      document.querySelectorAll('[data-intro-inert]').forEach(el => {
-        el.inert = false;
-        el.removeAttribute('data-intro-inert');
-      });
-      dispatchEvent(new Event('portfolio:intro-expired'));
-    }, 4000);
-  })();
-  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" media="print" onload="this.media='all'" crossorigin />
-  <title>이상민 — AI Automation × SEO × Web Marketing</title>
-  <meta name="description" content="검색 성과, Technical SEO, 데이터 분석, AI Agent 자동화를 연결하는 이상민의 웹 포트폴리오." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" crossorigin />
+  <title>AI Automation — 이상민 Portfolio</title>
+  <meta name="description" content="역할별 Agent 구조와 실제 업무 적용 흐름을 확인하세요." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://dltkdals0118.github.io/Portfolio/" />
+  <link rel="canonical" href="https://dltkdals0118.github.io/Portfolio/automation.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="이상민 — AI Automation × SEO × Web Marketing" />
+  <meta property="og:title" content="AI Automation — 이상민 Portfolio" />
   <meta property="og:description" content="검색 유입을 만들고, 웹을 개선하고, 반복 업무를 자동화합니다." />
-  <meta property="og:url" content="https://dltkdals0118.github.io/Portfolio/" />
+  <meta property="og:url" content="https://dltkdals0118.github.io/Portfolio/automation.html" />
   <meta property="og:image" content="https://dltkdals0118.github.io/Portfolio/og-image.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:image:width" content="1200" />
@@ -390,60 +366,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   <link rel="stylesheet" href="assets/refinement.css?v=motion-1" />
   <link rel="stylesheet" href="assets/motion.css?v=motion-3" />
   <link rel="stylesheet" href="assets/entry-motion.css?v=entry-3" />
-  <link rel="stylesheet" href="assets/prototype.css?v=prototype-4" />
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"WebSite",
-        "@id":"https://dltkdals0118.github.io/Portfolio/#website",
-        "url":"https://dltkdals0118.github.io/Portfolio/",
-        "name":"이상민 Portfolio",
-        "inLanguage":"ko-KR"
-      },
-      {
-        "@type":"ProfilePage",
-        "@id":"https://dltkdals0118.github.io/Portfolio/#profile",
-        "url":"https://dltkdals0118.github.io/Portfolio/",
-        "name":"이상민 — AI Automation × SEO × Web Marketing",
-        "isPartOf":{"@id":"https://dltkdals0118.github.io/Portfolio/#website"},
-        "mainEntity":{"@id":"https://dltkdals0118.github.io/Portfolio/#person"}
-      },
-      {
-        "@type":"Person",
-        "@id":"https://dltkdals0118.github.io/Portfolio/#person",
-        "name":"이상민",
-        "jobTitle":"SEO · AI Automation · Web Marketing",
-        "url":"https://dltkdals0118.github.io/Portfolio/",
-        "sameAs":[
-          "https://github.com/dltkdals0118",
-          "https://youtube.com/@studio_loxy"
-        ],
-        "knowsAbout":["SEO","Technical SEO","AEO","AI Citation","Search Marketing","Google Analytics 4","AI Agent Automation","Web Marketing","Figma"]
-      }
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "AI Automation — 이상민 Portfolio", "url": "https://dltkdals0118.github.io/Portfolio/automation.html", "description": "역할별 Agent 구조와 실제 업무 적용 흐름을 확인하세요.", "isPartOf": {"@type": "WebSite", "url": "https://dltkdals0118.github.io/Portfolio/"}}</script>
   <link rel="stylesheet" href="assets/depth.css?v=depth-1" />
 </head>
 <body>
-  <div class="entry-intro" id="entry-intro" role="dialog" aria-modal="true" aria-labelledby="entry-intro-title" hidden>
-    <h2 id="entry-intro-title" class="entry-sr-only">이상민 포트폴리오 인트로</h2>
-    <div class="entry-meta" aria-hidden="true"><span>SM.</span><span>PORTFOLIO · 2026</span></div>
-    <div class="entry-composition" aria-hidden="true">
-      <svg class="entry-illustration" viewBox="0 0 360 168" fill="none">
-        <path class="entry-trace entry-trace-a" pathLength="1" d="M58 102L180 38L302 102L180 164Z" />
-        <path class="entry-trace entry-trace-b" pathLength="1" d="M58 102V68L180 4L302 68V102M180 4V38M180 132V164M58 68L180 132L302 68" />
-        <g class="entry-node entry-node-a"><circle cx="58" cy="86" r="19" /><circle cx="55" cy="83" r="6" /><path d="M60 88L67 95" /></g>
-        <g class="entry-node entry-node-b"><circle cx="180" cy="21" r="19" /><path d="M180 10V32M169 21H191M172 13L188 29M188 13L172 29" /></g>
-        <g class="entry-node entry-node-c"><circle cx="302" cy="86" r="19" /><rect x="292" y="78" width="20" height="16" rx="2" /><path d="M292 83H312" /></g>
-      </svg>
-      <div class="entry-wordmark"><span>S</span><span>M</span><span class="entry-dot">.</span></div>
-      <p class="entry-disciplines"><span>AI AUTOMATION</span><i>×</i><span>SEO</span><i>×</i><span>WEB MARKETING</span></p>
-    </div>
-    <div class="entry-bottom"><span aria-hidden="true">SANGMIN LEE</span><button type="button" class="entry-skip" data-intro-skip>바로 보기 <span aria-hidden="true">↗</span></button></div>
-  </div>
   <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">본문 바로가기</a>
 
@@ -455,120 +381,96 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   </header>
 
 <nav class="section-rail" id="section-rail" aria-label="이 페이지 목차"><a href="#top" aria-label="Top 섹션으로 이동"><span class="rail-label">Top</span><span class="rail-line" aria-hidden="true"></span></a>
-<a href="#profile" aria-label="Profile 섹션으로 이동"><span class="rail-label">Profile</span><span class="rail-line" aria-hidden="true"></span></a>
-<a href="#work" aria-label="Selected Work 섹션으로 이동"><span class="rail-label">Selected Work</span><span class="rail-line" aria-hidden="true"></span></a>
-<a href="#career" aria-label="Career 섹션으로 이동"><span class="rail-label">Career</span><span class="rail-line" aria-hidden="true"></span></a>
-<a href="#contact" aria-label="Contact 섹션으로 이동"><span class="rail-label">Contact</span><span class="rail-line" aria-hidden="true"></span></a><a href="index.html#work"><span class="rail-label">전체 작업 ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="seo.html"><span class="rail-label">SEO ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="automation.html"><span class="rail-label">Automation ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="product.html"><span class="rail-label">Product ↗</span><span class="rail-line" aria-hidden="true"></span></a></nav>
+<a href="#automation" aria-label="AI Agents 섹션으로 이동"><span class="rail-label">AI Agents</span><span class="rail-line" aria-hidden="true"></span></a>
+<a href="#practice" aria-label="Practice 섹션으로 이동"><span class="rail-label">Practice</span><span class="rail-line" aria-hidden="true"></span></a><a href="index.html#work"><span class="rail-label">전체 작업 ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="seo.html"><span class="rail-label">SEO ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="automation.html"><span class="rail-label">Automation ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="product.html"><span class="rail-label">Product ↗</span><span class="rail-line" aria-hidden="true"></span></a></nav>
   <main id="main">
-<section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-kicker">PORTFOLIO · 2026</div>
-      <div class="hero-motion-controls" role="group" aria-label="도입부 모션 조절"><button type="button" data-intro-replay aria-label="인트로 다시보기">INTRO <span aria-hidden="true">↺</span></button><button type="button" data-motion-toggle aria-pressed="false" aria-label="페이지 반복 애니메이션 조절">동작 멈춤</button></div>
-      <h1 id="hero-title" tabindex="-1">
-        <span>AI AUTOMATION</span>
-        <span class="hero-cross">×</span>
-        <span>SEO</span>
-        <span class="hero-cross">×</span>
-        <span>WEB MARKETING</span>
-      </h1>
-      <div class="hero-bottom">
-        <p class="hero-copy">검색 유입을 만들고,<br />웹을 개선하고,<br />반복 업무를 시스템화합니다.</p>
-        <div class="hero-name">
-          <span>SEO · MARKETING AUTOMATION</span>
-          <strong>이상민</strong>
+<section class="detail-cover section" id="top"><a class="back-overview" href="index.html#work">← 전체 작업</a><p class="eyebrow">CASE STUDY / AI AUTOMATION</p><h1>반복 업무를<br />작동하는 시스템으로.</h1><p class="detail-summary">역할별 Agent 구조와 실제 업무 적용 흐름을 확인하세요.</p><nav class="detail-toc" aria-label="상세 페이지 목차"><a href="#automation">AI Agents <span>↓</span></a><a href="#practice">Practice <span>↓</span></a></nav></section><section class="section automation" id="automation">
+      <div class="section-label inverse"><span>06</span> AI AGENT AUTOMATION</div>
+      <div class="automation-head">
+        <div>
+          <p class="eyebrow orange-text">FROM PROMPT TO SYSTEM</p>
+          <h2>AI를 쓰는 것을 넘어,<br /><em>업무 구조로 설계합니다.</em></h2>
         </div>
-      </div>
-      <a class="scroll-cue" href="#profile">SCROLL <span>↓</span></a>
-    </section>
-<section class="section intro" id="profile">
-      <div class="section-label"><span>01</span> PROFILE</div>
-      <div class="intro-head">
-        <h2>콘텐츠에서 시작해<br /><em>검색과 시스템으로</em><br />확장했습니다.</h2>
-        <p>지역 소상공인 Local SEO와 검색광고에서 시작해, 현재는 병·의원 웹사이트의 네이버·Google SEO, Technical SEO, 데이터 분석, 개발 협업과 AI Agent 자동화까지 연결합니다.</p>
-      </div>
-      <div class="stat-grid reveal">
-        <article class="stat-card dark">
-          <span>CAREER</span>
-          <strong>4<span>+</span></strong>
-          <p>Years in Digital Marketing</p>
-        </article>
-        <article class="stat-card orange">
-          <span>NAVER SEO</span>
-          <strong>15<span>/18</span></strong>
-          <p>대표 타깃 키워드 1페이지 노출</p>
-        </article>
-        <article class="stat-card light">
-          <span>LOCAL MARKETING</span>
-          <strong>130<span>~170</span></strong>
-          <p>누적 지역 기반 업체 운영 경험</p>
-        </article>
-        <article class="stat-card outline">
-          <span>AI SYSTEM</span>
-          <strong>30<span> agents</span></strong>
-          <p>Multi-Agent Workflow</p>
-        </article>
+        <p>Claude Code 기반 멀티 Agent 시스템을 설계하고, 역할·검수·상태 관리를 분리했습니다. 반복되는 SEO·콘텐츠·QA 업무를 한 번의 대화가 아닌 재사용 가능한 Workflow로 바꾸는 것이 목표입니다.</p>
       </div>
 
-      <div class="skills-band reveal" aria-label="핵심 역량">
-        <div class="skills-track">
-          <div class="skills-group"><span>SEO STRATEGY</span><i>•</i><span>TECHNICAL SEO</span><i>•</i><span>GA4</span><i>•</i><span>GSC</span><i>•</i><span>CLARITY</span><i>•</i><span>FIGMA</span><i>•</i><span>AI AGENT</span><i>•</i><span>HTML</span><i>•</i></div>
-          <div class="skills-group" aria-hidden="true"><span>SEO STRATEGY</span><i>•</i><span>TECHNICAL SEO</span><i>•</i><span>GA4</span><i>•</i><span>GSC</span><i>•</i><span>CLARITY</span><i>•</i><span>FIGMA</span><i>•</i><span>AI AGENT</span><i>•</i><span>HTML</span><i>•</i></div>
+      <div class="agent-numbers reveal">
+        <div><strong data-count="30">30</strong><span>Agents</span></div>
+        <div><strong data-count="21">21</strong><span>Commands</span></div>
+        <div><strong data-count="52">52</strong><span>Python Scripts</span></div>
+      </div>
+
+      <div class="motion-options"><button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false" aria-label="페이지 반복 애니메이션 조절">동작 멈춤</button></div>
+      <div class="agent-story">
+        <div class="agent-stage reveal" data-agent-stage>
+          <div class="agent-stage-top"><i></i><i></i><i></i><span>WACUS · AGENT WORKFLOW</span><strong>SYSTEM CAPTURE</strong></div>
+
+          <div class="agent-frame active" data-agent-frame="0">
+            <div class="agent-live-map">
+              <div class="agent-map-flow">
+                <div class="agent-map-node primary"><b>REQUEST</b><span>USER / TASK</span></div><div class="agent-map-arrow">→</div>
+                <div class="agent-map-node"><b>ORCHESTRATOR</b><span>ROUTING</span></div><div class="agent-map-arrow">→</div>
+                <div class="agent-map-node"><b>LEAD</b><span>PLAN</span></div><div class="agent-map-arrow">→</div>
+                <div class="agent-map-node"><b>SPECIALIST</b><span>EXECUTION</span></div><div class="agent-map-arrow">→</div>
+                <div class="agent-map-node"><b>REVIEWER</b><span>VERIFY</span></div><div class="agent-map-arrow">→</div>
+                <div class="agent-map-node"><b>JUDGE</b><span>DECISION</span></div>
+              </div>
+            </div>
+            <p class="workflow-caption">WORKFLOW OVERVIEW · 역할별 업무 흐름</p>
+          </div>
+          <div class="agent-frame privacy-frame" data-agent-frame="1"><button class="agent-preview" type="button" data-lightbox="assets/agent-workflow-redacted.webp" aria-label="AI Agent 역할 분배 화면 확대"><img width="700" height="703" src="assets/agent-workflow-redacted.webp" alt="고객사 식별정보를 가린 실제 역할 기반 AI Agent 파이프라인 관제 화면" loading="lazy" /><span>화면 확대 ↗</span></button></div>
+          <div class="agent-frame privacy-frame" data-agent-frame="2" data-media-slot="agent"><button class="agent-preview" type="button" data-lightbox="assets/automation-execution-redacted.webp" aria-label="AI Agent 업무 실행·검수 화면 확대"><img width="854" height="720" src="assets/automation-execution-redacted.webp" alt="고객사 식별정보를 가린 Claude Code 업무 실행·검수 화면" loading="lazy" /><span>화면 확대 ↗</span></button></div>
+
+          <div class="privacy-badge">SENSITIVE LABELS MASKED</div><div class="agent-stage-bottom"><span data-agent-kicker>01 · REQUEST</span><strong data-agent-title>업무를 자연어로 요청</strong><div class="agent-step-controls" role="group" aria-label="자동화 단계 선택"><button type="button" data-agent-jump="0" aria-label="1단계 요청">01</button><button type="button" data-agent-jump="1" aria-label="2단계 분배">02</button><button type="button" data-agent-jump="2" aria-label="3단계 실행">03</button><button type="button" data-agent-jump="3" aria-label="4단계 검수">04</button><button type="button" data-agent-jump="4" aria-label="5단계 산출물">05</button></div></div>
+        </div>
+
+        <div class="agent-steps">
+          <article class="agent-step active" data-agent-step data-frame="0" data-kicker="01 · REQUEST" data-title="업무를 자연어로 요청">
+            <span>01 · REQUEST</span><h3>사람은 목표와 제약을 전달합니다.</h3>
+            <p>SEO 진단, 콘텐츠 QA, 데이터 정리, 개발 요청처럼 반복되는 업무를 요청 단위로 등록하고 시스템이 처리할 수 있는 형태로 넘깁니다.</p>
+            <ul><li>업무 목적과 대상 정의</li><li>긴급도·종류·제약조건 분류</li><li>고객사별 작업 컨텍스트 연결</li></ul>
+          </article>
+          <article class="agent-step" data-agent-step data-frame="1" data-kicker="02 · ORCHESTRATE" data-title="Orchestrator가 역할과 순서를 결정">
+            <span>02 · ORCHESTRATE</span><h3>역할에 따라 업무를 나누고 순서를 정합니다.</h3>
+            <p>Orchestrator가 요청을 분해하고 Lead와 Specialist에게 역할을 배정합니다. 업무 성격에 따라 SEO·개발·콘텐츠·기획 흐름이 달라집니다.</p>
+            <ul><li>역할 기반 분업</li><li>작업 상태·보류·차단 관리</li><li>의사결정 이력 보존</li></ul>
+          </article>
+          <article class="agent-step" data-agent-step data-frame="2" data-kicker="03 · EXECUTE" data-title="Specialist가 실무 단계를 수행">
+            <span>03 · EXECUTE</span><h3>실제 자료를 읽고, 계산하고, 수정합니다.</h3>
+            <p>사이트 상태·검색 데이터·문서·Google Sheets 등 업무 자료를 읽고 결과물을 만듭니다. 자동화 스크립트는 반복 수집과 정리를 담당합니다.</p>
+            <ul><li>SEO·사이트 구조 진단</li><li>리포트·시트 자동 갱신</li><li>콘텐츠·QA 작업 실행</li></ul>
+          </article>
+          <article class="agent-step" data-agent-step data-frame="2" data-kicker="04 · REVIEW" data-title="Reviewer와 Judge가 결과를 다시 검수">
+            <span>04 · REVIEW</span><h3>생성보다 검수 구조를 더 중요하게 봅니다.</h3>
+            <p>Reviewer가 누락·오류·규칙 위반을 찾고, Judge가 수정·보류·완료를 판단하도록 분리해 한 번의 출력이 곧 최종 결과가 되지 않게 설계했습니다.</p>
+            <ul><li>독립 Reviewer</li><li>규칙 기반 Pass / Hold</li><li>사람의 최종 결정 지점 유지</li></ul>
+          </article>
+          <article class="agent-step" data-agent-step data-frame="2" data-kicker="05 · OUTPUT" data-title="검증된 산출물로 업무에 연결">
+            <span>05 · OUTPUT</span><h3>결과는 다시 실무 도구로 돌아갑니다.</h3>
+            <p>보고서, Google Sheets, 개발 요청서, 수정안처럼 실제 업무에서 다음 행동으로 이어지는 형태로 정리합니다. 목표는 ‘대화’가 아니라 ‘완료 가능한 작업’입니다.</p>
+            <ul><li>SEO 진단 보고</li><li>운영 현황·일일 리포트</li><li>개발 전달용 수정 요청</li></ul>
+          </article>
         </div>
       </div>
+
+      <div class="agent-flow reveal" aria-label="AI Agent Workflow">
+        <div><span>01</span>ORCHESTRATOR</div><i>→</i><div><span>02</span>LEAD</div><i>→</i><div><span>03</span>SPECIALIST</div><i>→</i><div><span>04</span>REVIEWER</div><i>→</i><div><span>05</span>JUDGE</div>
+      </div>
+      <p class="repo-note">PRIVATE WORKFLOW · 고객사 식별정보를 제외한 구조만 공개합니다.</p>
     </section>
-<section class="section selected-work" id="work"><div class="section-label"><span>02</span> SELECTED WORK</div><div class="work-heading"><h2>성과부터,<br /><em>필요한 깊이까지.</em></h2><p>관심 있는 분야를 선택하면 실제 증빙과 작업 과정을 자세히 볼 수 있습니다.</p></div><div class="work-list">
-<a class="work-row" href="seo.html"><div class="work-number">01 / SEARCH</div><div><h3>검색 성과와 기술적 개선</h3><p>네이버·Google 노출, AI 인용, 진단과 개발 요청까지.</p><span class="work-tags">NAVER SEO · SEARCH PROOF · TECHNICAL SEO</span></div><div class="work-result"><strong>15 / 18</strong><span>대표 타깃 1페이지 노출</span><b>사례 자세히 보기 ↗</b></div></a>
-<a class="work-row" href="automation.html"><div class="work-number">02 / AUTOMATION</div><div><h3>반복 업무를 실행 가능한 흐름으로</h3><p>진단·리포트·운영 업무를 연결하는 Agent 워크플로.</p><span class="work-tags">AI AGENTS · WORKFLOW · OPERATIONS</span></div><div class="work-result"><strong>30 AGENTS</strong><span>역할별 협업 구조</span><b>워크플로 살펴보기 ↗</b></div></a>
-<a class="work-row" href="product.html"><div class="work-number">03 / PRODUCT</div><div><h3>요구사항을 화면과 인터랙션으로</h3><p>Figma 설계부터 직접 조작하는 와커스 앱 프로토타입까지.</p><span class="work-tags">WIREFRAME · POLICY · INTERACTIVE DEMO</span></div><div class="work-result"><strong>LIVE DEMO</strong><span>예약 · 분석 · 리포트</span><b>프로토타입 체험하기 ↗</b></div></a></div></section>
-<section class="section career" id="career">
-      <div class="section-label"><span>03</span> CAREER EVOLUTION</div>
-      <div class="career-title">
-        <h2>Marketing → Search →<br /><em>Technical SEO → Automation</em></h2>
-      </div>
-      <div class="timeline reveal">
-        <article>
-          <div class="time">2022.05 — 2023.05</div>
-          <h3>실버아이</h3>
-          <p>영상편집 · 자막 디자인 · 썸네일 · 촬영</p>
-          <span class="timeline-tag">VISUAL CONTENT</span>
-        </article>
-        <article>
-          <div class="time">2023.09 — 2025.12</div>
-          <h3>스토리공간</h3>
-          <p>Local SEO · 네이버 블로그 · 플레이스 · 홈페이지 SEO · 검색광고 · 랜딩페이지</p>
-          <span class="timeline-tag">LOCAL & SEARCH MARKETING</span>
-        </article>
-        <article class="current">
-          <div class="time">2026.01 — NOW</div>
-          <h3>WACUS</h3>
-          <p>네이버·Google SEO · Technical SEO · Analytics · UX 기획 · AI Agent 자동화</p>
-          <span class="timeline-tag">SEO & AUTOMATION</span>
-        </article>
-      </div>
-    <details class="career-more"><summary>이전 마케팅·콘텐츠 경험 더 보기 <span>＋</span></summary><div class="career-background">
-      <div class="section-label"><span>09</span> BEYOND SEO</div>
-      <div class="beyond-layout">
-        <h2>검색 이전의 경험도<br />버리지 않았습니다.</h2>
-        <div class="beyond-list reveal">
-          <article><span>01</span><h3>Naver Place</h3><p>지도·플레이스 노출과 지역 검색 흐름 분석</p></article>
-          <article><span>02</span><h3>Viral / Content</h3><p>블로그 콘텐츠 기획·제작 및 지역 상업 키워드 운영</p></article>
-          <article><span>03</span><h3>Performance</h3><p>네이버 검색광고 예산·키워드·입찰가 직접 운영</p></article>
-          <article><span>04</span><h3>Visual</h3><p>영상편집·촬영·썸네일·그래픽 제작 경험</p></article>
+<section class="section practice" id="practice">
+      <div class="section-label"><span>07</span> AUTOMATION IN PRACTICE</div>
+      <div class="practice-grid">
+        <div class="practice-media reveal privacy-practice" data-media-slot="agent"><span class="practice-mask-label">실제 Claude Code 실행 화면 · 식별정보 비공개</span>
+          <button class="practice-preview" type="button" data-lightbox="assets/automation-execution-redacted.webp" aria-label="자동화 실무 실행 화면 확대"><img width="854" height="720" src="assets/automation-execution-redacted.webp" alt="고객사 식별정보를 가린 Claude Code 데이터 분석·자동화 실행 화면" loading="lazy" /><span>화면 확대 ↗</span></button>
+        </div>
+        <div class="practice-list">
+          <article class="reveal"><span>SEO DIAGNOSIS</span><h3>검색 순위 하락 원인 추적</h3><p>최근 변경사항과 검색 노출 데이터를 비교해 후보 원인을 좁히고, 추가 확인 항목을 구조화합니다.</p></article>
+          <article class="reveal"><span>REPORT AUTOMATION</span><h3>Google Sheets<br />일일 리포트 자동화</h3><p>업체별 방문자 데이터를 수집·계산하고, 기존 시트 형식에 맞춰 수식과 값을 자동 반영합니다.</p></article>
+          <article class="reveal"><span>CONTENT OPS</span><h3>웹블로그 발행 현황 집계</h3><p>여러 사이트의 발행 상태를 확인하고 미발행·누락 건을 한 번에 정리해 운영 체크 시간을 줄입니다.</p></article>
         </div>
       </div>
-    </div></details></section>
-<section class="contact" id="contact">
-      <div class="contact-inner">
-        <p>SEARCH. BUILD. AUTOMATE.</p>
-        <h2>검색에서 발견되고,<br />웹에서 경험되며,<br /><em>반복 업무는 자동화로.</em></h2>
-        <div class="contact-links">
-          <a href="mailto:dltkdals0118@gmail.com">dltkdals0118@gmail.com ↗</a>
-          <a href="https://github.com/dltkdals0118" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://youtube.com/@studio_loxy" target="_blank" rel="noreferrer">YouTube ↗</a>
-        </div>
-        <div class="contact-foot"><span>이상민 Portfolio · 2026</span><span>AI Automation × SEO × Web Marketing</span></div>
-      </div>
-    </section>
+    </section><section class="section next-projects" aria-label="다른 작업 보기"><a href="seo.html"><span>NEXT PROJECT</span><strong>Search & SEO ↗</strong></a><a href="product.html"><span>NEXT PROJECT</span><strong>Product & Prototype ↗</strong></a><a href="index.html#contact"><span>CONTACT</span><strong>함께 일하기 ↗</strong></a></section>
 </main>
 
   <dialog class="lightbox" data-lightbox-dialog aria-labelledby="lightbox-title">
@@ -661,7 +563,5 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 </script>
   <script src="assets/refinement.js?v=depth-1"></script>
   <script src="assets/motion.js?v=entry-1"></script>
-  <script src="assets/entry-motion.js?v=entry-3"></script>
-  <script src="assets/prototype.js?v=prototype-2"></script>
 </body>
 </html>

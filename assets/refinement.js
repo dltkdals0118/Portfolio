@@ -2,7 +2,7 @@
   const rail = document.querySelector('.section-rail');
   const toggle = document.querySelector('.section-menu-toggle');
   const links = [...rail.querySelectorAll('a')];
-  const targets = links.map(a => document.querySelector(a.getAttribute('href')));
+  const targets = links.map(a => document.getElementById(a.hash.slice(1))).filter(Boolean);
   const headerLinks = [...document.querySelectorAll('.nav a')];
   const closeMenu = (restoreFocus = false) => {
     rail.classList.remove('is-open');
@@ -38,6 +38,7 @@
       const active = a.getAttribute('href') === '#' + current.id;
       a.classList.toggle('active', active);
       if (active) a.setAttribute('aria-current', 'location');
+      else if (a.pathname === location.pathname && !a.hash) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     });
   };
@@ -86,6 +87,7 @@
 
 (() => {
   const story = document.querySelector('.agent-story');
+  if (!story) return;
   const stage = story.querySelector('.agent-stage');
   const steps = [...story.querySelectorAll('[data-agent-step]')];
   const frames = [...story.querySelectorAll('[data-agent-frame]')];

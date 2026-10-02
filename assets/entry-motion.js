@@ -28,7 +28,7 @@
   };
 
   const startIntro = (isReplay = false) => {
-    if (reduced.matches || root.classList.contains('motion-paused')) return;
+    if (root.classList.contains('motion-paused') && !reduced.matches) return;
     clearTimeout(window.portfolioIntroFailsafe);
     returnFocus = isReplay ? replay : null;
     introOpen = true;
@@ -46,8 +46,8 @@
     skip.focus({ preventScroll: true });
     holdTimer = setTimeout(() => {
       root.classList.add('intro-leaving', 'hero-entered');
-      exitTimer = setTimeout(finishIntro, 620);
-    }, 1450);
+      exitTimer = setTimeout(finishIntro, reduced.matches ? 0 : 620);
+    }, reduced.matches ? 650 : 1450);
     guardTimer = setTimeout(finishIntro, 2800);
   };
 
@@ -62,13 +62,13 @@
   addEventListener('pagehide', finishIntro);
   addEventListener('pageshow', event => { if (event.persisted) finishIntro(); });
   const syncReplay = () => {
-    replay.disabled = reduced.matches || root.classList.contains('motion-paused');
+    replay.disabled = root.classList.contains('motion-paused') && !reduced.matches;
     if ((introOpen || root.classList.contains('intro-pending')) && replay.disabled) finishIntro();
   };
   reduced.addEventListener('change', syncReplay);
   document.addEventListener('portfolio:motionchange', syncReplay);
   syncReplay();
-  if (root.classList.contains('intro-pending')) startIntro();
+  if (window.portfolioIntroEligible) startIntro();
 
   // A vector mesh is sharp at every size and animates only while the hero is visible.
   const grid = hero.querySelector('.hero-grid');

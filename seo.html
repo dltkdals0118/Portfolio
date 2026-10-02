@@ -12,44 +12,20 @@
     html.intro-pending:not(.hero-entered) .hero h1>span,
     html.intro-pending:not(.hero-entered) .hero-bottom{animation:none!important;opacity:0}
   </style>
-  <script>
-  (() => {
-    const oldSections = {"seo": "seo.html#seo", "search-proof": "seo.html#search-proof", "aeo": "seo.html#aeo", "technical": "seo.html#technical", "ux": "seo.html#ux", "automation": "automation.html#automation", "practice": "automation.html#practice", "product": "product.html#product", "wacus-prototype": "product.html#wacus-prototype", "beyond": "index.html#career"};
-    const destination = oldSections[location.hash.slice(1)];
-    if (destination) { location.replace(destination); return; }
-    const root = document.documentElement;
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const navigation = performance.getEntriesByType('navigation')[0];
-    if (navigation?.type === 'back_forward') return;
-    window.portfolioIntroEligible = true;
-    root.classList.add('intro-pending');
-    // The page stays usable if the enhancement script cannot load.
-    window.portfolioIntroFailsafe = setTimeout(() => {
-      root.classList.remove('intro-pending', 'intro-leaving');
-      root.classList.add('hero-entered');
-      const intro = document.getElementById('entry-intro');
-      if (intro) intro.hidden = true;
-      document.querySelectorAll('[data-intro-inert]').forEach(el => {
-        el.inert = false;
-        el.removeAttribute('data-intro-inert');
-      });
-      dispatchEvent(new Event('portfolio:intro-expired'));
-    }, 4000);
-  })();
-  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" media="print" onload="this.media='all'" crossorigin />
-  <title>이상민 — AI Automation × SEO × Web Marketing</title>
-  <meta name="description" content="검색 성과, Technical SEO, 데이터 분석, AI Agent 자동화를 연결하는 이상민의 웹 포트폴리오." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" crossorigin />
+  <title>Search & SEO — 이상민 Portfolio</title>
+  <meta name="description" content="노출 결과와 AI 인용, 사이트 진단·개발 협업 과정을 확인하세요." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://dltkdals0118.github.io/Portfolio/" />
+  <link rel="canonical" href="https://dltkdals0118.github.io/Portfolio/seo.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="이상민 — AI Automation × SEO × Web Marketing" />
+  <meta property="og:title" content="Search & SEO — 이상민 Portfolio" />
   <meta property="og:description" content="검색 유입을 만들고, 웹을 개선하고, 반복 업무를 자동화합니다." />
-  <meta property="og:url" content="https://dltkdals0118.github.io/Portfolio/" />
+  <meta property="og:url" content="https://dltkdals0118.github.io/Portfolio/seo.html" />
   <meta property="og:image" content="https://dltkdals0118.github.io/Portfolio/og-image.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:image:width" content="1200" />
@@ -390,60 +366,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   <link rel="stylesheet" href="assets/refinement.css?v=motion-1" />
   <link rel="stylesheet" href="assets/motion.css?v=motion-3" />
   <link rel="stylesheet" href="assets/entry-motion.css?v=entry-3" />
-  <link rel="stylesheet" href="assets/prototype.css?v=prototype-4" />
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"WebSite",
-        "@id":"https://dltkdals0118.github.io/Portfolio/#website",
-        "url":"https://dltkdals0118.github.io/Portfolio/",
-        "name":"이상민 Portfolio",
-        "inLanguage":"ko-KR"
-      },
-      {
-        "@type":"ProfilePage",
-        "@id":"https://dltkdals0118.github.io/Portfolio/#profile",
-        "url":"https://dltkdals0118.github.io/Portfolio/",
-        "name":"이상민 — AI Automation × SEO × Web Marketing",
-        "isPartOf":{"@id":"https://dltkdals0118.github.io/Portfolio/#website"},
-        "mainEntity":{"@id":"https://dltkdals0118.github.io/Portfolio/#person"}
-      },
-      {
-        "@type":"Person",
-        "@id":"https://dltkdals0118.github.io/Portfolio/#person",
-        "name":"이상민",
-        "jobTitle":"SEO · AI Automation · Web Marketing",
-        "url":"https://dltkdals0118.github.io/Portfolio/",
-        "sameAs":[
-          "https://github.com/dltkdals0118",
-          "https://youtube.com/@studio_loxy"
-        ],
-        "knowsAbout":["SEO","Technical SEO","AEO","AI Citation","Search Marketing","Google Analytics 4","AI Agent Automation","Web Marketing","Figma"]
-      }
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Search & SEO — 이상민 Portfolio", "url": "https://dltkdals0118.github.io/Portfolio/seo.html", "description": "노출 결과와 AI 인용, 사이트 진단·개발 협업 과정을 확인하세요.", "isPartOf": {"@type": "WebSite", "url": "https://dltkdals0118.github.io/Portfolio/"}}</script>
   <link rel="stylesheet" href="assets/depth.css?v=depth-1" />
 </head>
 <body>
-  <div class="entry-intro" id="entry-intro" role="dialog" aria-modal="true" aria-labelledby="entry-intro-title" hidden>
-    <h2 id="entry-intro-title" class="entry-sr-only">이상민 포트폴리오 인트로</h2>
-    <div class="entry-meta" aria-hidden="true"><span>SM.</span><span>PORTFOLIO · 2026</span></div>
-    <div class="entry-composition" aria-hidden="true">
-      <svg class="entry-illustration" viewBox="0 0 360 168" fill="none">
-        <path class="entry-trace entry-trace-a" pathLength="1" d="M58 102L180 38L302 102L180 164Z" />
-        <path class="entry-trace entry-trace-b" pathLength="1" d="M58 102V68L180 4L302 68V102M180 4V38M180 132V164M58 68L180 132L302 68" />
-        <g class="entry-node entry-node-a"><circle cx="58" cy="86" r="19" /><circle cx="55" cy="83" r="6" /><path d="M60 88L67 95" /></g>
-        <g class="entry-node entry-node-b"><circle cx="180" cy="21" r="19" /><path d="M180 10V32M169 21H191M172 13L188 29M188 13L172 29" /></g>
-        <g class="entry-node entry-node-c"><circle cx="302" cy="86" r="19" /><rect x="292" y="78" width="20" height="16" rx="2" /><path d="M292 83H312" /></g>
-      </svg>
-      <div class="entry-wordmark"><span>S</span><span>M</span><span class="entry-dot">.</span></div>
-      <p class="entry-disciplines"><span>AI AUTOMATION</span><i>×</i><span>SEO</span><i>×</i><span>WEB MARKETING</span></p>
-    </div>
-    <div class="entry-bottom"><span aria-hidden="true">SANGMIN LEE</span><button type="button" class="entry-skip" data-intro-skip>바로 보기 <span aria-hidden="true">↗</span></button></div>
-  </div>
   <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">본문 바로가기</a>
 
@@ -455,120 +381,168 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   </header>
 
 <nav class="section-rail" id="section-rail" aria-label="이 페이지 목차"><a href="#top" aria-label="Top 섹션으로 이동"><span class="rail-label">Top</span><span class="rail-line" aria-hidden="true"></span></a>
-<a href="#profile" aria-label="Profile 섹션으로 이동"><span class="rail-label">Profile</span><span class="rail-line" aria-hidden="true"></span></a>
-<a href="#work" aria-label="Selected Work 섹션으로 이동"><span class="rail-label">Selected Work</span><span class="rail-line" aria-hidden="true"></span></a>
-<a href="#career" aria-label="Career 섹션으로 이동"><span class="rail-label">Career</span><span class="rail-line" aria-hidden="true"></span></a>
-<a href="#contact" aria-label="Contact 섹션으로 이동"><span class="rail-label">Contact</span><span class="rail-line" aria-hidden="true"></span></a><a href="index.html#work"><span class="rail-label">전체 작업 ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="seo.html"><span class="rail-label">SEO ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="automation.html"><span class="rail-label">Automation ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="product.html"><span class="rail-label">Product ↗</span><span class="rail-line" aria-hidden="true"></span></a></nav>
+<a href="#seo" aria-label="Naver SEO 섹션으로 이동"><span class="rail-label">Naver SEO</span><span class="rail-line" aria-hidden="true"></span></a>
+<a href="#search-proof" aria-label="Search Proof 섹션으로 이동"><span class="rail-label">Search Proof</span><span class="rail-line" aria-hidden="true"></span></a>
+<a href="#aeo" aria-label="AI Citation 섹션으로 이동"><span class="rail-label">AI Citation</span><span class="rail-line" aria-hidden="true"></span></a>
+<a href="#technical" aria-label="Technical SEO 섹션으로 이동"><span class="rail-label">Technical SEO</span><span class="rail-line" aria-hidden="true"></span></a>
+<a href="#ux" aria-label="Web UX 섹션으로 이동"><span class="rail-label">Web UX</span><span class="rail-line" aria-hidden="true"></span></a><a href="index.html#work"><span class="rail-label">전체 작업 ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="seo.html"><span class="rail-label">SEO ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="automation.html"><span class="rail-label">Automation ↗</span><span class="rail-line" aria-hidden="true"></span></a><a href="product.html"><span class="rail-label">Product ↗</span><span class="rail-line" aria-hidden="true"></span></a></nav>
   <main id="main">
-<section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-kicker">PORTFOLIO · 2026</div>
-      <div class="hero-motion-controls" role="group" aria-label="도입부 모션 조절"><button type="button" data-intro-replay aria-label="인트로 다시보기">INTRO <span aria-hidden="true">↺</span></button><button type="button" data-motion-toggle aria-pressed="false" aria-label="페이지 반복 애니메이션 조절">동작 멈춤</button></div>
-      <h1 id="hero-title" tabindex="-1">
-        <span>AI AUTOMATION</span>
-        <span class="hero-cross">×</span>
-        <span>SEO</span>
-        <span class="hero-cross">×</span>
-        <span>WEB MARKETING</span>
-      </h1>
-      <div class="hero-bottom">
-        <p class="hero-copy">검색 유입을 만들고,<br />웹을 개선하고,<br />반복 업무를 시스템화합니다.</p>
-        <div class="hero-name">
-          <span>SEO · MARKETING AUTOMATION</span>
-          <strong>이상민</strong>
+<section class="detail-cover section" id="top"><a class="back-overview" href="index.html#work">← 전체 작업</a><p class="eyebrow">CASE STUDY / SEARCH & SEO</p><h1>검색 성과에서<br />기술적 개선까지.</h1><p class="detail-summary">노출 결과와 AI 인용, 사이트 진단·개발 협업 과정을 확인하세요.</p><nav class="detail-toc" aria-label="상세 페이지 목차"><a href="#seo">Naver SEO <span>↓</span></a><a href="#search-proof">Search Proof <span>↓</span></a><a href="#aeo">AI Citation <span>↓</span></a><a href="#technical">Technical SEO <span>↓</span></a><a href="#ux">Web UX <span>↓</span></a></nav></section><section class="section seo" id="seo">
+      <div class="section-label"><span>03</span> NAVER SEO PERFORMANCE</div>
+      <div class="seo-lead">
+        <div>
+          <p class="eyebrow">SEARCH VISIBILITY IMPROVEMENT</p>
+          <h2>검색 순위를<br />실제 결과로 증명합니다.</h2>
         </div>
+        <p>2026년 9월 기준 대표 타깃 18개를 관리해 15개 키워드를 네이버 검색 1페이지에 노출시켰습니다. 작업 전 미노출 또는 2~6페이지권이었던 13개 키워드는 1페이지까지 개선했습니다.</p>
       </div>
-      <a class="scroll-cue" href="#profile">SCROLL <span>↓</span></a>
+      <div class="seo-metrics reveal">
+        <div><strong data-count="18">18</strong><span>Target Keywords</span></div>
+        <div><strong data-count="15">15</strong><span>Page 1</span></div>
+        <div><strong data-count="13">13</strong><span>Improved to Page 1</span></div>
+      </div>
+
+      <div class="case-strip reveal">
+        <article><span>CASE 01</span><p>미노출</p><b>→ 1위</b></article>
+        <article><span>CASE 02</span><p>3페이지</p><b>→ 1위</b></article>
+        <article><span>CASE 03</span><p>6페이지</p><b>→ 1위</b></article>
+        <article><span>CASE 04</span><p>4페이지</p><b>→ TOP 10</b></article>
+      </div>
+
+      <div class="seo-proof reveal">
+        <button data-lightbox="assets/evidence-a3be7b0ae6d2.webp" aria-label="네이버 검색 결과 증빙 이미지 확대">
+          <img width="802" height="524" src="assets/evidence-a3be7b0ae6d2.webp" alt="지역 의료 키워드 네이버 검색 결과 증빙 콜라주" loading="lazy" />
+        </button>
+      </div>
+      <p class="caption">※ 고객사명과 도메인은 비식별 처리했습니다. 검색 순위는 시점·환경에 따라 변동될 수 있으며, 수치는 내부 트래킹 기준입니다.</p>
     </section>
-<section class="section intro" id="profile">
-      <div class="section-label"><span>01</span> PROFILE</div>
-      <div class="intro-head">
-        <h2>콘텐츠에서 시작해<br /><em>검색과 시스템으로</em><br />확장했습니다.</h2>
-        <p>지역 소상공인 Local SEO와 검색광고에서 시작해, 현재는 병·의원 웹사이트의 네이버·Google SEO, Technical SEO, 데이터 분석, 개발 협업과 AI Agent 자동화까지 연결합니다.</p>
+<section class="section search-proof" id="search-proof">
+      <div class="section-label"><span>03A</span> SEARCH PROOF</div>
+      <div class="proof-head">
+        <div>
+          <p class="eyebrow">GOOGLE × NAVER SERP</p>
+          <h2>검색 순위를 말하기보다,<br /><em>실제 검색면을 보여줍니다.</em></h2>
+        </div>
+        <p>의료·로컬·브랜드 키워드의 실제 Google / Naver 검색 결과를 추적했습니다. 고객사명과 도메인 등 식별정보만 비식별 처리하고, 검색어와 노출 형태는 그대로 남겼습니다.</p>
       </div>
-      <div class="stat-grid reveal">
-        <article class="stat-card dark">
-          <span>CAREER</span>
-          <strong>4<span>+</span></strong>
-          <p>Years in Digital Marketing</p>
+
+      <div class="proof-grid">
+        <article class="proof-card reveal">
+          <div class="proof-card-meta"><span>GOOGLE ORGANIC</span><b>01</b></div>
+          <button class="evidence-tile tile-01" type="button" data-lightbox="assets/search-google-local-v2.webp" aria-label="Google 지역 안과 키워드 검색 결과 증빙 확대"><img width="1157" height="922" src="assets/search-google-local-v2.webp" alt="검색 결과 증빙: 고객사 식별정보 비식별 처리" loading="lazy" decoding="async" /><span>EXPAND ↗</span></button>
+          <h3>지역 + 진료과 핵심 키워드</h3>
+          <p>지역 의료 키워드에서 실제 Organic SERP 상위 노출을 확인했습니다.</p>
         </article>
-        <article class="stat-card orange">
-          <span>NAVER SEO</span>
-          <strong>15<span>/18</span></strong>
-          <p>대표 타깃 키워드 1페이지 노출</p>
+
+        <article class="proof-card reveal">
+          <div class="proof-card-meta"><span>GOOGLE ORGANIC</span><b>02</b></div>
+          <button class="evidence-tile tile-02" type="button" data-lightbox="assets/search-google-procedure-v2.webp" aria-label="Google 시술 키워드 검색 결과 증빙 확대"><img width="940" height="813" src="assets/search-google-procedure-v2.webp" alt="검색 결과 증빙: 고객사 식별정보 비식별 처리" loading="lazy" decoding="async" /><span>EXPAND ↗</span></button>
+          <h3>시술 일반 키워드 · 렌즈삽입술</h3>
+          <p>브랜드 검색이 아닌 시술 일반 키워드에서도 상위 검색면 진입 사례를 확보했습니다.</p>
         </article>
-        <article class="stat-card light">
-          <span>LOCAL MARKETING</span>
-          <strong>130<span>~170</span></strong>
-          <p>누적 지역 기반 업체 운영 경험</p>
+
+        <article class="proof-card reveal">
+          <div class="proof-card-meta"><span>GOOGLE ORGANIC</span><b>03</b></div>
+          <button class="evidence-tile tile-03" type="button" data-lightbox="assets/search-google-intent-v2.webp" aria-label="Google 망막 관련 검색어 증빙 확대"><img width="920" height="914" src="assets/search-google-intent-v2.webp" alt="검색 결과 증빙: 고객사 식별정보 비식별 처리" loading="lazy" decoding="async" /><span>EXPAND ↗</span></button>
+          <h3>질환 · 선택 의도형 키워드</h3>
+          <p>사용자의 실제 질문에 가까운 고의도 검색어까지 콘텐츠 구조와 노출 범위를 확장했습니다.</p>
         </article>
-        <article class="stat-card outline">
-          <span>AI SYSTEM</span>
-          <strong>30<span> agents</span></strong>
-          <p>Multi-Agent Workflow</p>
+
+        <article class="proof-card reveal proof-card-wide">
+          <div class="proof-card-meta"><span>NAVER SEARCH SURFACE</span><b>02 CASES</b></div>
+          <div class="proof-wide-copy"><h3>Naver에서도<br />검색면을 넓혔습니다.</h3><p>기업·의료 분야에서 로컬 서비스까지.<br />서로 다른 검색 의도에서 웹사이트 노출을 확인했습니다.</p></div>
+          <div class="naver-evidence-grid">
+            <figure><button class="evidence-tile" type="button" data-lightbox="assets/search-naver-surface-v2.webp" aria-label="Naver 줄기세포 회사 검색 결과 확대"><img width="653" height="876" src="assets/search-naver-surface-v2.webp" alt="줄기세포 회사 검색 결과: 고객사 식별정보 비식별 처리" loading="lazy" decoding="async" /><span>EXPAND ↗</span></button><figcaption><span>01 / 기업·산업</span><strong>줄기세포 회사</strong></figcaption></figure>
+            <figure><button class="evidence-tile" type="button" data-lightbox="assets/search-naver-family.webp" aria-label="Naver 일산 가족사진 촬영 검색 결과 확대"><img width="721" height="905" src="assets/search-naver-family.webp" alt="일산 가족사진 촬영 검색 결과: 고객사명과 도메인 비식별 처리" loading="lazy" decoding="async" /><span>EXPAND ↗</span></button><figcaption><span>02 / 지역·서비스</span><strong>일산 가족사진 촬영</strong></figcaption></figure>
+          </div>
+        </article>
+      </div>
+    </section>
+<section class="section aeo-proof" id="aeo">
+      <div class="section-label inverse"><span>03B</span> AEO / AI CITATION</div>
+      <div class="aeo-head">
+        <div>
+          <p class="eyebrow orange-text">RANKING → CITATION</p>
+          <h2>검색 노출에서 끝내지 않고,<br /><em>AI가 인용하는 지점까지.</em></h2>
+        </div>
+        <p>네이버 AI 브리핑과 Google AI Overview의 실제 인용 화면을 추적했습니다. 웹사이트뿐 아니라 네이버 블로그와 보조 콘텐츠 자산이 AI 응답의 출처로 선택되는지도 함께 확인했습니다.</p>
+      </div>
+
+      <p class="touch-swipe-hint">좌우로 넘겨 3개 AI 인용 사례를 확인하세요. ↔</p>
+      <div class="aeo-grid">
+        <article class="aeo-card reveal">
+          <button class="evidence-tile tile-05 evidence-aeo" type="button" data-lightbox="assets/aeo-naver-ai-briefing-v2.webp" aria-label="Naver AI 브리핑 인용 증빙 확대"><img width="658" height="878" src="assets/aeo-naver-ai-briefing-v2.webp" alt="검색 결과 증빙: 고객사 식별정보 비식별 처리" loading="lazy" decoding="async" /><span>VIEW EVIDENCE ↗</span></button>
+          <div class="aeo-copy">
+            <span>NAVER AI BRIEFING</span>
+            <h3>질문형 검색에서 AI 답변 영역 진입</h3>
+            <p>지역·질환 조합 검색에서 AI 브리핑 본문과 출처 영역을 모니터링하고 실제 인용 사례를 확인했습니다.</p>
+          </div>
+        </article>
+
+        <article class="aeo-card reveal">
+          <button class="evidence-tile tile-06 evidence-aeo" type="button" data-lightbox="assets/aeo-google-ai-overview-v2.webp" aria-label="Google AI Overview 인용 증빙 확대"><img width="1175" height="799" src="assets/aeo-google-ai-overview-v2.webp" alt="검색 결과 증빙: 고객사 식별정보 비식별 처리" loading="lazy" decoding="async" /><span>VIEW EVIDENCE ↗</span></button>
+          <div class="aeo-copy">
+            <span>GOOGLE AI OVERVIEW</span>
+            <h3>Naver Blog → Google AI citation</h3>
+            <p>Google AI Overview에서 네이버 블로그 콘텐츠가 출처 카드로 노출되는 사례를 확인하며 채널 간 인용 흐름까지 추적했습니다.</p>
+          </div>
+        </article>
+        <article class="aeo-card reveal">
+          <button class="evidence-tile evidence-aeo" type="button" data-lightbox="assets/aeo-naver-macular.webp" aria-label="Naver 황반변성 잘 보는 곳 AI 브리핑 확대"><img width="719" height="899" src="assets/aeo-naver-macular.webp" alt="황반변성 잘 보는 곳 AI 브리핑: 고객사와 출처 도메인 비식별 처리" loading="lazy" decoding="async" /><span>VIEW EVIDENCE ↗</span></button>
+          <div class="aeo-copy"><span>NAVER AI BRIEFING · CASE 02</span><h3>질환·선택 의도형 질문의 인용 사례</h3><p>‘황반변성 잘 보는 곳’ 검색에서 AI 브리핑의 콘텐츠 카드와 본문 출처 노출을 확인했습니다.</p></div>
         </article>
       </div>
 
-      <div class="skills-band reveal" aria-label="핵심 역량">
-        <div class="skills-track">
-          <div class="skills-group"><span>SEO STRATEGY</span><i>•</i><span>TECHNICAL SEO</span><i>•</i><span>GA4</span><i>•</i><span>GSC</span><i>•</i><span>CLARITY</span><i>•</i><span>FIGMA</span><i>•</i><span>AI AGENT</span><i>•</i><span>HTML</span><i>•</i></div>
-          <div class="skills-group" aria-hidden="true"><span>SEO STRATEGY</span><i>•</i><span>TECHNICAL SEO</span><i>•</i><span>GA4</span><i>•</i><span>GSC</span><i>•</i><span>CLARITY</span><i>•</i><span>FIGMA</span><i>•</i><span>AI AGENT</span><i>•</i><span>HTML</span><i>•</i></div>
+      <div class="pbn-lab reveal">
+        <div class="pbn-title">
+          <span>EXPIRED DOMAIN / SEARCH EXPERIMENT</span>
+          <h3>도메인 확보부터 콘텐츠 운영,<br />검색 노출·AI 인용 추적까지.</h3>
         </div>
+        <div class="pbn-flow" aria-label="만료 도메인 기반 검색·콘텐츠 실험 과정">
+          <div><b>01</b><strong>DOMAIN AUCTION</strong><span>낙장도메인 경매를 통한 보조 자산 확보</span></div>
+          <i>→</i>
+          <div><b>02</b><strong>TOPIC FIT</strong><span>과거 이력·주제 적합성·검색 의도 기준 운영 방향 설계</span></div>
+          <i>→</i>
+          <div><b>03</b><strong>CONTENT OPS</strong><span>주제별 콘텐츠 발행 및 내부/외부 검색면 확장 실험</span></div>
+          <i>→</i>
+          <div><b>04</b><strong>SERP / AEO TRACK</strong><span>Naver·Google 노출과 AI 인용 여부 모니터링</span></div>
+        </div>
+        <p class="pbn-note">※ 만료 도메인 기반 PBN 운영을 포함한 검색·콘텐츠 실험 사례입니다. 공개 포트폴리오에서는 도메인·네트워크·고객사 식별정보를 비공개 처리하며, 특정 인용 결과를 단일 요인의 인과관계로 단정하지 않습니다.</p>
       </div>
     </section>
-<section class="section selected-work" id="work"><div class="section-label"><span>02</span> SELECTED WORK</div><div class="work-heading"><h2>성과부터,<br /><em>필요한 깊이까지.</em></h2><p>관심 있는 분야를 선택하면 실제 증빙과 작업 과정을 자세히 볼 수 있습니다.</p></div><div class="work-list">
-<a class="work-row" href="seo.html"><div class="work-number">01 / SEARCH</div><div><h3>검색 성과와 기술적 개선</h3><p>네이버·Google 노출, AI 인용, 진단과 개발 요청까지.</p><span class="work-tags">NAVER SEO · SEARCH PROOF · TECHNICAL SEO</span></div><div class="work-result"><strong>15 / 18</strong><span>대표 타깃 1페이지 노출</span><b>사례 자세히 보기 ↗</b></div></a>
-<a class="work-row" href="automation.html"><div class="work-number">02 / AUTOMATION</div><div><h3>반복 업무를 실행 가능한 흐름으로</h3><p>진단·리포트·운영 업무를 연결하는 Agent 워크플로.</p><span class="work-tags">AI AGENTS · WORKFLOW · OPERATIONS</span></div><div class="work-result"><strong>30 AGENTS</strong><span>역할별 협업 구조</span><b>워크플로 살펴보기 ↗</b></div></a>
-<a class="work-row" href="product.html"><div class="work-number">03 / PRODUCT</div><div><h3>요구사항을 화면과 인터랙션으로</h3><p>Figma 설계부터 직접 조작하는 와커스 앱 프로토타입까지.</p><span class="work-tags">WIREFRAME · POLICY · INTERACTIVE DEMO</span></div><div class="work-result"><strong>LIVE DEMO</strong><span>예약 · 분석 · 리포트</span><b>프로토타입 체험하기 ↗</b></div></a></div></section>
-<section class="section career" id="career">
-      <div class="section-label"><span>03</span> CAREER EVOLUTION</div>
-      <div class="career-title">
-        <h2>Marketing → Search →<br /><em>Technical SEO → Automation</em></h2>
-      </div>
-      <div class="timeline reveal">
-        <article>
-          <div class="time">2022.05 — 2023.05</div>
-          <h3>실버아이</h3>
-          <p>영상편집 · 자막 디자인 · 썸네일 · 촬영</p>
-          <span class="timeline-tag">VISUAL CONTENT</span>
-        </article>
-        <article>
-          <div class="time">2023.09 — 2025.12</div>
-          <h3>스토리공간</h3>
-          <p>Local SEO · 네이버 블로그 · 플레이스 · 홈페이지 SEO · 검색광고 · 랜딩페이지</p>
-          <span class="timeline-tag">LOCAL & SEARCH MARKETING</span>
-        </article>
-        <article class="current">
-          <div class="time">2026.01 — NOW</div>
-          <h3>WACUS</h3>
-          <p>네이버·Google SEO · Technical SEO · Analytics · UX 기획 · AI Agent 자동화</p>
-          <span class="timeline-tag">SEO & AUTOMATION</span>
-        </article>
-      </div>
-    <details class="career-more"><summary>이전 마케팅·콘텐츠 경험 더 보기 <span>＋</span></summary><div class="career-background">
-      <div class="section-label"><span>09</span> BEYOND SEO</div>
-      <div class="beyond-layout">
-        <h2>검색 이전의 경험도<br />버리지 않았습니다.</h2>
-        <div class="beyond-list reveal">
-          <article><span>01</span><h3>Naver Place</h3><p>지도·플레이스 노출과 지역 검색 흐름 분석</p></article>
-          <article><span>02</span><h3>Viral / Content</h3><p>블로그 콘텐츠 기획·제작 및 지역 상업 키워드 운영</p></article>
-          <article><span>03</span><h3>Performance</h3><p>네이버 검색광고 예산·키워드·입찰가 직접 운영</p></article>
-          <article><span>04</span><h3>Visual</h3><p>영상편집·촬영·썸네일·그래픽 제작 경험</p></article>
+<section class="section technical" id="technical">
+      <div class="section-label"><span>04</span> TECHNICAL SEO</div>
+      <div class="technical-grid">
+        <div class="technical-copy">
+          <p class="eyebrow">AUDIT → SPECIFICATION → DEV HANDOFF</p>
+          <h2>진단을<br /><em>실행 가능한<br />수정 요청으로.</em></h2>
+          <p>병원 웹사이트의 중복 URL·메타데이터·사이트맵 문제를 정리하고, 개발팀과 퍼블리셔가 작업할 수 있도록 화면 설명과 구현 참고 코드를 함께 작성했습니다.</p>
+          <div class="tag-list"><span>URL 정규화</span><span>canonical / OG</span><span>MedicalClinic</span><span>sitemap</span><span>개발 협업</span></div>
         </div>
+        <aside class="audit-summary">
+          <p class="eyebrow">CLIENT A · SEO DEVELOPMENT BRIEF</p>
+          <div class="audit-numbers"><div><strong>26<span>P</span></strong><p>실무 수정 요청서</p></div><div><strong>11</strong><p>수정·신규·확인 요청</p></div></div>
+          <dl><div><dt>담당 범위</dt><dd>이슈 진단 · 수정 사양 작성 · 구현 참고 코드 · 개발 전달</dd></div><div><dt>문서 구성</dt><dd>현재 상태 → 목표 상태 → 적용 위치 → 예외·순서</dd></div><div><dt>증빙 기준</dt><dd>2026.10.01 작성 문서 · 고객사 식별정보 비공개</dd></div></dl>
+          <p class="audit-status">이 사례는 진단·수정 요청서 작성의 증빙입니다. 배포 완료나 색인·순위 개선 성과를 의미하지 않습니다.</p>
+        </aside>
       </div>
-    </div></details></section>
-<section class="contact" id="contact">
-      <div class="contact-inner">
-        <p>SEARCH. BUILD. AUTOMATE.</p>
-        <h2>검색에서 발견되고,<br />웹에서 경험되며,<br /><em>반복 업무는 자동화로.</em></h2>
-        <div class="contact-links">
-          <a href="mailto:dltkdals0118@gmail.com">dltkdals0118@gmail.com ↗</a>
-          <a href="https://github.com/dltkdals0118" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://youtube.com/@studio_loxy" target="_blank" rel="noreferrer">YouTube ↗</a>
-        </div>
-        <div class="contact-foot"><span>이상민 Portfolio · 2026</span><span>AI Automation × SEO × Web Marketing</span></div>
-      </div>
+      <div class="audit-gallery">
+<article class="audit-card"><button type="button" data-lightbox="assets/technical-url-normalization.png" aria-label="중복 URL 30건, 전환 순서까지 요청서 02쪽 확대"><img src="assets/technical-url-normalization.png" loading="lazy" width="1728" height="972" alt="고객사 정보 비식별 처리된 SEO 수정 요청서 02쪽: 중복 URL 30건, 전환 순서까지" /><span>문서 확대 ↗</span></button><div class="audit-card-copy"><p class="eyebrow">01 / URL NORMALIZATION · P.02</p><h3>중복 URL 30건, 전환 순서까지</h3><p>같은 문서가 두 주소로 열리는 문제를 정리하고, canonical → 영구 리다이렉트 → sitemap 순서와 제외 대상을 명시했습니다.</p></div></article><article class="audit-card"><button type="button" data-lightbox="assets/technical-metadata.png" aria-label="페이지별 메타데이터를 개발 사양으로 요청서 05쪽 확대"><img src="assets/technical-metadata.png" loading="lazy" width="1728" height="972" alt="고객사 정보 비식별 처리된 SEO 수정 요청서 05쪽: 페이지별 메타데이터를 개발 사양으로" /><span>문서 확대 ↗</span></button><div class="audit-card-copy"><p class="eyebrow">02 / CANONICAL + OG · P.05</p><h3>페이지별 메타데이터를 개발 사양으로</h3><p>대표 URL·공유 제목·설명을 공용 함수로 연결하고, 목록 페이지의 페이지네이션 처리 기준을 작성했습니다.</p></div></article><article class="audit-card"><button type="button" data-lightbox="assets/technical-schema.png" aria-label="병원 정보를 구조화하는 설계 요청서 06쪽 확대"><img src="assets/technical-schema.png" loading="lazy" width="1728" height="972" alt="고객사 정보 비식별 처리된 SEO 수정 요청서 06쪽: 병원 정보를 구조화하는 설계" /><span>문서 확대 ↗</span></button><div class="audit-card-copy"><p class="eyebrow">03 / STRUCTURED DATA · P.06</p><h3>병원 정보를 구조화하는 설계</h3><p>MedicalClinic의 기관 정보·진료시간·채널 연결을 설계하고, 화면 정보와 일치하도록 입력 기준을 정리했습니다.</p></div></article><article class="audit-card"><button type="button" data-lightbox="assets/technical-sitemap.png" aria-label="404·누락·갱신일을 나눠서 요청 요청서 08쪽 확대"><img src="assets/technical-sitemap.png" loading="lazy" width="1728" height="972" alt="고객사 정보 비식별 처리된 SEO 수정 요청서 08쪽: 404·누락·갱신일을 나눠서 요청" /><span>문서 확대 ↗</span></button><div class="audit-card-copy"><p class="eyebrow">04 / SITEMAP INTEGRITY · P.08</p><h3>404·누락·갱신일을 나눠서 요청</h3><p>404 주소 3건, 누락 경로 5건, lastmod 기준과 리다이렉트 적용 후 URL 교체 시점을 구분했습니다.</p></div></article></div>
+      <div class="handoff-note"><p class="eyebrow">DEVELOPMENT COLLABORATION / REDMINE</p><h3>요청 내용과 진행 이력을 남깁니다.</h3><p>별도 커뮤니티 프로젝트에서는 robots.txt 변경 요청을 Redmine 일감으로 등록하고 진척도 변경 이력을 관리했습니다. 관리자 기능 개발 건은 작업 범위와 완료 기준을 정리해 개발팀과 협업했습니다.</p><p class="audit-status">공유된 캡처의 요청 내용·진척 이력을 요약했습니다. 진척도 100% 표기와 실제 검색 제외 검증은 구분합니다.</p></div>
+      <div class="process-row"><article><span>01 / AUDIT</span><b>문제 구체화</b><p>중복 응답·메타데이터 불일치·sitemap 누락을 URL 단위로 정리</p></article><article><span>02 / SPECIFICATION</span><b>수정 사양 작성</b><p>현재·목표 상태, 대상 범위, 참고 코드와 예외를 함께 명시</p></article><article><span>03 / HANDOFF</span><b>개발 전달</b><p>적용 순서와 완료 기준을 정리해 개발팀·퍼블리셔와 협업</p></article><article><span>04 / VERIFICATION PLAN</span><b>검증 기준 정의</b><p>배포 후 확인할 응답 코드·대표 URL·메타데이터·사이트맵 기준 수립</p></article></div>
     </section>
+<section class="section ux" id="ux">
+      <div class="section-label"><span>05</span> SEO × WEB UX</div>
+      <div class="ux-quote">
+        <p>SEARCH IS NOT<br />THE FINISH LINE.</p>
+        <h2>Search <span>→</span> Landing <span>→</span> UX <span>→</span> Development <span>→</span> Measurement</h2>
+      </div>
+      <div class="ux-cards reveal">
+        <article><b>Analytics</b><p>GA4 유입경로와 행동 데이터를 기반으로 유저 흐름을 분석합니다.</p></article>
+        <article><b>Behavior</b><p>Microsoft Clarity로 스크롤, 클릭, 이탈 구간을 확인합니다.</p></article>
+        <article><b>UX Planning</b><p>CTA 위치, 페이지 구조, 콘텐츠 배치를 실제 화면 단위로 설계합니다.</p></article>
+      </div>
+    </section><section class="section next-projects" aria-label="다른 작업 보기"><a href="automation.html"><span>NEXT PROJECT</span><strong>AI Automation ↗</strong></a><a href="product.html"><span>NEXT PROJECT</span><strong>Product & Prototype ↗</strong></a><a href="index.html#contact"><span>CONTACT</span><strong>함께 일하기 ↗</strong></a></section>
 </main>
 
   <dialog class="lightbox" data-lightbox-dialog aria-labelledby="lightbox-title">
@@ -661,7 +635,5 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 </script>
   <script src="assets/refinement.js?v=depth-1"></script>
   <script src="assets/motion.js?v=entry-1"></script>
-  <script src="assets/entry-motion.js?v=entry-3"></script>
-  <script src="assets/prototype.js?v=prototype-2"></script>
 </body>
 </html>
