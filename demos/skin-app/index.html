@@ -1742,7 +1742,7 @@ body,.device{background:#FFFFFF !important}
 .tilegrid{margin-bottom:20px}
 .hcar .sl{height:136px !important}
 </style>
-<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'none'; form-action 'none'; object-src 'none'; base-uri 'none'"><link rel="stylesheet" href="demo.css?v=skin-1"></head>
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'none'; form-action 'none'; object-src 'none'; base-uri 'none'"><link rel="stylesheet" href="demo.css?v=skin-3"></head>
 <body><header class="demo-bar"><a href="../../product.html#skin-prototype">← 포트폴리오</a><span>고객용 앱 · SAMPLE DATA</span><button id="skin-reset">다시 시작</button></header>
 
 <div class="stage">
@@ -1782,7 +1782,7 @@ body,.device{background:#FFFFFF !important}
     <div class="viewport" id="vp">
       <div class="splash" id="splash">
         <div class="sp-in">
-          <img class="splash-logo" src="assets/brand.svg" alt="WACUS">
+          <img class="splash-logo" src="assets/brand.svg" alt="CLINIC B">
           <span class="sp-line"></span>
           <span class="sp-tag">예약부터 멤버십까지, 한 곳에서</span>
         </div>
@@ -1806,7 +1806,7 @@ const dOff = d => Math.round((new Date(d.replace(/\./g,'-')) - TODAY_D)/864e5);
 
 /* ═══════════ v0.5 실사 이미지 ═══════════ */
 const IMG = {
-  logo:'assets/space.svg', lobby:'assets/space.svg', hall:'assets/space.svg', skin1:'assets/space.svg', skin2:'assets/space.svg',
+  logo:'assets/brand.svg', lobby:'assets/space.svg', hall:'assets/space.svg', skin1:'assets/space.svg', skin2:'assets/space.svg',
   eq:[]
 };
 IMG.space='assets/space.svg'; IMG.lounge='assets/space.svg'; IMG.grid='assets/space.svg'; IMG.model1='assets/space.svg'; IMG.model2='assets/space.svg';
@@ -2180,7 +2180,7 @@ V.perm = () => `
 V.login = () => `
   <div class="body" style="display:flex;flex-direction:column;gap:0;padding-bottom:28px">
     <div class="auth-hero" style="padding:26px 2px 22px">
-      <img src="${IMG.logo}" alt="WACUS" class="auth-logo" style="margin-bottom:18px">
+      <img src="${IMG.logo}" alt="CLINIC B" class="auth-logo" style="margin-bottom:18px">
       <div class="auth-tt" style="font-size:23px">로그인</div>
       <p class="auth-sub" style="margin-top:6px">예약 · 포인트 · 회원권을 한 곳에서 관리해요</p>
     </div>
@@ -2850,7 +2850,7 @@ V.home = () => {
   ];
   return `
   <div class="hd">
-    <div class="brandline"><img class="logo-img" src="${IMG.logo}" alt="WACUS"></div>
+    <div class="brandline"><img class="logo-img" src="${IMG.logo}" alt="CLINIC B"></div>
     <span style="flex:1"></span>
     <button class="ic" style="position:relative" ${S.guest?'data-fn="guestBlock"':'data-go="notifBox"'} aria-label="알림">${ic.bell}${!S.guest&&unreadCount()?'<span class="dot"></span>':''}</button>
     <button class="ic" data-fn="openMenu" aria-label="전체 메뉴">${ic.menu}</button>
@@ -2967,7 +2967,7 @@ V.version = () => `
   ${hd('버전 정보')}
   <div class="body">
     <div class="card" style="text-align:center;padding:28px 16px">
-      <img src="${IMG.logo}" alt="WACUS" style="height:24px">
+      <img src="${IMG.logo}" alt="CLINIC B" style="height:24px">
       <div class="h-md" style="margin-top:16px">클리닉 B 앱</div>
       <p class="p sm mut" style="margin-top:4px">v2.2.2 (prototype) · 2026.09.03</p>
       <span class="badge bg-ok" style="margin-top:12px">최신 버전</span>
