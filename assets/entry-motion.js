@@ -63,7 +63,7 @@
   addEventListener('pageshow', event => { if (event.persisted) finishIntro(); });
   const syncReplay = () => {
     replay.disabled = reduced.matches || root.classList.contains('motion-paused');
-    if (introOpen && replay.disabled) finishIntro();
+    if ((introOpen || root.classList.contains('intro-pending')) && replay.disabled) finishIntro();
   };
   reduced.addEventListener('change', syncReplay);
   document.addEventListener('portfolio:motionchange', syncReplay);
