@@ -1,0 +1,39 @@
+/* The hero's orange, ink and paper carry through every portfolio page. */
+:root{--electric:var(--orange);--cobalt:var(--orange);--grid-step:72px}
+body em,body i{font-style:normal!important}
+main{background-image:linear-gradient(#11111105 1px,transparent 1px),linear-gradient(90deg,#11111105 1px,transparent 1px);background-size:var(--grid-step) var(--grid-step)}
+.selected-work,.detail-cover{background-color:var(--paper);background-image:linear-gradient(#11111106 1px,transparent 1px),linear-gradient(90deg,#11111106 1px,transparent 1px);background-size:var(--grid-step) var(--grid-step)}
+.cinema-frame{background:var(--ink);box-shadow:0 24px 70px #11111118}
+.cinema-frame:before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:var(--grid-step) var(--grid-step);background-position:0 calc(var(--cinema-progress,0)*32px);mask-image:linear-gradient(90deg,#0008,transparent 68%);z-index:0}
+.cinema-copy h2 em,.cinema-chapters button[aria-pressed=true],.cinema-footer>a span{color:var(--orange)}
+.cinema-topline{color:#a8a49e}.cinema-eyebrow{color:#b3aea7}.cinema-detail{color:#b8b2aa}.cinema-chapters button{color:#aaa49d}.cinema-progress i{background:var(--orange)}
+.cinema-scene .cinema-copy{transform:translateY(14px);transition:transform .65s cubic-bezier(.16,1,.3,1)}
+.cinema-scene .cinema-media{transform:translateY(20px) scale(.985);transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.cinema-scene.is-current .cinema-copy,.cinema-scene.is-current .cinema-media{transform:none}
+.cinema-chapters button{position:relative;transition:color .2s,border-color .2s}.cinema-chapters button:after{content:'';position:absolute;top:-1px;left:0;height:1px;width:100%;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.cinema-chapters button[aria-pressed=true]:after{transform:scaleX(1)}
+.cinema-console,.agent-capture{background:#171717}.cinema-console>span,.agent-capture .window-chrome{background:#242424;color:#c2bdb5}
+.selected-work .work-row:first-child{background:#eeeae2}.selected-work .work-row:first-child .work-visual{background:#e7e2d8}.selected-work .work-row:first-child .work-number{color:var(--orange)}
+.selected-work .work-row:nth-child(2){background:var(--ink);color:var(--paper)}.selected-work .work-row:nth-child(2) .work-visual{background:#1b1b1b}
+.selected-work .work-row:nth-child(2) .project-summary,.selected-work .work-row:nth-child(2) .project-facts dd{color:#c2bcb4}
+.selected-work .work-row:nth-child(2) .project-facts dt,.selected-work .work-row:nth-child(2) .work-tags,.selected-work .work-row:nth-child(2) .work-result>span,.selected-work .work-row:nth-child(2) .project-scale{color:#a19b94}
+.selected-work .work-row:nth-child(2) .work-result strong,.selected-work .work-row:nth-child(2) .work-number{color:var(--orange)}
+.selected-work .work-row:nth-child(3){background:#eeeae2;color:var(--ink)}.selected-work .work-row:nth-child(3) .work-visual{background:#e7e2d8}
+.selected-work .work-row:nth-child(3) .work-number{color:var(--orange)}
+.selected-work .work-row:nth-child(3) .project-summary,.selected-work .work-row:nth-child(3) .project-facts dd,.selected-work .work-row:nth-child(3) .work-result>span{color:#57524d}
+.selected-work .work-row:nth-child(3) .project-facts dt,.selected-work .work-row:nth-child(3) .work-tags{color:#79726b}
+.selected-work .work-row:nth-child(3) .visual-note{color:#57524d}
+.selected-work .work-visual{border-radius:12px}.selected-work .work-row{transition:transform .3s ease,box-shadow .3s ease;outline:1px solid transparent}
+.selected-work .work-result b{display:flex;justify-content:space-between;gap:12px;transition:color .2s}.selected-work .work-row:focus-visible{outline:2px solid var(--orange);outline-offset:5px}
+.overview-results{background-color:var(--ink);background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:var(--grid-step) var(--grid-step);color:var(--paper)}
+.overview-results .result-grid{border-color:#48443f}.overview-results .result-card,.overview-results .result-card:first-child{border-color:#48443f;color:var(--paper)}
+.overview-results .result-card>strong,.overview-results .result-card>b{color:var(--orange)}
+.overview-results .result-card>span,.overview-results .result-card:first-child>span,.overview-results .result-card p,.overview-results .result-card:first-child p,.overview-results .results-heading>p{color:#b0aaa2}
+.overview-results .section-label>span{border-color:#8b857e}
+.unified-enter{transition:opacity .65s ease,translate .65s cubic-bezier(.16,1,.3,1);transition-delay:var(--enter-delay,0ms)}
+.unified-enter[data-enter=waiting]{opacity:0;translate:0 20px}.unified-enter[data-enter=shown]{opacity:1;translate:0 0}
+.detail-toc a,.next-projects a{transition:background .25s,color .25s,translate .25s}
+@media(hover:hover) and (pointer:fine){.selected-work .work-row:hover{transform:translateY(-4px);box-shadow:0 18px 35px #11111110}.selected-work .work-row:hover .work-result b{color:var(--orange)}.cinema-chapters button:hover{color:var(--paper)}.next-projects a:hover{translate:0 -3px}.detail-toc a:hover{background:#ff5a1f0a}}
+@media(max-width:680px){:root{--grid-step:48px}.cinema-frame:before{mask-image:linear-gradient(180deg,#0008,transparent 75%)}.unified-enter[data-enter=waiting]{translate:0 12px}.selected-work .work-row:active{outline-color:var(--orange)}}
+.motion-paused .unified-enter{opacity:1;translate:0 0;transition:none}.motion-paused .cinema-copy,.motion-paused .cinema-media{transform:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.unified-enter{opacity:1!important;translate:0 0!important;transition:none!important}.cinema-scene .cinema-copy,.cinema-scene .cinema-media{transform:none;transition:none}.cinema-frame:before{background-position:0 0}.selected-work .work-row,.cinema-chapters button:after,.next-projects a{transition:none}.selected-work .work-row:hover{transform:none}}
