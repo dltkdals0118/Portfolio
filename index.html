@@ -15,9 +15,6 @@
   </style>
 <script>
   (() => {
-    const oldSections = {"seo": "seo.html#seo", "search-proof": "seo.html#search-proof", "aeo": "seo.html#aeo", "technical": "seo.html#technical", "ux": "seo.html#ux", "automation": "automation.html#automation", "practice": "automation.html#practice", "product": "product.html#product", "wacus-prototype": "product.html#wacus-prototype", "beyond": "index.html#career"};
-    const destination = oldSections[location.hash.slice(1)];
-    if (destination) { location.replace(destination); return; }
     const root = document.documentElement;
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const navigation = performance.getEntriesByType('navigation')[0];
