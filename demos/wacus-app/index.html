@@ -1657,7 +1657,7 @@ body{font-family:var(--sans);background:#E9ECEF;
 .flip .ggface:active{transform:rotateY(180deg) scale(.988)}
 
 </style>
-<link rel="stylesheet" href="demo.css?v=prototype-1">
+<link rel="stylesheet" href="demo.css?v=prototype-2">
 </head>
 <body>
 <header class="demo-topbar"><a href="../../#product">← 포트폴리오</a><span>INTERACTIVE DEMO · 예시 데이터</span><button type="button" id="demoReset">다시 시작</button></header>
@@ -2269,7 +2269,7 @@ body{font-family:var(--sans);background:#E9ECEF;
       <div class="detail"><dt>연락처</dt><dd id="rdTel"></dd></div>
       <div class="detail"><dt>처리 상태</dt><dd id="rdState">확인 전</dd></div>
     </dl>
-    <div class="masknote">개인정보 보호를 위해 성함과 연락처는 일부만 표시됩니다. 전체 정보는 홈페이지 관리자에서 확인하세요.</div>
+    <div class="masknote">예약자와 연락처는 데모용 예시입니다. 처리 상태는 이 체험 안에서만 바뀝니다.</div>
     <div class="divider"></div>
     <div class="btn-row">
       <button class="btn ghost sheet-close">닫기</button>
@@ -2334,8 +2334,8 @@ body{font-family:var(--sans);background:#E9ECEF;
 
   <div class="sheet" id="rvSheet">
     <div class="grip"></div>
-    <h2>리뷰 원문</h2>
-    <p class="lede">채널에 공개된 글을 그대로 가져왔습니다.</p>
+    <h2>샘플 리뷰 상세</h2>
+    <p class="lede">조작 흐름을 위한 예시 리뷰입니다. 실제 고객 리뷰가 아닙니다.</p>
     <div class="rv-head">
       <div class="rv-hrow">
         <span class="rv-badge" id="rvBadge"></span>
@@ -2351,7 +2351,7 @@ body{font-family:var(--sans);background:#E9ECEF;
     <div class="divider"></div>
     <div class="btn-row">
       <button class="btn ghost sheet-close">닫기</button>
-      <button class="btn" id="rvOpen">채널에서 열기</button>
+      <button class="btn" id="rvOpen">샘플 리뷰 안내</button>
     </div>
   </div>
 
@@ -2372,7 +2372,7 @@ body{font-family:var(--sans);background:#E9ECEF;
     <div class="pv-hud">
       <div class="cnt" id="pvCnt">1 <em>/ 6</em></div>
       <button class="wide" id="pvWide">
-        <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M8 3.5h8"/></svg>가로로 크게 보기</button>
+        <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M8 3.5h8"/></svg>페이지 크게 보기</button>
     </div>
 
     <div class="pv-grid" id="pvGrid">
@@ -3597,7 +3597,7 @@ function pvOpenLand(i){
     pvLandLoad(i);
   }, 30);
   pvNavState();
-  setTimeout(function(){ pvLand.classList.add('bare'); }, 3200);
+  /* Public demo keeps document controls visible until the viewer hides them. */
 }
 function pvCloseLand(){
   pvLand.classList.remove('on');
@@ -4729,6 +4729,6 @@ if(gateEl && gateEl.classList.contains('off')) enter();
   });
 })();
 </script>
-<script src="demo.js?v=prototype-1"></script>
+<script src="demo.js?v=prototype-2"></script>
 </body>
 </html>

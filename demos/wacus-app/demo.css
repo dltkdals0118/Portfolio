@@ -1,7 +1,7 @@
 /* Public presentation layer; the supplied app UI and motion remain intact. */
 html,body{width:100%;min-width:0;height:100%;overflow:hidden}
 body{padding:64px 18px 22px}
-.phone{flex:0 1 390px;min-width:0;height:min(844px,calc(100dvh - 86px));min-height:0}
+.phone{flex:0 1 390px;min-width:0;height:min(844px,calc(100dvh - 86px));min-height:0;overflow:clip}
 .body{min-height:0;overscroll-behavior-y:contain;touch-action:pan-y}
 .demo-topbar{position:fixed;inset:0 0 auto;height:44px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fff;border-bottom:1px solid #DFE5EE;z-index:100;font-size:11px;color:#687991}
 .demo-topbar a{color:#17263D;font-weight:700;text-decoration:none}
@@ -18,6 +18,7 @@ body{padding:64px 18px 22px}
 .tab{min-height:44px}
 .btn,.ibtn.icon,.icobtn,.fchip{min-height:40px}
 .sheet{max-height:88%;padding-bottom:max(22px,env(safe-area-inset-bottom));overscroll-behavior:contain}
+.sheet:not(.on),.panel:not(.on),.pv:not(.on),.zoom:not(.on),.pv-grid:not(.on),.pv-land:not(.on){visibility:hidden}
 .sheet .grip{touch-action:none}
 .composer input,.addrow input,.field input{min-width:0;font-size:16px}
 .toast{max-width:calc(100% - 26px);white-space:normal;text-align:center;font-size:12px;line-height:1.5}
@@ -37,6 +38,13 @@ body{padding:64px 18px 22px}
 .zoom .hm.mo .scroller{width:min(300px,100%)}
 .pv-head .t{min-width:0}
 .pv-head .t b,.pv-head .t span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv-rot{top:0;left:0;width:100%!important;height:100%!important;transform:none}
+.pv-lpg{padding:60px 10px}
+.pv-nav{top:auto;bottom:24px;transform:none}
+.pv-nav:active{transform:scale(.92)}
+.pv-lhint{bottom:80px}
+.pv-land.bare:focus-within .pv-nav,.pv-land.bare:focus-within .pv-lbar{opacity:1;pointer-events:auto}
+.res-row [data-res-done]{font-size:9px;color:#1E7A57;background:#E7F4EE;padding:4px 6px;border-radius:6px;white-space:nowrap}
 @media(max-width:560px){
   body{padding:44px 0 0;background:var(--paper)}
   .phone{width:100%;flex-basis:100%;height:calc(100dvh - 44px);border-radius:0;box-shadow:none}

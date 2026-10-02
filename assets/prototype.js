@@ -38,7 +38,7 @@
     frame.title = 'WACUS 관리자 앱 익명화 인터랙티브 데모';
     frame.setAttribute('sandbox','allow-scripts');
     frame.setAttribute('referrerpolicy','no-referrer');
-    frame.src = 'demos/wacus-app/?embed=1&scene=' + scene + '&v=prototype-1';
+    frame.src = 'demos/wacus-app/?embed=1&scene=' + scene + '&v=prototype-2';
     launch.disabled = true;
     launch.textContent = '데모 여는 중…';
     showcase.classList.add('is-live');

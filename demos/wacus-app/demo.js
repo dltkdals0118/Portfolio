@@ -11,6 +11,27 @@
   const sheets = [...document.querySelectorAll('.sheet')];
   const panels = [...sheets, gate, ...document.querySelectorAll('.pv,.zoom,#chatPanel')];
   let previousScene = '';
+  const completedReservations = new Set();
+  let currentReservation = '';
+  const originalOpenReservation = openResDetail;
+  openResDetail = function (data) {
+    currentReservation = data.nm + '|' + data.dt;
+    originalOpenReservation(data);
+    if (completedReservations.has(currentReservation)) document.getElementById('rdState').textContent = '처리 완료 · 데모';
+  };
+  function updateReservationRows() {
+    document.querySelectorAll('.res-row').forEach(row => {
+      const key = row.dataset.nm + '|' + row.dataset.dt;
+      if (!completedReservations.has(key) || row.querySelector('[data-res-done]')) return;
+      const badge = document.createElement('span');
+      badge.dataset.resDone = '1'; badge.textContent = '처리 완료';
+      row.append(badge);
+    });
+  }
+  document.getElementById('rdDone').addEventListener('click', () => {
+    if (currentReservation) completedReservations.add(currentReservation);
+    updateReservationRows();
+  });
 
   function notify(type, detail = {}) {
     if (embedded && parent !== window) parent.postMessage({ type, ...detail }, '*');
@@ -63,6 +84,11 @@
   document.getElementById('chatInput').setAttribute('aria-label','샘플 메시지');
   document.getElementById('zoomClose').setAttribute('aria-label','열지도 확대 닫기');
   document.getElementById('chatClose').setAttribute('aria-label','샘플 지원 대화 닫기');
+  document.querySelectorAll('.sw').forEach(el => {
+    const label = el.closest('.sw-row,.set-row')?.querySelector('.t b')?.textContent;
+    if (label) el.setAttribute('aria-label',label);
+  });
+  document.getElementById('setMail').setAttribute('aria-label','데모 리포트 수신 이메일');
 
   // The app is frontend-only. Form submission never leaves the browser.
   document.addEventListener('submit', event => event.preventDefault());
@@ -83,7 +109,7 @@
   }
   keyboardTargets(phone);
   new MutationObserver(records => {
-    if (records.some(r => r.addedNodes.length)) keyboardTargets(phone);
+    if (records.some(r => r.addedNodes.length)) { keyboardTargets(phone); updateReservationRows(); }
   }).observe(phone, { childList:true, subtree:true });
 
   let escapeHadOverlay = false;
