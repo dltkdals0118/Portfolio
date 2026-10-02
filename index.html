@@ -7,13 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" crossorigin />
   <title>이상민 — AI Automation × SEO × Web Marketing</title>
   <meta name="description" content="검색 성과, Technical SEO, 데이터 분석, AI Agent 자동화를 연결하는 이상민의 웹 포트폴리오." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://dltkdals0118.github.io/Portfolio/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="이상민 — AI Automation × SEO × Web Marketing" />
-  <meta property="og:description" content="검색에서 발견되고, 웹에서 경험되며, AI로 반복되지 않게 만듭니다." />
+  <meta property="og:description" content="검색 유입을 만들고, 웹을 개선하고, 반복 업무를 자동화합니다." />
   <meta property="og:url" content="https://dltkdals0118.github.io/Portfolio/" />
   <meta property="og:image" content="https://dltkdals0118.github.io/Portfolio/og-image.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
@@ -238,11 +240,11 @@ body{font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",system-ui,-ap
 
 /* Privacy treatment for real work screenshots */
 .privacy-frame{overflow:hidden}
-.privacy-frame img{filter:blur(5px) brightness(.58) saturate(.72);transform:scale(1.035)}
+
 .privacy-badge{position:absolute;right:18px;top:72px;z-index:6;padding:8px 10px;border:1px solid rgba(255,255,255,.2);background:rgba(11,13,16,.82);backdrop-filter:blur(10px);border-radius:999px;color:#bcc4cd;font:800 9px/1 "Inter",sans-serif;letter-spacing:.12em}
 .repo-note{margin-top:28px;font-size:10px;color:#747e89;letter-spacing:.1em;font-weight:800}
 .privacy-practice{position:sticky}
-.privacy-practice img{filter:blur(2.7px) brightness(.72) saturate(.8);transform:scale(1.02)}
+
 .practice-mask-label{position:absolute;z-index:2;left:18px;top:18px;background:rgba(13,15,17,.88);border:1px solid rgba(255,255,255,.15);color:#fff;padding:9px 11px;border-radius:999px;font-size:9px;font-weight:900;letter-spacing:.1em}
 
 /* Figma evidence: flow can be dragged horizontally instead of unreadably shrunk */
@@ -280,21 +282,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 /* ===== V4: READABLE EVIDENCE / SEARCH PROOF / AEO ===== */
 .privacy-frame img,.privacy-practice img{filter:none!important;transform:none!important}
 .privacy-frame,.privacy-practice{overflow:hidden}
-.local-mask{
-  position:absolute;z-index:6;border-radius:5px;
-  background:rgba(17,19,23,.68);
-  -webkit-backdrop-filter:blur(11px);backdrop-filter:blur(11px);
-  box-shadow:0 0 0 1px rgba(255,255,255,.05) inset;
-  pointer-events:none;
-}
-/* Agent screens: project/client labels only, center workflow remains readable */
-.mask-agent-left{left:0;top:0;width:12.5%;height:100%}
-.mask-agent-top{left:13%;top:0;width:46%;height:8%}
-.mask-agent-right{right:0;top:8%;width:16.8%;height:69%}
-/* Claude Code: file tree/client sessions/account only */
-.mask-claude-left{left:0;top:0;width:16%;height:100%}
-.mask-claude-top{left:16.2%;top:0;width:48%;height:7.2%}
-.mask-claude-right{right:0;top:0;width:20%;height:100%}
 .practice-mask-label{font-size:8px;opacity:.86}
 .privacy-badge{font-size:8px;opacity:.72}
 
@@ -359,7 +346,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   .proof-card-wide .evidence-tile,.evidence-tile{height:300px}.evidence-aeo{height:390px}
   .proof-head h2,.aeo-head h2{font-size:49px;line-height:.96}
   .pbn-lab{padding:22px 16px}.pbn-flow{grid-template-columns:1fr}.pbn-title h3{font-size:38px}
-  .mask-agent-left{width:13.5%}.mask-agent-right{width:18.5%}.mask-claude-right{width:21%}
 }
 
 
@@ -372,7 +358,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 .evidence-tile{background-image:none}.evidence-tile>img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
 .practice-media img{height:auto;object-fit:contain}
 </style>
-  <link rel="stylesheet" href="assets/refinement.css?v=mobile-3" />
+  <link rel="stylesheet" href="assets/refinement.css?v=review-1" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -422,7 +408,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
       <a href="#contact">Contact</a>
     </nav>
     <button class="section-menu-toggle" type="button" aria-expanded="false" aria-controls="section-rail" aria-label="전체 섹션 메뉴">MENU <span aria-hidden="true">＋</span></button>
-    <a class="header-cta" href="https://github.com/dltkdals0118" target="_blank" rel="noreferrer">GitHub ↗</a>
+    <a class="header-cta" href="#contact">연락하기 ↗</a>
   </header>
 
 <nav class="section-rail" id="section-rail" aria-label="섹션 바로가기">
@@ -454,7 +440,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
       <div class="hero-bottom">
         <p class="hero-copy">검색 유입을 만들고,<br />웹을 개선하고,<br />반복 업무를 시스템화합니다.</p>
         <div class="hero-name">
-          <span>SEO · AUTOMATION · PRODUCT</span>
+          <span>SEO · MARKETING AUTOMATION</span>
           <strong>이상민</strong>
         </div>
       </div>
@@ -638,7 +624,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
           <span>EXPIRED DOMAIN / SEARCH EXPERIMENT</span>
           <h3>도메인 확보부터 콘텐츠 운영,<br />검색 노출·AI 인용 추적까지.</h3>
         </div>
-        <div class="pbn-flow" aria-label="만료 도메인 기반 PBN 콘텐츠 운영 프로세스">
+        <div class="pbn-flow" aria-label="만료 도메인 기반 검색·콘텐츠 실험 과정">
           <div><b>01</b><strong>DOMAIN AUCTION</strong><span>낙장도메인 경매를 통한 보조 자산 확보</span></div>
           <i>→</i>
           <div><b>02</b><strong>TOPIC FIT</strong><span>과거 이력·주제 적합성·검색 의도 기준 운영 방향 설계</span></div>
@@ -709,7 +695,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 
       <div class="agent-story">
         <div class="agent-stage reveal" data-agent-stage>
-          <div class="agent-stage-top"><i></i><i></i><i></i><span>WACUS · AGENT WORKFLOW</span><strong>LIVE SYSTEM</strong></div>
+          <div class="agent-stage-top"><i></i><i></i><i></i><span>WACUS · AGENT WORKFLOW</span><strong>SYSTEM CAPTURE</strong></div>
 
           <div class="agent-frame active" data-agent-frame="0">
             <div class="agent-live-map">
@@ -723,8 +709,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
               </div>
             </div>
           </div>
-          <div class="agent-frame privacy-frame privacy-agent privacy-agent-one" data-agent-frame="1"><img width="700" height="703" src="assets/evidence-1d1d870c5960.webp" alt="실제 역할 기반 AI Agent 파이프라인 관제 화면" loading="lazy" /><span class="local-mask mask-agent-left" aria-hidden="true"></span><span class="local-mask mask-agent-top" aria-hidden="true"></span><span class="local-mask mask-agent-right" aria-hidden="true"></span></div>
-          <div class="agent-frame privacy-frame privacy-agent privacy-agent-two" data-agent-frame="2"><img width="854" height="720" src="assets/automation-execution-redacted.webp" alt="Claude Code에서 실제 업무를 수행하고 검수하는 화면" loading="lazy" /><span class="local-mask mask-agent-left" aria-hidden="true"></span><span class="local-mask mask-agent-top" aria-hidden="true"></span><span class="local-mask mask-agent-right" aria-hidden="true"></span></div>
+          <div class="agent-frame privacy-frame" data-agent-frame="1"><button class="agent-preview" type="button" data-lightbox="assets/agent-workflow-redacted.webp" aria-label="AI Agent 역할 분배 화면 확대"><img width="700" height="703" src="assets/agent-workflow-redacted.webp" alt="고객사 식별정보를 가린 실제 역할 기반 AI Agent 파이프라인 관제 화면" loading="lazy" /><span>화면 확대 ↗</span></button></div>
+          <div class="agent-frame privacy-frame" data-agent-frame="2"><button class="agent-preview" type="button" data-lightbox="assets/automation-execution-redacted.webp" aria-label="AI Agent 업무 실행·검수 화면 확대"><img width="854" height="720" src="assets/automation-execution-redacted.webp" alt="고객사 식별정보를 가린 Claude Code 업무 실행·검수 화면" loading="lazy" /><span>화면 확대 ↗</span></button></div>
 
           <div class="privacy-badge">SENSITIVE LABELS MASKED</div><div class="agent-stage-bottom"><span data-agent-kicker>01 · REQUEST</span><strong data-agent-title>업무를 자연어로 요청</strong><div class="agent-step-controls" role="group" aria-label="자동화 단계 선택"><button type="button" data-agent-jump="0" aria-label="1단계 요청">01</button><button type="button" data-agent-jump="1" aria-label="2단계 분배">02</button><button type="button" data-agent-jump="2" aria-label="3단계 실행">03</button><button type="button" data-agent-jump="3" aria-label="4단계 검수">04</button><button type="button" data-agent-jump="4" aria-label="5단계 산출물">05</button></div></div>
         </div>
@@ -736,11 +722,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
             <ul><li>업무 목적과 대상 정의</li><li>긴급도·종류·제약조건 분류</li><li>고객사별 작업 컨텍스트 연결</li></ul>
           </article>
           <article class="agent-step" data-agent-step data-frame="1" data-kicker="02 · ORCHESTRATE" data-title="Orchestrator가 역할과 순서를 결정">
-            <span>02 · ORCHESTRATE</span><h3>한 모델이 전부 하지 않습니다.</h3>
+            <span>02 · ORCHESTRATE</span><h3>역할에 따라 업무를 나누고 순서를 정합니다.</h3>
             <p>Orchestrator가 요청을 분해하고 Lead와 Specialist에게 역할을 배정합니다. 업무 성격에 따라 SEO·개발·콘텐츠·기획 흐름이 달라집니다.</p>
             <ul><li>역할 기반 분업</li><li>작업 상태·보류·차단 관리</li><li>의사결정 이력 보존</li></ul>
           </article>
-          <article class="agent-step" data-agent-step data-frame="1" data-kicker="03 · EXECUTE" data-title="Specialist가 실무 단계를 수행">
+          <article class="agent-step" data-agent-step data-frame="2" data-kicker="03 · EXECUTE" data-title="Specialist가 실무 단계를 수행">
             <span>03 · EXECUTE</span><h3>실제 자료를 읽고, 계산하고, 수정합니다.</h3>
             <p>사이트 상태·검색 데이터·문서·Google Sheets 등 업무 자료를 읽고 결과물을 만듭니다. 자동화 스크립트는 반복 수집과 정리를 담당합니다.</p>
             <ul><li>SEO·사이트 구조 진단</li><li>리포트·시트 자동 갱신</li><li>콘텐츠·QA 작업 실행</li></ul>
@@ -767,8 +753,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     <section class="section practice" id="practice">
       <div class="section-label"><span>07</span> AUTOMATION IN PRACTICE</div>
       <div class="practice-grid">
-        <div class="practice-media reveal privacy-practice"><span class="practice-mask-label">실제 Claude Code 실행 화면 · Sensitive labels masked</span>
-          <img width="854" height="720" src="assets/automation-execution-redacted.webp" alt="Claude Code에서 데이터를 분석하고 자동화 업무를 수행하는 화면" loading="lazy" />
+        <div class="practice-media reveal privacy-practice"><span class="practice-mask-label">실제 Claude Code 실행 화면 · 식별정보 비공개</span>
+          <button class="practice-preview" type="button" data-lightbox="assets/automation-execution-redacted.webp" aria-label="자동화 실무 실행 화면 확대"><img width="854" height="720" src="assets/automation-execution-redacted.webp" alt="고객사 식별정보를 가린 Claude Code 데이터 분석·자동화 실행 화면" loading="lazy" /><span>화면 확대 ↗</span></button>
         </div>
         <div class="practice-list">
           <article class="reveal"><span>SEO DIAGNOSIS</span><h3>검색 순위 하락 원인 추적</h3><p>최근 변경사항과 검색 노출 데이터를 비교해 후보 원인을 좁히고, 추가 확인 항목을 구조화합니다.</p></article>
@@ -781,15 +767,15 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     <section class="section product" id="product">
       <div class="section-label"><span>08</span> PRODUCT PLANNING & PROTOTYPING</div>
       <div class="product-intro">
-        <h2>SEO 실무 지식을<br /><em>관리 화면과 서비스 흐름</em>으로 옮깁니다.</h2>
-        <p>요구사항 분석부터 Figma Wireframe, 인터랙티브 HTML Prototype까지 직접 구체화합니다. 디자인 직무를 대체하려는 것이 아니라, 마케팅·SEO 요구를 개발 가능한 언어로 전달하기 위한 역량입니다.</p>
+        <h2>SEO 요구를<br /><em>화면과 정책으로</em><br />설계합니다.</h2>
+        <p>마케팅·SEO 요구사항을 화면 흐름과 정책으로 구체화하고, Figma Wireframe과 HTML Prototype으로 개발팀에 전달합니다.</p>
       </div>
 
       <div class="project-grid reveal">
         <article class="project-card project-orange">
-          <span class="project-no">01 · REAL SCREEN</span>
-          <button class="project-media" type="button" data-lightbox="assets/evidence-46e6f929ce73.png" aria-label="전체 SEO 설정 와이어프레임 확대">
-            <img width="1200" height="1079" src="assets/evidence-46e6f929ce73.png" alt="Figma 전체 SEO 설정 관리자 와이어프레임" loading="lazy" />
+          <span class="project-no">01 · SEO WIREFRAME</span>
+          <button class="project-media" type="button" data-lightbox="assets/product-seo-settings-redacted.webp" aria-label="전체 SEO 설정 와이어프레임 확대">
+            <img width="1200" height="1079" src="assets/product-seo-settings-redacted.webp" alt="Figma 전체 SEO 설정 관리자 와이어프레임" loading="lazy" />
           </button>
           <div class="project-copy">
             <p>WEBBLOG CMS / SEO ADMIN</p>
@@ -799,7 +785,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
         </article>
 
         <article class="project-card project-dark">
-          <span class="project-no">02 · REAL FLOW</span>
+          <span class="project-no">02 · USER FLOW</span>
           <button class="project-media project-media-flow" type="button" data-lightbox="assets/evidence-308e9d70c5de.png" aria-label="앱 User Flow 와이어프레임 확대">
             <img width="1500" height="399" src="assets/evidence-308e9d70c5de.png" alt="Figma 피부과 앱 온보딩에서 홈까지의 User Flow" loading="lazy" />
           </button>
@@ -811,9 +797,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
         </article>
 
         <article class="project-card project-light">
-          <span class="project-no">03 · REAL SCREEN</span>
-          <button class="project-media" type="button" data-lightbox="assets/evidence-a97660637d5a.png" aria-label="관리자 대시보드 와이어프레임 확대">
-            <img width="1200" height="1153" src="assets/evidence-a97660637d5a.png" alt="Figma 관리자 대시보드 와이어프레임" loading="lazy" />
+          <span class="project-no">03 · ADMIN WIREFRAME</span>
+          <button class="project-media" type="button" data-lightbox="assets/product-admin-dashboard-redacted.webp" aria-label="관리자 대시보드 와이어프레임 확대">
+            <img width="1200" height="1153" src="assets/product-admin-dashboard-redacted.webp" alt="Figma 관리자 대시보드 와이어프레임" loading="lazy" />
           </button>
           <div class="project-copy">
             <p>ADMIN WORKFLOW</p>
@@ -834,9 +820,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
           <button class="figma-tab" type="button" data-figma-tab="seo">SEO SETTING</button>
         </div>
         <div class="figma-stage">
-          <div class="figma-panel active figma-pan" data-figma-panel="flow"><img width="1500" height="399" src="assets/evidence-308e9d70c5de.png" alt="Figma 앱 User Flow 전체 와이어프레임" loading="lazy" /><span class="local-mask mask-claude-left" aria-hidden="true"></span><span class="local-mask mask-claude-top" aria-hidden="true"></span><span class="local-mask mask-claude-right" aria-hidden="true"></span></div>
-          <div class="figma-panel" data-figma-panel="dashboard"><img width="1200" height="1153" src="assets/evidence-a97660637d5a.png" alt="Figma 관리자 대시보드 실제 와이어프레임" loading="lazy" /></div>
-          <div class="figma-panel" data-figma-panel="seo"><img width="1200" height="1079" src="assets/evidence-46e6f929ce73.png" alt="Figma 전체 SEO 설정 실제 와이어프레임" loading="lazy" /></div>
+          <div class="figma-panel active figma-pan" data-figma-panel="flow"><img width="1500" height="399" src="assets/evidence-308e9d70c5de.png" alt="Figma 앱 User Flow 전체 와이어프레임" loading="lazy" /></div>
+          <div class="figma-panel" data-figma-panel="dashboard"><img width="1200" height="1153" src="assets/product-admin-dashboard-redacted.webp" alt="고객사 식별정보를 가린 Figma 관리자 대시보드 와이어프레임" loading="lazy" /></div>
+          <div class="figma-panel" data-figma-panel="seo"><img width="1200" height="1079" src="assets/product-seo-settings-redacted.webp" alt="고객사 식별정보를 가린 Figma 전체 SEO 설정 와이어프레임" loading="lazy" /></div>
+          <button class="figma-expand" type="button" data-lightbox="assets/evidence-308e9d70c5de.png" data-figma-expand aria-label="선택한 Figma 작업 화면 확대">화면 확대 ↗</button>
         </div>
         <div class="figma-proofline">
           <div><b>Flow</b><span>온보딩 → 권한 → 홈까지 화면 간 Action 연결</span></div>
@@ -846,11 +833,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
         </div>
       </div>
 
-      <div class="figma-banner reveal">
-        <div><span>FIGMA WIREFRAME</span><strong>50 Screens</strong><strong>194 Callouts</strong></div>
-        <p>관리자·사용자 화면, 디자인 시스템, 화면 간 Action과 정책을 한 파일에서 연결해 개발 전달 단위를 명확하게 구성했습니다.</p>
-        <a href="https://www.figma.com/design/LgoHvFFdfFWLQbcDskBp60/%25ED%258F%25AC%25ED%258A%25B8%25ED%258F%25B4%25EB%25A6%25AC%25EC%2598%25A4?node-id=0-1&p=f&t=PN7IicPUAtbRwq7i-0" target="_blank" rel="noreferrer">Open Figma ↗</a>
-      </div>
+      <p class="product-proof-note">고객사 식별정보를 가린 기획 화면입니다. 탭에서 작업을 선택하고 확대해 확인할 수 있습니다.</p>
     </section>
 
     <section class="section beyond" id="beyond">
@@ -869,7 +852,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     <section class="contact" id="contact">
       <div class="contact-inner">
         <p>SEARCH. BUILD. AUTOMATE.</p>
-        <h2>검색에서 발견되고,<br />웹에서 경험되며,<br /><em>AI로 반복되지 않게.</em></h2>
+        <h2>검색에서 발견되고,<br />웹에서 경험되며,<br /><em>반복 업무는 자동화로.</em></h2>
         <div class="contact-links">
           <a href="mailto:dltkdals0118@gmail.com">dltkdals0118@gmail.com ↗</a>
           <a href="https://github.com/dltkdals0118" target="_blank" rel="noreferrer">GitHub ↗</a>
@@ -880,9 +863,22 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     </section>
   </main>
 
-  <dialog class="lightbox" data-lightbox-dialog>
-    <button class="lightbox-close" aria-label="이미지 닫기">×</button>
-    <img src="" alt="검색 결과 확대 이미지" />
+  <dialog class="lightbox" data-lightbox-dialog aria-labelledby="lightbox-title">
+    <div class="lightbox-toolbar">
+      <strong id="lightbox-title" data-lightbox-title>포트폴리오 증빙</strong>
+      <div class="lightbox-tools" role="group" aria-label="이미지 확대 조절">
+        <button type="button" data-zoom-out aria-label="이미지 축소" aria-controls="lightbox-viewport">−</button>
+        <output data-zoom-level aria-live="polite">100%</output>
+        <button type="button" data-zoom-in aria-label="이미지 확대" aria-controls="lightbox-viewport">＋</button>
+        <button type="button" data-zoom-fit>화면 맞춤</button>
+        <button type="button" data-zoom-original>원본 크기</button>
+      </div>
+      <button type="button" class="lightbox-close" aria-label="이미지 닫기">×</button>
+    </div>
+    <div class="lightbox-viewport" id="lightbox-viewport" tabindex="0" role="region" aria-label="확대 이미지 스크롤 영역">
+      <div class="lightbox-canvas"><img alt="포트폴리오 증빙 이미지" /></div>
+    </div>
+    <p class="lightbox-hint" data-lightbox-hint>확대한 뒤 좌우·상하로 스크롤해 확인하세요.</p>
   </dialog>
 
   <script>
@@ -906,20 +902,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     else header?.classList.remove('hide');
     lastY = y;
   }, { passive: true });
-
-  const dialog = document.querySelector('[data-lightbox-dialog]');
-  const dialogImg = dialog?.querySelector('img');
-  document.querySelectorAll('[data-lightbox]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (!dialog || !dialogImg) return;
-      dialogImg.src = btn.dataset.lightbox;
-      dialogImg.alt = btn.getAttribute("aria-label") || btn.querySelector("img")?.alt || "포트폴리오 증빙 이미지";
-      dialog.showModal();
-    });
-  });
-  dialog?.querySelector('.lightbox-close')?.addEventListener('click', () => dialog.close());
-  dialog?.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && dialog?.open) dialog.close(); });
 
   // V2 motion: progress + hero grid parallax
   const root = document.documentElement;
@@ -960,7 +942,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   // Drag-to-pan the long Figma user flow.
   document.querySelectorAll('.figma-pan').forEach(scroller=>{
     let down=false,startX=0,startScroll=0;
-    scroller.addEventListener('pointerdown',(e)=>{down=true;startX=e.clientX;startScroll=scroller.scrollLeft;scroller.classList.add('dragging');scroller.setPointerCapture?.(e.pointerId);});
+    scroller.addEventListener('pointerdown',(e)=>{if(e.pointerType!=='mouse'||e.button!==0||e.target.closest('button'))return;down=true;startX=e.clientX;startScroll=scroller.scrollLeft;scroller.classList.add('dragging');scroller.setPointerCapture?.(e.pointerId);});
     scroller.addEventListener('pointermove',(e)=>{if(!down)return;scroller.scrollLeft=startScroll-(e.clientX-startX);});
     const stop=(e)=>{down=false;scroller.classList.remove('dragging');try{scroller.releasePointerCapture?.(e.pointerId)}catch{}};
     scroller.addEventListener('pointerup',stop);scroller.addEventListener('pointercancel',stop);scroller.addEventListener('pointerleave',(e)=>{if(down)stop(e);});
@@ -969,6 +951,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 })();
 
 </script>
-  <script src="assets/refinement.js?v=mobile-2"></script>
+  <script src="assets/refinement.js?v=review-1"></script>
 </body>
 </html>
