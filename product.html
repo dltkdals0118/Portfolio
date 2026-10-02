@@ -391,6 +391,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
         <p>마케팅·SEO 요구사항을 화면 흐름과 정책으로 구체화하고, Figma Wireframe과 HTML Prototype으로 개발팀에 전달합니다.</p>
       </div>
 
+<nav class="prototype-choice" aria-label="프로토타입 선택"><a href="#wacus-prototype"><span>01 / ADMIN APP</span><b>운영자용 앱 ↘</b></a><a href="#skin-prototype"><span>02 / CUSTOMER APP</span><b>피부과 고객용 앱 ↘</b></a></nav>
       <section class="prototype-showcase" id="wacus-prototype" aria-labelledby="wacus-demo-title">
         <div class="prototype-head">
           <span class="prototype-kicker"><i aria-hidden="true"></i> INTERACTIVE PROTOTYPE / 01</span>
@@ -419,6 +420,35 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
           <div class="prototype-stage">
             <button class="prototype-poster" type="button" aria-label="WACUS 앱 인터랙티브 데모 시작">
               <img src="assets/wacus-demo-preview.svg" width="390" height="800" alt="클리닉 A로 익명화한 WACUS 관리자 앱 데모 미리보기" loading="lazy" />
+              <span class="play" aria-hidden="true"></span><span class="poster-caption" aria-hidden="true">클릭해서 직접 조작</span>
+            </button>
+          </div>
+        </div>
+        <div class="prototype-foot"><span data-demo-status role="status" aria-live="polite">화면을 선택하거나 데모 시작을 눌러보세요. 예약·메시지·이메일은 실제 전송되지 않습니다.</span><span>FRONTEND PROTOTYPE · SAMPLE DATA</span></div>
+      </section>
+
+      <section class="prototype-showcase" id="skin-prototype" data-demo-src="demos/skin-app/" data-demo-title="피부과 고객용 앱 익명화 인터랙티브 데모" aria-labelledby="skin-demo-title">
+        <div class="prototype-head">
+          <span class="prototype-kicker"><i aria-hidden="true"></i> INTERACTIVE PROTOTYPE / 02</span>
+          <div class="prototype-tools" aria-label="프로토타입 보기 설정">
+            <button type="button" data-demo-reset disabled>다시 시작</button>
+            <button type="button" data-demo-expand>크게 보기</button>
+            <a href="demos/skin-app/?start=1&v=skin-1" target="_blank" rel="noopener noreferrer">새 탭 ↗</a>
+            <button type="button" data-demo-close>닫기 ×</button>
+          </div>
+        </div>
+        <div class="prototype-layout">
+          <div class="prototype-copy">
+            <span class="prototype-index">WACUS · WHITE-LABEL CUSTOMER APP</span>
+            <h3 id="skin-demo-title">예약부터 멤버십까지,<br /><em>고객의 화면을 체험하세요.</em></h3>
+            <p class="prototype-description">온보딩과 회원 인증, 예약 4단계, 회원권·포인트 조회와 상담까지. 고객의 이용 흐름과 운영 정책을 연결한 피부과 앱 프로토타입입니다.</p>
+            <button class="prototype-launch" type="button">데모 시작 <span aria-hidden="true">↗</span></button>
+            <nav class="prototype-scenes" aria-label="앱 데모 화면 바로가기"><button type="button" data-demo-scene="home" aria-pressed="true"><span class="num">01</span><b>홈</b><span class="scene-hint">고민별 탐색 · 알림</span><span class="arrow" aria-hidden="true">→</span></button><button type="button" data-demo-scene="reserve" aria-pressed="false"><span class="num">02</span><b>예약</b><span class="scene-hint">시술 · 의료진 · 일시</span><span class="arrow" aria-hidden="true">→</span></button><button type="button" data-demo-scene="membership" aria-pressed="false"><span class="num">03</span><b>멤버십</b><span class="scene-hint">회원권 · 포인트</span><span class="arrow" aria-hidden="true">→</span></button><button type="button" data-demo-scene="consult" aria-pressed="false"><span class="num">04</span><b>상담</b><span class="scene-hint">문의 · 방문 안내</span><span class="arrow" aria-hidden="true">→</span></button><button type="button" data-demo-scene="onboarding" aria-pressed="false"><span class="num">05</span><b>온보딩</b><span class="scene-hint">시작 · 권한 · 인증</span><span class="arrow" aria-hidden="true">→</span></button></nav>
+            <p class="prototype-disclosure"><strong>DEMO</strong><span>병원·의료진·사용자 정보와 사진을 샘플로 교체했습니다. 인증·예약·결제·상담은 실제 처리되지 않으며 화면 흐름만 체험합니다.</span></p>
+          </div>
+          <div class="prototype-stage">
+            <button class="prototype-poster" type="button" aria-label="피부과 고객용 앱 인터랙티브 데모 시작">
+              <img src="assets/skin-demo-preview.svg" width="390" height="800" alt="클리닉 B로 익명화한 피부과 고객 앱 데모 미리보기" loading="lazy" />
               <span class="play" aria-hidden="true"></span><span class="poster-caption" aria-hidden="true">클릭해서 직접 조작</span>
             </button>
           </div>
@@ -583,6 +613,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   <script src="assets/refinement.js?v=depth-1"></script>
   <script src="assets/motion.js?v=entry-1"></script>
   
-  <script src="assets/prototype.js?v=prototype-2"></script>
+  <script src="assets/prototype.js?v=demo-3"></script>
 </body>
 </html>

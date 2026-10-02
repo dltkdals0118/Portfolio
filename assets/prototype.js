@@ -1,7 +1,6 @@
 (() => {
   'use strict';
-  const showcase = document.getElementById('wacus-prototype');
-  if (!showcase) return;
+  document.querySelectorAll('.prototype-showcase').forEach(showcase => {
   const stage = showcase.querySelector('.prototype-stage');
   const launch = showcase.querySelector('.prototype-launch');
   const poster = showcase.querySelector('.prototype-poster');
@@ -16,7 +15,7 @@
   let timer = null;
   let returnFocus = null;
   let inerted = [];
-  const sceneNames = { home:'홈', reserve:'예약', analytics:'분석', market:'마케팅', report:'리포트' };
+  const sceneNames = Object.fromEntries(sceneButtons.map(b=>[b.dataset.demoScene,b.querySelector('b').textContent]));
 
   function syncScene(next) {
     if (!(next in sceneNames)) return;
@@ -34,11 +33,11 @@
       return;
     }
     frame = document.createElement('iframe');
-    frame.id = 'wacus-demo-frame';
-    frame.title = 'WACUS 관리자 앱 익명화 인터랙티브 데모';
+    frame.id = showcase.id === 'wacus-prototype' ? 'wacus-demo-frame' : showcase.id + '-frame';
+    frame.title = showcase.dataset.demoTitle || 'WACUS 관리자 앱 익명화 인터랙티브 데모';
     frame.setAttribute('sandbox','allow-scripts');
     frame.setAttribute('referrerpolicy','no-referrer');
-    frame.src = 'demos/wacus-app/?embed=1&scene=' + scene + '&v=prototype-2';
+    frame.src = (showcase.dataset.demoSrc || 'demos/wacus-app/') + '?embed=1&scene=' + scene + '&v=demo-3';
     launch.disabled = true;
     launch.textContent = '데모 여는 중…';
     showcase.classList.add('is-live');
@@ -118,5 +117,6 @@
     const first = controls[0], last = controls.at(-1);
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  });
   });
 })();
