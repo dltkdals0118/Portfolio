@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="800" viewBox="0 0 390 800">
+  <defs><linearGradient id="hero" x2="1" y2="1"><stop stop-color="#2874F4"/><stop offset="1" stop-color="#1450C4"/></linearGradient><clipPath id="round"><rect width="390" height="800" rx="36"/></clipPath></defs>
+  <style>text{font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif}</style>
+  <g clip-path="url(#round)">
+    <rect width="390" height="800" fill="#F5F6F8"/>
+    <rect width="390" height="120" fill="white"/>
+    <text x="25" y="29" font-size="12" font-weight="700" fill="#263244">9:41</text><text x="108" y="29" font-size="9" letter-spacing="1" fill="#788CA6">SAMPLE DATA · WACUS</text><text x="337" y="29" font-size="11" fill="#263244">100%</text>
+    <text x="22" y="74" font-size="23" font-weight="700" fill="#17263D">클리닉 A</text><rect x="126" y="57" width="42" height="21" rx="5" fill="#EAF1FE"/><text x="134" y="72" font-size="10" fill="#1B62E8" font-weight="700">DEMO</text>
+    <circle cx="350" cy="69" r="17" fill="#F4F6F9"/><path d="M343 69h14m-7-7v14" stroke="#7C8EA5" stroke-width="1.6"/>
+    <text x="22" y="100" font-size="11" fill="#8392A6">예시 데이터 · 2026년 8월 10일</text>
+    <rect x="18" y="137" width="354" height="146" rx="18" fill="url(#hero)"/>
+    <circle cx="360" cy="148" r="76" fill="white" opacity=".08"/>
+    <text x="38" y="166" font-size="12" fill="#D9E7FF">어제 방문자</text><text x="38" y="220" font-size="48" fill="white" font-weight="700">1,067</text><text x="175" y="218" font-size="17" fill="#D9E7FF">명</text>
+    <rect x="38" y="238" width="202" height="25" rx="12" fill="white" opacity=".16"/><text x="49" y="255" font-size="11" fill="white">▲ 8.2% · 전주 같은 요일 대비</text>
+    <rect x="18" y="296" width="354" height="232" rx="18" fill="white"/>
+    <text x="36" y="327" font-size="14" font-weight="700" fill="#17263D">방문자 추이</text><rect x="227" y="311" width="127" height="26" rx="13" fill="#F4F6F9"/><rect x="229" y="313" width="42" height="22" rx="11" fill="white"/><text x="239" y="328" font-size="10" font-weight="700" fill="#17263D">7일</text><text x="281" y="328" font-size="10" fill="#8A98AC">주별</text><text x="322" y="328" font-size="10" fill="#8A98AC">월별</text>
+    <g fill="#BED2F3"><rect x="40" y="403" width="28" height="75" rx="5"/><rect x="85" y="377" width="28" height="101" rx="5"/><rect x="130" y="386" width="28" height="92" rx="5"/><rect x="175" y="360" width="28" height="118" rx="5" fill="#1B62E8"/><rect x="220" y="370" width="28" height="108" rx="5"/><rect x="265" y="422" width="28" height="56" rx="5"/><rect x="310" y="375" width="28" height="103" rx="5"/></g>
+    <g font-size="9" fill="#8192A9"><text x="48" y="495">월</text><text x="93" y="495">화</text><text x="138" y="495">수</text><text x="183" y="495">목</text><text x="228" y="495">금</text><text x="273" y="495">토</text><text x="318" y="495">일</text></g>
+    <rect x="18" y="541" width="172" height="100" rx="18" fill="white"/><rect x="201" y="541" width="171" height="100" rx="18" fill="white"/>
+    <text x="34" y="566" font-size="11" fill="#8392A6">방문자</text><text x="34" y="601" font-size="26" fill="#17263D" font-weight="700">1,067</text><text x="34" y="624" font-size="10" fill="#1B62E8">▲ 8.2% 전주</text>
+    <text x="217" y="566" font-size="11" fill="#8392A6">평균 체류시간</text><text x="217" y="601" font-size="26" fill="#17263D" font-weight="700">1:42</text><text x="217" y="624" font-size="10" fill="#8C9AAD">▼ 4.1% 전주</text>
+    <rect x="18" y="653" width="354" height="50" rx="15" fill="white"/><text x="35" y="683" font-size="11" fill="#6E809A">프로토타입 조작을 위한 예시 데이터입니다.</text>
+    <rect y="721" width="390" height="79" fill="white"/>
+    <g fill="#8A98AC" font-size="10" text-anchor="middle"><text x="42" y="773" fill="#17263D" font-weight="700">홈</text><text x="118" y="773">예약</text><text x="195" y="773">마케팅</text><text x="271" y="773">분석</text><text x="347" y="773">리포트</text></g>
+    <g fill="none" stroke="#8A98AC" stroke-width="1.8"><path d="M31 750v-12l11-9 11 9v12z" stroke="#17263D"/><rect x="108" y="731" width="20" height="20" rx="4"/><path d="M108 738h20m-15-11v7m10-7v7M185 738l15-6v19l-15-6zM263 751v-12m8 12v-21m8 21v-16M338 733h18m-18 8h18m-18 8h12"/></g>
+  </g>
+</svg>

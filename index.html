@@ -386,6 +386,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   <link rel="stylesheet" href="assets/refinement.css?v=motion-1" />
   <link rel="stylesheet" href="assets/motion.css?v=motion-3" />
   <link rel="stylesheet" href="assets/entry-motion.css?v=entry-1" />
+  <link rel="stylesheet" href="assets/prototype.css?v=prototype-1" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -818,6 +819,41 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
         <p>마케팅·SEO 요구사항을 화면 흐름과 정책으로 구체화하고, Figma Wireframe과 HTML Prototype으로 개발팀에 전달합니다.</p>
       </div>
 
+      <section class="prototype-showcase" id="wacus-prototype" aria-labelledby="wacus-demo-title">
+        <div class="prototype-head">
+          <span class="prototype-kicker"><i aria-hidden="true"></i> INTERACTIVE PROTOTYPE / 01</span>
+          <div class="prototype-tools" aria-label="프로토타입 보기 설정">
+            <button type="button" data-demo-reset disabled>다시 시작</button>
+            <button type="button" data-demo-expand>크게 보기</button>
+            <a href="demos/wacus-app/?start=1" target="_blank" rel="noopener noreferrer">새 탭 ↗</a>
+            <button type="button" data-demo-close>닫기 ×</button>
+          </div>
+        </div>
+        <div class="prototype-layout">
+          <div class="prototype-copy">
+            <span class="prototype-index">WACUS · CLIENT ADMIN APP</span>
+            <h3 id="wacus-demo-title">운영자의 다음 행동을<br /><em>직접 눌러보세요.</em></h3>
+            <p class="prototype-description">방문자 추이에서 예약 확인, 클릭 분석과 월간 리포트까지. 운영에 필요한 정보를 모바일 앱의 화면 흐름으로 연결한 HTML 프로토타입입니다.</p>
+            <button class="prototype-launch" type="button">데모 시작 <span aria-hidden="true">↗</span></button>
+            <nav class="prototype-scenes" aria-label="앱 데모 화면 바로가기">
+              <button type="button" data-demo-scene="home" aria-pressed="true"><span class="num">01</span><b>홈</b><span class="scene-hint">방문자 · 추이 · 할 일</span><span class="arrow" aria-hidden="true">→</span></button>
+              <button type="button" data-demo-scene="reserve" aria-pressed="false"><span class="num">02</span><b>예약</b><span class="scene-hint">신청 상세 · 필터</span><span class="arrow" aria-hidden="true">→</span></button>
+              <button type="button" data-demo-scene="analytics" aria-pressed="false"><span class="num">03</span><b>분석</b><span class="scene-hint">유입 · 클릭 열지도</span><span class="arrow" aria-hidden="true">→</span></button>
+              <button type="button" data-demo-scene="market" aria-pressed="false"><span class="num">04</span><b>마케팅</b><span class="scene-hint">광고 · 검색 · 콘텐츠</span><span class="arrow" aria-hidden="true">→</span></button>
+              <button type="button" data-demo-scene="report" aria-pressed="false"><span class="num">05</span><b>리포트</b><span class="scene-hint">문서 · 확대 · 알림</span><span class="arrow" aria-hidden="true">→</span></button>
+            </nav>
+            <p class="prototype-disclosure"><strong>DEMO</strong><span>고객사 식별정보를 익명화하고 리뷰·사이트 화면·문서를 샘플로 교체했습니다. 표시된 데이터는 조작 흐름을 보여주는 예시입니다.</span></p>
+          </div>
+          <div class="prototype-stage">
+            <button class="prototype-poster" type="button" aria-label="WACUS 앱 인터랙티브 데모 시작">
+              <img src="assets/wacus-demo-preview.svg" width="390" height="800" alt="클리닉 A로 익명화한 WACUS 관리자 앱 데모 미리보기" loading="lazy" />
+              <span class="play" aria-hidden="true"></span><span class="poster-caption" aria-hidden="true">클릭해서 직접 조작</span>
+            </button>
+          </div>
+        </div>
+        <div class="prototype-foot"><span data-demo-status role="status" aria-live="polite">화면을 선택하거나 데모 시작을 눌러보세요. 예약·메시지·이메일은 실제 전송되지 않습니다.</span><span>FRONTEND PROTOTYPE · SAMPLE DATA</span></div>
+      </section>
+
       <div class="project-grid reveal">
         <article class="project-card project-orange">
           <span class="project-no">01 · SEO WIREFRAME</span>
@@ -880,7 +916,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
         </div>
       </div>
 
-      <section class="project-demo" data-media-slot="product-prototype" hidden aria-label="프론트엔드 프로토타입 실행 영상"><h3>프론트엔드 프로토타입 실행 화면</h3></section>
       <p class="product-proof-note">고객사 식별정보를 가린 기획 화면입니다. 탭에서 작업을 선택하고 확대해 확인할 수 있습니다.</p>
     </section>
 
@@ -1002,5 +1037,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   <script src="assets/refinement.js?v=motion-1"></script>
   <script src="assets/motion.js?v=entry-1"></script>
   <script src="assets/entry-motion.js?v=entry-2"></script>
+  <script src="assets/prototype.js?v=prototype-1"></script>
 </body>
 </html>
