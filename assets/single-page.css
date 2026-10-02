@@ -1,0 +1,17 @@
+/* One continuous reading path. Full evidence remains here; secondary UX is optional. */
+#seo,#search-proof,#aeo,#technical,#automation,#practice,#product{padding-top:90px;padding-bottom:90px}
+#seo .section-label,#search-proof .section-label,#aeo .section-label,#technical .section-label,#automation .section-label,#practice .section-label,#product .section-label{margin-bottom:38px}
+#seo h2,#search-proof h2,#aeo h2,#technical h2,#automation h2,#practice h2,#product h2{font-size:clamp(34px,4.4vw,62px);line-height:1.15;letter-spacing:-.055em}
+#search-proof,#aeo,#technical{border-top:1px solid var(--line)}
+#automation{max-width:none;background:var(--ink);color:var(--paper)}
+#automation .automation-head,#automation .agent-numbers,#automation .agent-story,#automation .motion-options{max-width:1360px;margin-left:auto;margin-right:auto}
+#automation .agent-numbers{margin-top:40px}.agent-story{margin-top:38px}
+#practice{background:var(--paper)}
+#product .project-grid{margin-top:54px}#product .prototype-showcase{margin-top:48px}
+.case-more{max-width:1440px;margin:0 auto;padding:0 clamp(22px,5vw,76px);border-top:1px solid var(--line)}
+.case-more>summary{display:flex;align-items:center;gap:24px;min-height:88px;cursor:pointer;list-style:none;border-bottom:1px solid var(--line)}
+.case-more>summary::-webkit-details-marker{display:none}.case-more>summary>span{font-size:10px;letter-spacing:.1em;color:var(--orange);font-weight:750}.case-more>summary>b{font-size:18px}.case-more>summary>i{margin-left:auto;font-size:22px}
+.case-more[open]>summary>i{transform:rotate(45deg)}.case-more .section{padding:56px 0}.case-more .section-label{display:none}.case-more h2{font-size:clamp(30px,4vw,54px);line-height:1.15}.case-more[open] .reveal{opacity:1;transform:none}
+.site-header .brand{flex-shrink:0}.site-header .nav{gap:12px}.section-rail{max-height:80svh}
+#profile{border-top:1px solid var(--line)}
+@media(max-width:680px){#seo,#search-proof,#aeo,#technical,#automation,#practice,#product{padding-top:64px;padding-bottom:64px}#seo h2,#search-proof h2,#aeo h2,#technical h2,#automation h2,#practice h2,#product h2{font-size:34px;line-height:1.2}#seo .section-label,#search-proof .section-label,#aeo .section-label,#technical .section-label,#automation .section-label,#practice .section-label,#product .section-label{margin-bottom:28px}.case-more>summary{flex-wrap:wrap;gap:10px;padding:22px 0}.case-more>summary>span{width:100%}.case-more>summary>b{font-size:16px}.case-more .section{padding-top:34px}.case-more .ux-head{gap:26px}}
