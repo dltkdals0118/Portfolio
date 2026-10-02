@@ -21,14 +21,15 @@ vec2 flooruv=uv;float perspective=1./max(.12,abs(flooruv.y+.5));float grid=abs(s
 for(int i=0;i<18;i++){float f=float(i);vec2 point=vec2(sin(f*53.1)*1.4,cos(f*17.7+t*.035)*.9);float star=.000018/(dot(uv-point,uv-point)+.00004);col+=accent*star*.15;}
 col+=(hash(gl_FragCoord.xy+t)-.5)*.018;col*=1.-.25*length(uv);gl_FragColor=vec4(pow(max(col,vec3(0.)),vec3(.9)),1.);}`;
 function makeRenderer(){
-const gl=canvas.getContext('webgl',{alpha:false,antialias:false,powerPreference:'low-power'});if(!gl)return null;
-function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){gl.deleteShader(s);return null;}return s;}
+const gl=canvas.getContext('webgl',{alpha:false,antialias:false,powerPreference:'low-power'});if(!gl){console.info('[cinema] WebGL unavailable; using CSS orbit renderer.');return null;}
+function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){console.warn('[cinema] Shader:',gl.getShaderInfoLog(s));gl.deleteShader(s);return null;}return s;}
 const v=shader(gl.VERTEX_SHADER,vertex),f=shader(gl.FRAGMENT_SHADER,fragment);if(!v||!f)return null;
 const program=gl.createProgram();gl.attachShader(program,v);gl.attachShader(program,f);gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))return null;
 gl.useProgram(program);const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const pos=gl.getAttribLocation(program,'a_position');gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
 const res=gl.getUniformLocation(program,'u_resolution'),clock=gl.getUniformLocation(program,'u_time'),scroll=gl.getUniformLocation(program,'u_scroll'),chapter=gl.getUniformLocation(program,'u_chapter');
 return {resize(){const b=frame.getBoundingClientRect(),cap=mobile.matches?650:1150,ratio=Math.min(1.25,cap/Math.max(1,b.width));canvas.width=Math.round(b.width*ratio);canvas.height=Math.round(b.height*ratio);gl.viewport(0,0,canvas.width,canvas.height);},draw(){gl.uniform2f(res,canvas.width,canvas.height);gl.uniform1f(clock,time);gl.uniform1f(scroll,progress);gl.uniform1f(chapter,current);gl.drawArrays(gl.TRIANGLES,0,6);}};
 }
+const orbit=document.createElement('div');orbit.className='cinema-orbit';orbit.setAttribute('aria-hidden','true');orbit.innerHTML='<i></i><i></i><i></i>';frame.insertBefore(orbit,frame.firstChild);
 function activate(index){if(index===current&&scenes[index].classList.contains('is-current'))return;current=index;scenes.forEach((scene,i)=>{const on=i===index;scene.classList.toggle('is-current',on);scene.inert=!on;scene.setAttribute('aria-hidden',String(!on));});chapters.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));frame.dataset.chapter=String(index);dirty=true;}
 const isPaused=()=>paused||reduced.matches||root.classList.contains('motion-paused');
 function sync(){const stop=isPaused();frame.classList.toggle('is-paused',stop);button.disabled=reduced.matches;button.setAttribute('aria-pressed',String(stop));button.textContent=reduced.matches?'모션 줄이기 적용':stop?'모션 재생 ▷':'모션 멈춤 Ⅱ';dirty=true;wake();}
