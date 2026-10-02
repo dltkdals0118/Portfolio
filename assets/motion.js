@@ -13,17 +13,7 @@
   reduced.addEventListener('change', () => { paused = reduced.matches; sync(); });
   sync();
   document.querySelectorAll('.agent-map-node').forEach((node, index) => node.style.setProperty('--node-delay', index * .55 + 's'));
-  const scene = document.querySelector('.hero-sculpture');
-  const observer = new IntersectionObserver(entries => entries.forEach(e => scene.classList.toggle('sculpture-away', !e.isIntersecting)));
-  observer.observe(scene);
-  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduced.matches) {
-    scene.parentElement.addEventListener('pointermove', event => {
-      const rect = scene.getBoundingClientRect();
-      scene.style.setProperty('--sculpture-ry', Math.max(-9, Math.min(9, (event.clientX - rect.left - rect.width / 2) / rect.width * 14)) + 'deg');
-      scene.style.setProperty('--sculpture-rx', Math.max(-6, Math.min(6, (rect.top + rect.height / 2 - event.clientY) / rect.height * 10)) + 'deg');
-    });
-    scene.parentElement.addEventListener('pointerleave', () => { scene.style.setProperty('--sculpture-rx', '0deg'); scene.style.setProperty('--sculpture-ry', '0deg'); });
-  }
+
 })();
 
 // Empty entries preserve verified screenshots. Only supplied recordings become video.
