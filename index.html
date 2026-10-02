@@ -4,6 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#ff5a1f" />
+  <style>
+    .entry-intro{display:none}
+    html.intro-pending,html.intro-pending body{overflow:hidden}
+    html.intro-pending:not(.intro-leaving) body::before{content:"";position:fixed;inset:0;background:#111;z-index:12000}
+    html.intro-pending:not(.hero-entered) .hero-kicker,
+    html.intro-pending:not(.hero-entered) .hero h1>span,
+    html.intro-pending:not(.hero-entered) .hero-bottom{animation:none!important;opacity:0}
+  </style>
+  <script>
+  (() => {
+    const root = document.documentElement;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const navigation = performance.getEntriesByType('navigation')[0];
+    if (reduced || (location.hash && location.hash !== '#top') || navigation?.type === 'back_forward') return;
+    root.classList.add('intro-pending');
+    // The page stays usable if the enhancement script cannot load.
+    window.portfolioIntroFailsafe = setTimeout(() => {
+      root.classList.remove('intro-pending', 'intro-leaving');
+      root.classList.add('hero-entered');
+      const intro = document.getElementById('entry-intro');
+      if (intro) intro.hidden = true;
+      document.querySelectorAll('[data-intro-inert]').forEach(el => {
+        el.inert = false;
+        el.removeAttribute('data-intro-inert');
+      });
+      dispatchEvent(new Event('portfolio:intro-expired'));
+    }, 4000);
+  })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -356,6 +385,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 </style>
   <link rel="stylesheet" href="assets/refinement.css?v=motion-1" />
   <link rel="stylesheet" href="assets/motion.css?v=motion-3" />
+  <link rel="stylesheet" href="assets/entry-motion.css?v=entry-1" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -392,6 +422,22 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   </script>
 </head>
 <body>
+  <div class="entry-intro" id="entry-intro" role="dialog" aria-modal="true" aria-labelledby="entry-intro-title" hidden>
+    <h2 id="entry-intro-title" class="entry-sr-only">이상민 포트폴리오 인트로</h2>
+    <div class="entry-meta" aria-hidden="true"><span>SM.</span><span>PORTFOLIO · 2026</span></div>
+    <div class="entry-composition" aria-hidden="true">
+      <svg class="entry-illustration" viewBox="0 0 360 168" fill="none">
+        <path class="entry-trace entry-trace-a" pathLength="1" d="M58 102L180 38L302 102L180 164Z" />
+        <path class="entry-trace entry-trace-b" pathLength="1" d="M58 102V68L180 4L302 68V102M180 4V38M180 132V164M58 68L180 132L302 68" />
+        <g class="entry-node entry-node-a"><circle cx="58" cy="86" r="19" /><circle cx="55" cy="83" r="6" /><path d="M60 88L67 95" /></g>
+        <g class="entry-node entry-node-b"><circle cx="180" cy="21" r="19" /><path d="M180 10V32M169 21H191M172 13L188 29M188 13L172 29" /></g>
+        <g class="entry-node entry-node-c"><circle cx="302" cy="86" r="19" /><rect x="292" y="78" width="20" height="16" rx="2" /><path d="M292 83H312" /></g>
+      </svg>
+      <div class="entry-wordmark"><span>S</span><span>M</span><span class="entry-dot">.</span></div>
+      <p class="entry-disciplines"><span>AI AUTOMATION</span><i>×</i><span>SEO</span><i>×</i><span>WEB MARKETING</span></p>
+    </div>
+    <div class="entry-bottom"><span aria-hidden="true">SANGMIN LEE</span><button type="button" class="entry-skip" data-intro-skip>바로 보기 <span aria-hidden="true">↗</span></button></div>
+  </div>
   <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">본문 바로가기</a>
 
@@ -425,9 +471,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 </nav>
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-grid"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-kicker">PORTFOLIO · 2026</div>
-      <h1 id="hero-title">
+      <div class="hero-motion-controls" role="group" aria-label="도입부 모션 조절"><button type="button" data-intro-replay aria-label="인트로 다시보기">INTRO <span aria-hidden="true">↺</span></button><button type="button" data-motion-toggle aria-pressed="false" aria-label="페이지 반복 애니메이션 조절">동작 멈춤</button></div>
+      <h1 id="hero-title" tabindex="-1">
         <span>AI AUTOMATION</span>
         <span class="hero-cross">×</span>
         <span>SEO</span>
@@ -953,6 +1000,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 
 </script>
   <script src="assets/refinement.js?v=motion-1"></script>
-  <script src="assets/motion.js?v=motion-3"></script>
+  <script src="assets/motion.js?v=entry-1"></script>
+  <script src="assets/entry-motion.js?v=entry-1"></script>
 </body>
 </html>
