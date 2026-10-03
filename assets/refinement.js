@@ -4,27 +4,29 @@
   const links = [...rail.querySelectorAll('a')];
   const targets = links.map(a => document.getElementById(a.hash.slice(1))).filter(Boolean);
   const headerLinks = [...document.querySelectorAll('.nav a')];
+  const railTrigger = document.querySelector('.rail-menu-trigger');
+  const menuButtons = [toggle, railTrigger].filter(Boolean);
   const closeMenu = (restoreFocus = false) => {
     rail.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
+    menuButtons.forEach(b => b.setAttribute('aria-expanded', 'false'));
     toggle.querySelector('span').textContent = '＋';
     if (restoreFocus) toggle.focus();
   };
-  toggle.addEventListener('click', () => {
+  menuButtons.forEach(button => button.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     rail.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', String(open));
+    menuButtons.forEach(b => b.setAttribute('aria-expanded', String(open)));
     toggle.querySelector('span').textContent = open ? '−' : '＋';
-  });
+  }));
   links.forEach(a => a.addEventListener('click', () => closeMenu()));
   document.addEventListener('click', e => {
-    if (!rail.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+    if (!rail.contains(e.target) && !menuButtons.some(b => b.contains(e.target))) closeMenu();
   });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && rail.classList.contains('is-open')) closeMenu(true);
   });
   document.addEventListener('focusin', e => {
-    if (!rail.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+    if (!rail.contains(e.target) && !menuButtons.some(b => b.contains(e.target))) closeMenu();
   });
   let pending = false;
   const update = () => {

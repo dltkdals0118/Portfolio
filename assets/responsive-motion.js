@@ -2,9 +2,15 @@
 'use strict';
 const root=document.documentElement, reduced=matchMedia('(prefers-reduced-motion:reduce)');
 const paused=()=>reduced.matches||root.classList.contains('motion-paused');
-const targets=[...document.querySelectorAll('.section:not(#top) h2,.section .section-label,.audit-card,.handoff-cases article,.agent-principles article,.result-brief>a,.prototype-demo,.beyond-list article')];
-const enter=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('motion-shown');enter.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -24px 0px'});
-targets.forEach((el,i)=>{if(paused())return;el.classList.add('motion-enter');el.style.setProperty('--motion-delay',(i%3)*45+'ms');const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('motion-shown');else enter.observe(el);});
+const targets=[...new Set(document.querySelectorAll('.reveal,.section:not(#top) h2,.section .section-label,.audit-card,.handoff-cases article,.agent-principles article,.result-brief>a,.prototype-demo,.beyond-list article,.selected-work .work-heading,.selected-work .work-row,.detail-cover h1,.detail-cover .detail-summary,.next-projects a'))];
+const show=el=>{el.classList.add('motion-shown');if(el.classList.contains('reveal'))el.classList.add('is-visible');};
+const enter=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){show(e.target);enter.unobserve(e.target);}}),{threshold:0,rootMargin:'-12% 0px -30% 0px'});
+let entrancesStarted=false;
+targets.forEach((el,i)=>{if(paused()){show(el);return;}el.classList.add('motion-enter');el.style.setProperty('--motion-delay',(i%3)*55+'ms');});
+function beginEntrances(){if(entrancesStarted)return;entrancesStarted=true;targets.forEach(el=>paused()?show(el):enter.observe(el));}
+document.addEventListener('portfolio:entryend',beginEntrances,{once:true});
+const intro=document.getElementById('entry-intro');
+if(!intro||intro.hidden)beginEntrances();
 const items=[...document.querySelectorAll('.work-visual,.signature-visual')],visible=new Set();
 const view=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)visible.add(e.target);else visible.delete(e.target)});schedule();},{rootMargin:'40px 0px',threshold:0});
 items.forEach(el=>view.observe(el));
@@ -20,7 +26,7 @@ function render(){
 }
 function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(render)}}
 addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});
-document.addEventListener('portfolio:motionchange',()=>{if(paused())targets.forEach(el=>el.classList.add('motion-shown'));schedule()});
-reduced.addEventListener('change',()=>{if(paused())targets.forEach(el=>el.classList.add('motion-shown'));schedule()});
+document.addEventListener('portfolio:motionchange',()=>{if(paused())targets.forEach(show);schedule()});
+reduced.addEventListener('change',()=>{if(paused())targets.forEach(show);schedule()});
 document.addEventListener('visibilitychange',schedule);render();
 })();
