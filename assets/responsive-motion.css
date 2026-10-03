@@ -62,7 +62,7 @@
 }
 
 /* Enter inside the reading viewport, never while the intro covers the page. */
-.motion-enter,.reveal.motion-enter{filter:none;opacity:.12;translate:0 22px;transform:none;transition:opacity .95s ease,translate 1.05s cubic-bezier(.16,1,.3,1);transition-delay:var(--motion-delay,0ms)}
+.motion-enter,.reveal.motion-enter{filter:none;opacity:.12;translate:0 16px;transform:none;transition:opacity 1s cubic-bezier(.22,.61,.36,1),translate 1.15s cubic-bezier(.22,.61,.36,1);transition-delay:var(--motion-delay,0ms)}
 .motion-enter.motion-shown,.reveal.motion-enter.motion-shown{opacity:1;translate:0 0;transform:none}
 .agent-stage.motion-enter{translate:0 0;transform:none;transition:opacity .9s ease}
 .rail-menu-trigger{position:fixed;right:9px;top:calc(50% - 190px);z-index:110;display:flex;align-items:center;justify-content:center;gap:5px;padding:8px 10px;min-height:44px;border:1px solid #1112;border-radius:8px;background:#f7f4eef5;color:#111;cursor:pointer;font:700 11px/1.4 Pretendard,sans-serif;box-shadow:0 4px 14px #1111}
@@ -79,3 +79,11 @@
 }
 @media(prefers-reduced-motion:reduce){.motion-enter,.reveal.motion-enter{opacity:1;translate:0 0;transform:none;transition:none}}
 .motion-paused .motion-enter,.motion-paused .reveal.motion-enter{opacity:1;translate:0 0;transform:none;transition:none}
+
+/* No repeated transition retargeting on scroll-driven visuals. */
+@media(prefers-reduced-motion:no-preference){
+.signature-frame,.signature-frame img{transition:none;backface-visibility:hidden}
+.cinema-scene{transition:opacity 1s cubic-bezier(.22,.61,.36,1),visibility 1s}
+.cinema-copy{transition:transform 1.15s cubic-bezier(.22,.61,.36,1)}
+.cinema-progress i{width:100%;transform:scaleX(var(--cinema-progress,0));transform-origin:left}
+}
