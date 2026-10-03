@@ -1,0 +1,25 @@
+/* Recruiter reading path and bounded rendering cost. */
+.recruiter-summary{display:grid;grid-template-columns:1fr 1.2fr auto;align-items:center;gap:24px;border-block:1px solid var(--line);padding:22px 0;margin:0 0 36px;font-size:13px;line-height:1.65}
+.recruiter-summary p{margin:0}.recruiter-summary strong{font-size:22px;display:block;letter-spacing:-.04em}
+.recruiter-summary p>span{display:block;color:#625b54;font-size:12px;margin-top:4px}
+.recruiter-summary a{min-height:44px;display:flex;align-items:center;font-weight:700}
+.recruiter-summary a:focus-visible,.cinema-skip:focus-visible{outline:2px solid var(--orange);outline-offset:5px}
+.cinema-skip{margin-left:auto;display:inline-flex;gap:12px;align-items:center;min-height:44px;color:var(--paper);font-size:12px;white-space:nowrap}
+.cinema-skip span{color:var(--orange)}.cinema-scroll-status{min-width:92px;text-align:right}
+.contact-purpose{max-width:620px;line-height:1.8!important;font-size:15px!important;letter-spacing:0!important;margin:28px 0!important}
+.site-header{backdrop-filter:none;background:#f7f4eef5}
+.agent-story:not(.motion-in-view) .agent-map-node,.agent-story:not(.motion-in-view) .agent-map-arrow,.skills-band:not(.motion-in-view) .skills-track{animation-play-state:paused!important}
+@media(max-width:720px){
+ .recruiter-summary{grid-template-columns:1fr;gap:12px;padding:20px 0;margin-bottom:28px}
+ .recruiter-summary a{justify-self:start}
+ .cinema-topline{align-items:center;flex-wrap:wrap;row-gap:0}
+ .cinema-topline>span:first-child{font-size:7px;max-width:45%}
+ .cinema-skip{font-size:10px;gap:6px}
+ .cinema-scroll-status{width:100%;font-size:8px;min-width:0}
+ .contact-purpose{font-size:13px!important}
+}
+
+.scroll-progress{transform:scaleX(0);transform-origin:left center}.scroll-progress::after{transform:none;transition:none}
+
+/* Evidence is rendered by lazy decoded img elements, not duplicate backgrounds. */
+.evidence-tile{background-image:none!important}

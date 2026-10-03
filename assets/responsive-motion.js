@@ -6,6 +6,7 @@ const candidates=[...new Set(document.querySelectorAll('.reveal,.section:not(#to
 const candidateSet=new Set(candidates);
 const targets=candidates.filter(el=>{for(let p=el.parentElement;p;p=p.parentElement)if(candidateSet.has(p))return false;return true;});
 const show=el=>{el.classList.add('motion-shown');if(el.classList.contains('reveal'))el.classList.add('is-visible');};
+const targetSet=new Set(targets);candidates.filter(el=>!targetSet.has(el)).forEach(show);
 let enter, entranceHeight=innerHeight;
 function observeEntrances(){
  enter?.disconnect();entranceHeight=innerHeight;
@@ -23,6 +24,11 @@ const view=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isInterse
 items.forEach(el=>view.observe(el));
 let scheduled=false,dirty=true,lastTime=0;
 const motion=new Map();
+const railElement=document.querySelector('.section-rail'),progressElement=document.querySelector('.scroll-progress'),header=document.querySelector('[data-header]');
+let lastY=scrollY,headerHidden=false,documentHeight=root.scrollHeight;
+new ResizeObserver(()=>{documentHeight=root.scrollHeight;schedule();}).observe(document.body);
+const cycles=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('motion-in-view',e.isIntersecting)),{rootMargin:'80px 0px'});
+document.querySelectorAll('.agent-story,.skills-band').forEach(el=>cycles.observe(el));
 function render(time){
  scheduled=false;
  if(document.hidden){lastTime=0;return;}
@@ -30,11 +36,14 @@ function render(time){
  const alpha=paused()?1:1-Math.exp(-dt/95);
  if(dirty){
   dirty=false;
-  const max=Math.max(1,root.scrollHeight-innerHeight);
+  const max=Math.max(1,documentHeight-innerHeight);
   const rail=Math.min(1,Math.max(0,scrollY/max));
   const updates=[];
   for(const el of visible){const r=el.getBoundingClientRect();const p=paused()?.5:Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight+r.height)));updates.push([el,p]);}
-  root.style.setProperty('--rail-progress',String(rail));
+  railElement?.style.setProperty('--rail-progress',String(rail));
+  if(progressElement)progressElement.style.transform='scaleX('+rail+')';
+  const y=scrollY,hide=y>lastY&&y>200&&!header?.contains(document.activeElement);
+  if(hide!==headerHidden){header?.classList.toggle('hide',hide);headerHidden=hide;}lastY=y;
   for(const [el,p] of updates){const state=motion.get(el)||{value:p,target:p};state.target=p;motion.set(el,state);}
  }
  let moving=false;

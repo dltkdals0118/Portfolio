@@ -105,7 +105,7 @@
       const pulse = Math.sin(distance * .025 - phase * 3) * energy * influence * 15;
       return [x + wave * 7 + dx * influence * .045 + pulse, y + Math.cos(x * .004 - phase * .7) * Math.sin(y * .006 + phase) * 8 + dy * influence * .045 + pulse + scrollDepth * 6];
     };
-    const step = 48, spacing = 72;
+    const step = coarse.matches ? 96 : 72, spacing = 72;
     let path = '';
     for (let x = -spacing; x <= width + spacing; x += spacing) {
       for (let y = -step; y <= height + step; y += step) {
@@ -126,7 +126,7 @@
     frameId = 0;
     if (!canRun()) return;
     // 30 fps on touch screens; no offscreen or background-tab work.
-    const interval = coarse.matches ? 32 : 23;
+    const interval = 32;
     if (timestamp - lastFrame >= interval) {
       const delta = Math.min(50, timestamp - (lastFrame || timestamp));
       lastFrame = timestamp;

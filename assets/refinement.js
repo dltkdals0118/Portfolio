@@ -30,7 +30,7 @@
   document.addEventListener('focusin', e => {
     if (!rail.contains(e.target) && !menuButtons.some(b => b.contains(e.target))) closeMenu();
   });
-  let pending = false;
+  let pending = false, activeId = null;
   const update = () => {
     pending = false;
     let current = targets[0];
@@ -38,6 +38,8 @@
       if (target.getBoundingClientRect().top <= innerHeight * .38) current = target;
     }
     if (scrollY + innerHeight >= document.documentElement.scrollHeight - 8) current = targets.at(-1);
+    if (current.id === activeId) return;
+    activeId = current.id;
     [...links, ...headerLinks].forEach(a => {
       const active = a.getAttribute('href') === '#' + current.id;
       a.classList.toggle('active', active);
@@ -115,6 +117,7 @@
     kicker.textContent = step.dataset.kicker;
     title.textContent = step.dataset.title;
   };
+  let storyVisible = false;
   const readingLine = () => {
     const touchLayout = matchMedia('(max-width:1100px)').matches;
     const landscape = innerHeight <= 540 || (innerWidth >= 900 && innerWidth <= 1100);
@@ -133,7 +136,7 @@
   };
   let scheduled = false;
   const schedule = () => {
-    if (scheduled) return;
+    if (scheduled || !storyVisible || document.hidden) return;
     scheduled = true;
     requestAnimationFrame(() => { scheduled = false; update(); });
   };
@@ -143,9 +146,9 @@
   }));
   addEventListener('scroll', schedule, { passive: true });
   addEventListener('resize', schedule, { passive: true });
-  addEventListener('load', update);
+  new IntersectionObserver(entries => { storyVisible=entries[0].isIntersecting; if(storyVisible)schedule(); },{rootMargin:'100px 0px'}).observe(story);
+  document.addEventListener('visibilitychange',schedule);
   activate(0);
-  update();
 })();
 
 // The same readable viewer serves search, documents and workflow screenshots.
