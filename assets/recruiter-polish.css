@@ -62,3 +62,6 @@
  .section h2{line-height:1.16}
  .disclosure-note{font-size:13px;padding-left:16px;margin-top:26px}
 }
+
+/* A full viewport of scrolling per chapter leaves room to read before the exit. */
+@media(prefers-reduced-motion:no-preference){.cinema{height:420svh}}

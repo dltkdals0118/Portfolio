@@ -19,6 +19,12 @@
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const navigation = performance.getEntriesByType('navigation')[0];
     if (navigation?.type === 'back_forward') return;
+    window.portfolioResetAfterIntro = navigation?.type === 'reload';
+    if (window.portfolioResetAfterIntro) {
+      history.scrollRestoration = 'manual';
+      history.replaceState(history.state, '', location.pathname + location.search + '#top');
+      scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
     window.portfolioIntroEligible = true;
     root.classList.add('intro-pending');
     // The page stays usable if the enhancement script cannot load.
@@ -31,6 +37,11 @@
         el.inert = false;
         el.removeAttribute('data-intro-inert');
       });
+      if (window.portfolioResetAfterIntro) {
+        scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        window.portfolioResetAfterIntro = false;
+        history.scrollRestoration = 'auto';
+      }
       dispatchEvent(new Event('portfolio:intro-expired'));
     }, 4000);
   })();
@@ -429,7 +440,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <link rel="stylesheet" href="assets/unified-design.css?v=unified-1"/>
 <link rel="stylesheet" href="assets/prototype.css?v=prototype-4"/>
 <link rel="stylesheet" href="assets/single-page.css?v=single-1"/>
-<link rel="stylesheet" href="assets/recruiter-polish.css?v=mobile-3"/>
+<link rel="stylesheet" href="assets/recruiter-polish.css?v=motion-4"/>
 </head>
 <body>
 <div aria-labelledby="entry-intro-title" aria-modal="true" class="entry-intro" hidden="" id="entry-intro" role="dialog">
@@ -452,9 +463,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <a class="skip-link" href="#main">본문 바로가기</a>
 <header aria-label="Portfolio navigation" class="site-header" data-header="">
 <a aria-label="상단으로 이동" class="brand" href="#top">SM<span>.</span></a>
-<nav aria-label="주요 메뉴" class="nav"><a href="#work">대표 프로젝트</a><a href="#seo">SEO</a><a href="#automation">Automation</a><a href="#product">Product</a><a href="#contact">Contact</a></nav>
+<nav aria-label="주요 메뉴" class="nav"><a href="#work">대표 프로젝트</a><a href="#seo">SEO</a><a href="#automation">Automation</a><a href="#product">Product</a></nav>
 <button aria-controls="section-rail" aria-expanded="false" aria-label="전체 섹션 메뉴" class="section-menu-toggle" type="button">MENU <span aria-hidden="true">＋</span></button>
-<a class="header-cta" href="#contact">연락하기 ↗</a>
+<a class="header-cta" href="#contact">Contact ↗</a>
 </header>
 <nav aria-label="이 페이지 목차" class="section-rail" id="section-rail"><a aria-label="처음 섹션으로 이동" href="#top"><span class="rail-label">처음</span><span aria-hidden="true" class="rail-line"></span></a><a aria-label="대표 작업 섹션으로 이동" href="#work"><span class="rail-label">대표 작업</span><span aria-hidden="true" class="rail-line"></span></a><a aria-label="성과 섹션으로 이동" href="#results"><span class="rail-label">성과</span><span aria-hidden="true" class="rail-line"></span></a><a aria-label="SEO 증빙 섹션으로 이동" href="#seo"><span class="rail-label">SEO 증빙</span><span aria-hidden="true" class="rail-line"></span></a><a aria-label="기술 개선 섹션으로 이동" href="#technical"><span class="rail-label">기술 개선</span><span aria-hidden="true" class="rail-line"></span></a><a aria-label="AI 자동화 섹션으로 이동" href="#automation"><span class="rail-label">AI 자동화</span><span aria-hidden="true" class="rail-line"></span></a><a aria-label="앱 기획·데모 섹션으로 이동" href="#product"><span class="rail-label">앱 기획·데모</span><span aria-hidden="true" class="rail-line"></span></a><a aria-label="소개·경력 섹션으로 이동" href="#profile"><span class="rail-label">소개·경력</span><span aria-hidden="true" class="rail-line"></span></a><a aria-label="연락 섹션으로 이동" href="#contact"><span class="rail-label">연락</span><span aria-hidden="true" class="rail-line"></span></a></nav>
 <main id="main">
@@ -700,7 +711,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     </section><section class="section practice" id="practice">
       <div class="section-label"><span>07</span> AUTOMATION IN PRACTICE</div>
       <div class="practice-heading"><h2>반복 업무를<br /><em>재사용 가능한 흐름으로.</em></h2><p>엔진의 명령·스크립트에서 확인한 처리 구조입니다. 실행 화면은 익명화한 공통 증빙이며, 아래 항목별로 독립된 성과 측정을 의미하지 않습니다.</p></div><div class="practice-grid">
-        <div class="practice-media reveal privacy-practice" data-media-slot="agent"><span class="practice-mask-label">실제 Claude Code 실행 화면 · 식별정보 비공개</span>
+        <div class="practice-media reveal privacy-practice" data-media-slot="agent-console"><span class="practice-mask-label">실제 Claude Code 실행 화면 · 식별정보 비공개</span>
           <button class="practice-preview" type="button" data-lightbox="assets/automation-execution-redacted.webp" aria-label="자동화 실무 실행 화면 확대"><img width="854" height="720" src="assets/automation-execution-redacted.webp" alt="고객사 식별정보를 가린 Claude Code 데이터 분석·자동화 실행 화면" loading="lazy" /><span>화면 확대 ↗</span></button>
         </div>
         <div class="practice-list"><article class="reveal"><span>DAILY DATA CHECK</span><h3>방문자 데이터를 대조합니다.</h3><p>관리자 데이터와 GA4를 날짜별로 비교하고 전일·최근 평균을 함께 정리합니다. 수집 오류와 이상 징후는 구분해 사람이 확인할 항목으로 남깁니다.</p></article><article class="reveal"><span>REPORT AUTOMATION</span><h3>월간 SEO 보고서를 생성·검수합니다.</h3><p>사이트 수집·기술 점검 결과를 보고서로 구성하고, 수치 근거·문서 일관성·렌더링을 확인합니다. 측정 불가는 별도 상태로 표시합니다.</p></article><article class="reveal"><span>CONTENT OPERATIONS</span><h3>웹블로그 발행 현황을 집계합니다.</h3><p>사이트별 운영 주기에 맞춰 발행 현황을 집계합니다. 수정일 대신 실제 발행일을 읽고, 읽지 못한 글은 별도 표시해 누락 점검에 연결합니다.</p></article>
@@ -990,10 +1001,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 </script>
 <script src="assets/refinement.js?v=review-2"></script>
 <script src="assets/motion.js?v=entry-1"></script>
-<script src="assets/entry-motion.js?v=entry-3"></script>
+<script src="assets/entry-motion.js?v=motion-4"></script>
 <script src="assets/prototype.js?v=demo-5"></script>
 <script src="assets/work-motion.js?v=work-1"></script>
-<script src="assets/cinema.js?v=calm-1"></script><script src="assets/unified-design.js?v=unified-1" defer></script>
+<script src="assets/cinema.js?v=motion-4"></script><script src="assets/unified-design.js?v=unified-1" defer></script>
 <script src="assets/single-page.js?v=single-1" defer></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 {
   "recordings": {
     "agent": null,
+    "agent-console": null,
     "product-flow": null,
     "product-prototype": null
   }

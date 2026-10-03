@@ -23,6 +23,11 @@
       el.removeAttribute('data-intro-inert');
     });
     introOpen = false;
+    if (window.portfolioResetAfterIntro) {
+      scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      window.portfolioResetAfterIntro = false;
+      history.scrollRestoration = 'auto';
+    }
     if (hadFocus) (returnFocus?.isConnected ? returnFocus : title).focus({ preventScroll: true });
     document.dispatchEvent(new Event('portfolio:entryend'));
   };
