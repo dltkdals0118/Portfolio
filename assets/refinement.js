@@ -5,14 +5,16 @@
   const targets = links.map(a => document.getElementById(a.hash.slice(1))).filter(Boolean);
   const headerLinks = [...document.querySelectorAll('.nav a')];
   const railTrigger = document.querySelector('.rail-menu-trigger');
+  let menuInvoker = toggle;
   const menuButtons = [toggle, railTrigger].filter(Boolean);
   const closeMenu = (restoreFocus = false) => {
     rail.classList.remove('is-open');
     menuButtons.forEach(b => b.setAttribute('aria-expanded', 'false'));
     toggle.querySelector('span').textContent = '＋';
-    if (restoreFocus) toggle.focus();
+    if (restoreFocus) menuInvoker.focus();
   };
   menuButtons.forEach(button => button.addEventListener('click', () => {
+    menuInvoker = button;
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     rail.classList.toggle('is-open', open);
     menuButtons.forEach(b => b.setAttribute('aria-expanded', String(open)));

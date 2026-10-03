@@ -4,10 +4,15 @@ const root=document.documentElement, reduced=matchMedia('(prefers-reduced-motion
 const paused=()=>reduced.matches||root.classList.contains('motion-paused');
 const targets=[...new Set(document.querySelectorAll('.reveal,.section:not(#top) h2,.section .section-label,.audit-card,.handoff-cases article,.agent-principles article,.result-brief>a,.prototype-demo,.beyond-list article,.selected-work .work-heading,.selected-work .work-row,.detail-cover h1,.detail-cover .detail-summary,.next-projects a'))];
 const show=el=>{el.classList.add('motion-shown');if(el.classList.contains('reveal'))el.classList.add('is-visible');};
-const enter=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){show(e.target);enter.unobserve(e.target);}}),{threshold:0,rootMargin:'-12% 0px -30% 0px'});
+let enter, entranceHeight=innerHeight;
+function observeEntrances(){
+ enter?.disconnect();entranceHeight=innerHeight;
+ enter=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){show(e.target);enter.unobserve(e.target);}}),{threshold:0,rootMargin:'-'+Math.round(innerHeight*.12)+'px 0px -'+Math.round(innerHeight*.30)+'px 0px'});
+ targets.filter(el=>!el.classList.contains('motion-shown')).forEach(el=>enter.observe(el));
+}
 let entrancesStarted=false;
 targets.forEach((el,i)=>{if(paused()){show(el);return;}el.classList.add('motion-enter');el.style.setProperty('--motion-delay',(i%3)*55+'ms');});
-function beginEntrances(){if(entrancesStarted)return;entrancesStarted=true;targets.forEach(el=>paused()?show(el):enter.observe(el));}
+function beginEntrances(){if(entrancesStarted)return;entrancesStarted=true;if(paused())targets.forEach(show);else observeEntrances();}
 document.addEventListener('portfolio:entryend',beginEntrances,{once:true});
 const intro=document.getElementById('entry-intro');
 if(!intro||intro.hidden)beginEntrances();
@@ -25,7 +30,7 @@ function render(){
  for(const [el,p] of updates)el.style.setProperty('--visual-progress',p.toFixed(4));
 }
 function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(render)}}
-addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});
+addEventListener('scroll',schedule,{passive:true});addEventListener('resize',()=>{if(entrancesStarted&&Math.abs(innerHeight-entranceHeight)>64)observeEntrances();schedule()},{passive:true});
 document.addEventListener('portfolio:motionchange',()=>{if(paused())targets.forEach(show);schedule()});
 reduced.addEventListener('change',()=>{if(paused())targets.forEach(show);schedule()});
 document.addEventListener('visibilitychange',schedule);render();
