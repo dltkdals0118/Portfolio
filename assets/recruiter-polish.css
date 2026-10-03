@@ -65,3 +65,20 @@
 
 /* A full viewport of scrolling per chapter leaves room to read before the exit. */
 @media(prefers-reduced-motion:no-preference){.cinema{height:420svh}}
+
+/* Continuous, restrained scroll feedback; evidence remains legible. */
+.cinema-topline{display:flex;justify-content:space-between;gap:20px}
+.cinema-scroll-status{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--orange);font-size:10px;letter-spacing:.08em}
+.cinema-progress{height:2px}
+.cinema-progress i{width:100%;transform:scaleX(var(--cinema-progress,0));transform-origin:left;will-change:transform}
+.cinema-chapters button:after{transform:scaleX(0);transition:none}
+.cinema-chapters button[aria-pressed=true]:after{transform:scaleX(var(--scene-progress,0));height:2px}
+#practice .practice-media{position:relative;top:auto;align-self:start;opacity:1;transform:none;translate:none;filter:none;transition:none;will-change:auto}
+#practice .practice-media img{display:block;transform:none;translate:none;transition:none}
+@media(prefers-reduced-motion:no-preference){
+ .cinema-scene.is-current .cinema-media{transform:translate3d(0,calc(12px - var(--scene-progress,0)*24px),0) scale(calc(.98 + var(--scene-progress,0)*.04));transition:none;will-change:transform}
+ .cinema-frame:before{inset:-32px;background-position:0 0;transform:translate3d(0,calc(var(--cinema-progress,0)*24px),0);will-change:transform}
+}
+@media(max-width:680px){.cinema-scroll-status{font-size:8px}.cinema-topline{gap:10px}}
+@media(prefers-reduced-motion:reduce){.cinema-scroll-status{display:none}.cinema-chapters button[aria-pressed=true]:after{transform:scaleX(1)}}
+.motion-paused .cinema-frame:before{transform:none}
