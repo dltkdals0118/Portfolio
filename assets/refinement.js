@@ -111,15 +111,20 @@
     kicker.textContent = step.dataset.kicker;
     title.textContent = step.dataset.title;
   };
-  const update = () => {
+  const readingLine = () => {
     const touchLayout = matchMedia('(max-width:1100px)').matches;
     const landscape = innerHeight <= 540 || (innerWidth >= 900 && innerWidth <= 1100);
-    const stageBottom = stage.getBoundingClientRect().bottom;
-    const line = touchLayout && !landscape
-      ? Math.min(innerHeight * .88, stageBottom + Math.max(48, (innerHeight - stageBottom) * .35))
-      : innerHeight * .5;
+    return innerHeight * (touchLayout && !landscape ? .82 : .5);
+  };
+  const update = () => {
+    const line = readingLine();
     let index = 0;
-    steps.forEach((step, i) => { if (step.getBoundingClientRect().top <= line) index = i; });
+    let nearest = Infinity;
+    steps.forEach((step, i) => {
+      const rect = step.getBoundingClientRect();
+      const distance = Math.abs(rect.top + rect.height / 2 - line);
+      if (distance < nearest) { nearest = distance; index = i; }
+    });
     activate(index);
   };
   let scheduled = false;
@@ -129,7 +134,8 @@
     requestAnimationFrame(() => { scheduled = false; update(); });
   };
   buttons.forEach((button, index) => button.addEventListener('click', () => {
-    steps[index].scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth' });
+    const rect = steps[index].getBoundingClientRect();
+    scrollTo({ top: scrollY + rect.top + rect.height / 2 - readingLine(), behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth' });
   }));
   addEventListener('scroll', schedule, { passive: true });
   addEventListener('resize', schedule, { passive: true });
