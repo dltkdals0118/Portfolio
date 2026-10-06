@@ -152,3 +152,8 @@
  .portfolio-focus .section-rail:not(.is-open){right:8px;width:12px;box-sizing:border-box}
  .portfolio-focus .section-rail.is-open{width:min(280px,calc(100% - 28px));box-sizing:border-box}
 }
+.portfolio-focus #wacus-prototype .prototype-poster.prototype-video-preview{width:100%;max-width:320px;cursor:default;color:#50514b}
+.portfolio-focus .prototype-video-preview video{display:block;width:100%;height:auto;aspect-ratio:1/2;border-radius:14px;background:#eceeed}
+.portfolio-focus .prototype-video-caption{margin:12px 0 0;font-size:14px;line-height:1.6;word-break:keep-all}
+.portfolio-focus .prototype-video-note{margin:0 0 22px;color:#595b54;font-size:14px;line-height:1.8;word-break:keep-all}
+.portfolio-focus #wacus-prototype .prototype-tools{flex-wrap:wrap}

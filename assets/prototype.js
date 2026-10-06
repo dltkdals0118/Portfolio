@@ -4,6 +4,8 @@
   const stage = showcase.querySelector('.prototype-stage');
   const launch = showcase.querySelector('.prototype-launch');
   const poster = showcase.querySelector('.prototype-poster');
+  const preview = poster.querySelector('video');
+  const previewReturn = showcase.querySelector('[data-demo-video]');
   const reset = showcase.querySelector('[data-demo-reset]');
   const expand = showcase.querySelector('[data-demo-expand]');
   const close = showcase.querySelector('[data-demo-close]');
@@ -16,6 +18,44 @@
   let returnFocus = null;
   let inerted = [];
   const sceneNames = Object.fromEntries(sceneButtons.map(b=>[b.dataset.demoScene,b.querySelector('b').textContent]));
+  let syncPreview = () => {};
+  const pausePreview = () => { if (preview && !preview.paused) preview.pause(); };
+  if (preview) {
+    const reducedMotion = matchMedia('(prefers-reduced-motion:reduce)');
+    let visible = false;
+    let userPaused = false;
+    let automaticPause = false;
+    const pause = () => {
+      if (preview.paused) return;
+      automaticPause = true;
+      preview.pause();
+    };
+    syncPreview = () => {
+      const canPlay = visible && !document.hidden && !poster.hidden &&
+        !showcase.classList.contains('is-live') && !reducedMotion.matches &&
+        !document.documentElement.classList.contains('motion-paused') &&
+        !document.body.classList.contains('motion-paused') &&
+        !navigator.connection?.saveData;
+      if (canPlay && !userPaused) {
+        if (preview.paused) preview.play().catch(() => { userPaused = true; });
+      } else pause();
+    };
+    preview.addEventListener('pause', () => {
+      if (automaticPause) { automaticPause = false; return; }
+      if (!poster.hidden) userPaused = true;
+    });
+    preview.addEventListener('play', () => { userPaused = false; });
+    const observer = new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting && entries[0].intersectionRatio >= 0.2;
+      syncPreview();
+    }, { threshold: [0, 0.2] });
+    observer.observe(preview);
+    document.addEventListener('visibilitychange', syncPreview);
+    reducedMotion.addEventListener('change', syncPreview);
+    const motionObserver = new MutationObserver(syncPreview);
+    motionObserver.observe(document.documentElement, { attributes:true, attributeFilter:['class'] });
+    motionObserver.observe(document.body, { attributes:true, attributeFilter:['class'] });
+  }
 
   function syncScene(next) {
     if (!(next in sceneNames)) return;
@@ -42,6 +82,8 @@
     launch.textContent = '데모 여는 중…';
     showcase.classList.add('is-live');
     poster.hidden = true;
+    pausePreview();
+    if (previewReturn) previewReturn.hidden = false;
     stage.append(frame);
     status.textContent = '데모를 여는 중입니다.';
     reset.disabled = false;
@@ -93,7 +135,23 @@
   launch.addEventListener('click', () => {
     if (frame && !ready) resetDemo(); else start();
   });
-  poster.addEventListener('click',start);
+  if (poster.tagName === 'BUTTON') poster.addEventListener('click',start);
+  previewReturn?.addEventListener('click', () => {
+    collapseView();
+    clearTimeout(timer);
+    frame?.remove(); frame = null; ready = false;
+    showcase.classList.remove('is-live');
+    poster.hidden = false;
+    previewReturn.hidden = true;
+    launch.disabled = false;
+    launch.textContent = '데모 시작 ↗';
+    reset.disabled = true;
+    syncScene('home');
+    if (preview) preview.currentTime = 0;
+    status.textContent = '시연 영상으로 돌아왔습니다. 재생 버튼 또는 데모 시작을 눌러보세요.';
+    syncPreview();
+    launch.focus({ preventScroll:true });
+  });
   reset.addEventListener('click',resetDemo);
   expand.addEventListener('click',expandView);
   close.addEventListener('click',collapseView);
