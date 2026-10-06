@@ -1237,3 +1237,88 @@ body.prototype-expanded{overflow:hidden}
 @media(max-width:760px){.focus-index .focus-project-art{height:190px;max-width:480px}.focus-handoff-preview{grid-template-columns:1fr;gap:16px}.focus-handoff-preview h3{font-size:26px}}
 @media(prefers-reduced-motion:reduce){.portfolio-focus .cinema{height:auto;min-height:100svh}.focus-project-art .search-preview-grid{transform:none!important}}
 .motion-paused .focus-project-art .search-preview-grid{transform:none!important}
+
+/* Proof stays visible. Meaningful labels stay legible at every viewport. */
+.portfolio-focus{--accent-ink:#b63b12;--muted-ink:#655e57}
+.portfolio-focus .hero-kicker{font-size:14px;line-height:1.6;letter-spacing:.04em;max-width:calc(100% - 200px)}
+.portfolio-focus .hero-context{font-size:16px;line-height:1.75;max-width:560px}
+.portfolio-focus .hero-name span{font-size:14px;letter-spacing:.06em;line-height:1.5}
+.hero-proof{display:flex;align-items:baseline;gap:12px;max-width:450px;margin:16px 0 0;color:#111;line-height:1.5}
+.hero-proof strong{font-size:30px;letter-spacing:-.045em;flex-shrink:0}
+.hero-proof span{font-size:14px;word-break:keep-all}
+.hero-proof:focus-visible{outline:2px solid #111;outline-offset:5px}
+.portfolio-focus .hero-actions a,.portfolio-focus .hero-motion-controls button,.portfolio-focus .nav a,.portfolio-focus .header-cta,.portfolio-focus .section-menu-toggle{font-size:14px}
+.portfolio-focus .section-label,.portfolio-focus .eyebrow,.portfolio-focus .recruiter-summary,.portfolio-focus .recruiter-summary p>span{font-size:14px;line-height:1.7}
+.portfolio-focus .focus-index>a>span,.portfolio-focus .focus-facts dt,.portfolio-focus .focus-demo-text em{font-size:14px;color:var(--accent-ink);line-height:1.6}
+.portfolio-focus .focus-index b,.portfolio-focus .focus-evidence figcaption,.portfolio-focus .focus-evidence button>span,.portfolio-focus .focus-metrics span,.portfolio-focus .focus-metrics p small,.portfolio-focus .focus-note{font-size:14px;line-height:1.8;letter-spacing:0}
+.portfolio-focus .focus-heading>p,.portfolio-focus .focus-index p,.portfolio-focus .focus-facts dd{font-size:16px;line-height:1.8}
+.portfolio-focus .focus-metrics strong small{color:var(--muted-ink)}
+.portfolio-focus .focus-details>summary{font-size:16px;line-height:1.7}
+.portfolio-focus .focus-details>summary>span:last-child{color:var(--accent-ink)}
+.portfolio-focus .focus-evidence button,.portfolio-focus .audit-card button{color:#111}
+.portfolio-focus .focus-evidence button>span,.portfolio-focus .audit-card button>span,.portfolio-focus .evidence-tile>span{background:#111;color:#fff;font-size:14px;line-height:1.5;padding:9px 12px}
+.result-context{display:grid;grid-template-columns:1fr 1fr;gap:28px;border-block:1px solid var(--line);padding:22px 0;margin:0 0 30px}
+.result-context dt{font-weight:800;font-size:14px;margin-bottom:8px}
+.result-context dd{font-size:15px;line-height:1.8;color:var(--muted-ink);margin:0;word-break:keep-all}
+.portfolio-focus .technical-copy>p:not(.eyebrow){font-size:16px;line-height:1.85}
+.portfolio-focus .audit-summary dt,.portfolio-focus .audit-summary dd,.portfolio-focus .audit-status{font-size:14px!important;line-height:1.8!important}
+.portfolio-focus .audit-summary dt,.portfolio-focus .audit-summary .audit-status{color:#d0cac2}
+.portfolio-focus .audit-card-copy>p:last-child{font-size:16px;line-height:1.8}
+.portfolio-focus .audit-card-copy .eyebrow{color:var(--accent-ink)}
+.portfolio-focus .focus-extra-proof .proof-card span{font-size:14px;color:var(--accent-ink)}
+.portfolio-focus .focus-extra-proof .proof-card p,.portfolio-focus .naver-proof-caption span{font-size:14px;color:var(--muted-ink);line-height:1.8}
+.portfolio-focus .aeo-card,.portfolio-focus .aeo-copy,.portfolio-focus .aeo-copy h3{color:#f7f4ee}
+.portfolio-focus .aeo-copy>span{font-size:14px;line-height:1.6;color:#ff7546;letter-spacing:.04em}
+.portfolio-focus .aeo-copy p{font-size:16px;line-height:1.85;color:#d0cac2}
+.portfolio-focus #aeo-heading{font-size:clamp(26px,2.8vw,40px);line-height:1.35;letter-spacing:-.04em;margin:16px 0}
+.portfolio-focus .touch-swipe-hint{font-size:14px;line-height:1.6;color:var(--muted-ink)}
+.aeo-qa{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:36px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.aeo-qa h4{grid-column:1/-1;font-size:20px;line-height:1.5;margin:0}
+.aeo-qa h5{font-size:16px;line-height:1.7;margin:0 0 10px}
+.aeo-qa p{font-size:15px;line-height:1.85;color:var(--muted-ink);margin:0;word-break:keep-all}
+.portfolio-focus .focus-automation{background:#111;color:#f7f4ee}
+.portfolio-focus .focus-automation .focus-heading>p,.portfolio-focus .focus-automation .focus-note{color:#d0cac2}
+.portfolio-focus .focus-automation .focus-facts dt,.portfolio-focus .focus-automation .focus-details>summary>span:last-child{color:#ff7546}
+.portfolio-focus .focus-automation .focus-facts>div,.portfolio-focus .focus-automation .focus-details{border-color:#ffffff30}
+.agent-ownership{font-size:16px;line-height:1.85;max-width:950px;margin:0;word-break:keep-all;color:#d0cac2}
+.agent-ownership strong{color:#f7f4ee}
+.portfolio-focus .agent-principles{margin:28px 0 40px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.portfolio-focus .agent-principles span{font-size:14px;line-height:1.7;color:#ff7546}
+.portfolio-focus .agent-principles p{font-size:16px;color:#d0cac2;line-height:1.85}
+.portfolio-focus .agent-principles h3{font-size:23px;line-height:1.5;color:#f7f4ee}
+.portfolio-focus .focus-demo-list{grid-template-columns:minmax(0,1fr)}
+.portfolio-focus .focus-demo-list>details,.portfolio-focus .focus-demo-text,.portfolio-focus .prototype-layout>*{min-width:0}
+.portfolio-focus .focus-demo-text small{font-size:14px;line-height:1.8;word-break:keep-all}
+.portfolio-focus .prototype-kicker,.portfolio-focus .prototype-index,.portfolio-focus .prototype-tools button,.portfolio-focus .prototype-tools a,.portfolio-focus .prototype-launch,.portfolio-focus .prototype-showcase.is-live .prototype-launch{font-size:14px;line-height:1.6}
+.portfolio-focus .prototype-scenes button{min-height:44px}
+.portfolio-focus .prototype-scenes button b,.portfolio-focus .prototype-scenes .num,.portfolio-focus .prototype-scenes .scene-hint{font-size:14px;line-height:1.6}
+.portfolio-focus .prototype-scenes .scene-hint{color:#655e57}
+.portfolio-focus .prototype-scenes button[aria-pressed=true],.portfolio-focus .prototype-scenes button[aria-pressed=true] .arrow,.portfolio-focus .prototype-copy h3 em{color:var(--accent-ink)}
+.portfolio-focus .prototype-disclosure,.portfolio-focus .prototype-disclosure strong,.portfolio-focus .prototype-foot,.portfolio-focus .prototype-foot span:last-child{font-size:14px;line-height:1.8;color:#655e57;white-space:normal}
+.portfolio-focus .prototype-disclosure strong{flex-shrink:0}
+.portfolio-focus .prototype-poster-label{font-size:14px}
+.portfolio-focus .prototype-tools button:disabled{opacity:1;color:#726c65}
+.portfolio-focus .contact-links a,.portfolio-focus .footer-note,.portfolio-focus .timeline time,.portfolio-focus .timeline article>span{font-size:14px;line-height:1.8}
+.portfolio-focus .cinema-kicker,.portfolio-focus .cinema-status,.portfolio-focus .cinema-skip,.portfolio-focus .cinema-chapters button,.portfolio-focus .cinema-footer a{font-size:14px;line-height:1.6}
+.portfolio-focus .section-label>span,.portfolio-focus .cinema-topline>span,.portfolio-focus .cinema-eyebrow,.portfolio-focus .cinema-detail,.portfolio-focus .cinema-chapters button span{font-size:14px;line-height:1.6}
+.portfolio-focus .prototype-description{font-size:16px;line-height:1.85}
+.portfolio-focus .prototype-disclosure span,.portfolio-focus .prototype-poster>span:last-child{font-size:14px;line-height:1.8}
+.portfolio-focus .section-rail .rail-label{font-size:14px;line-height:1.6;max-width:160px;white-space:nowrap}
+@media(max-width:760px){
+ .portfolio-focus .hero-kicker{max-width:calc(100% - 126px);font-size:14px;letter-spacing:0}
+ .portfolio-focus .hero-motion-controls{gap:8px}.portfolio-focus .hero-motion-controls button{font-size:12px}
+ .portfolio-focus .hero-context{font-size:16px;max-width:none}.portfolio-focus .hero-name span{font-size:14px}
+ .portfolio-focus .hero-proof{gap:10px}.portfolio-focus .hero-proof strong{font-size:28px}
+ .portfolio-focus .cinema-topline{flex-wrap:wrap;gap:10px}.portfolio-focus .cinema-topline>span{font-size:13px;letter-spacing:0}
+ .portfolio-focus .cinema-footer{gap:16px}.portfolio-focus .cinema-chapters button{font-size:13px;padding-inline:0}
+ .portfolio-focus .focus-proof-pair{grid-template-columns:1fr;gap:24px}
+ .portfolio-focus .focus-proof-pair .focus-evidence img{height:280px}
+ .result-context,.aeo-qa{grid-template-columns:1fr;gap:18px}
+ .portfolio-focus .agent-principles{grid-template-columns:1fr;gap:24px}
+ .portfolio-focus .prototype-scenes button{padding:10px 12px}
+ .portfolio-focus .prototype-showcase,.portfolio-focus .focus-expanded{max-width:100%;min-width:0}
+ .portfolio-focus .focus-demo-list>details>summary{gap:12px}.portfolio-focus .focus-demo-thumb{width:52px;height:88px}
+ .portfolio-focus .focus-demo-text b{font-size:20px;line-height:1.4;word-break:keep-all}
+ .portfolio-focus .section-rail:not(.is-open){right:8px;width:12px;box-sizing:border-box}
+ .portfolio-focus .section-rail.is-open{width:min(280px,calc(100% - 28px));box-sizing:border-box}
+}
