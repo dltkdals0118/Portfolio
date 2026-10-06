@@ -4,7 +4,7 @@
   if (!showcase) return;
   const video = showcase.querySelector('video');
   const buttons = [...showcase.querySelectorAll('[data-agent-time]')];
-  const description = showcase.querySelector('[data-agent-description]');
+  const description = showcase.querySelector('.agent-demo-description');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false;
   let userPaused = false;
