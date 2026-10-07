@@ -1390,7 +1390,7 @@ body.portfolio-focus{background:#fff}
 .portfolio-editorial .section-label>span{border:0;width:auto;height:auto;color:var(--accent-ink);font:600 14px/1.7 Inter,sans-serif;letter-spacing:0}
 .portfolio-editorial .ed-kicker{font-size:12px;font-weight:750;letter-spacing:.09em;line-height:1.7;color:var(--accent-ink);margin:0 0 14px}
 .portfolio-editorial h2,.portfolio-editorial h3,.portfolio-editorial h4{word-break:keep-all}
-.portfolio-editorial .motion-enter,.portfolio-editorial .reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+.portfolio-editorial .motion-enter,.portfolio-editorial .reveal{opacity:1!important;translate:none!important;transform:none!important;filter:none!important;transition:none!important}
 .portfolio-editorial .ed-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0}
 .portfolio-editorial .ed-tags>span{font-size:11px;line-height:1.65;font-weight:700;letter-spacing:.015em;border:1px solid #b63b121c;background:#ff5a1f08;color:var(--accent-ink);border-radius:5px;padding:4px 8px}
 .portfolio-editorial .ed-projects{background:#fff}
