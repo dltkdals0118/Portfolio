@@ -18,7 +18,7 @@
     const root = document.documentElement;
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const navigation = performance.getEntriesByType('navigation')[0];
-    if (navigation?.type === 'back_forward') return;
+    if (navigation?.type === 'back_forward' || (location.hash && location.hash !== '#top')) return;
     window.portfolioResetAfterIntro = navigation?.type === 'reload';
     if (window.portfolioResetAfterIntro) {
       history.scrollRestoration = 'manual';
@@ -161,7 +161,7 @@
 
 
 
-<section class="section focus-career" id="career"><div class="ed-inner"><div class="section-label"><span>05</span> CAREER</div><div class="focus-heading ed-career-heading"><h2>콘텐츠에서 검색으로,<br>검색에서 서비스 기획으로.</h2><p>콘텐츠·디지털 마케팅 경력 4년+<br>현재 주력: SEO · 서비스 기획 · AI 자동화</p></div><div class="timeline reveal">
+<section class="section focus-career" id="career"><div class="ed-inner"><div class="section-label"><span>02</span> CAREER</div><div class="focus-heading ed-career-heading"><h2>콘텐츠에서 검색으로,<br>검색에서 서비스 기획으로.</h2><p>콘텐츠·디지털 마케팅 경력 4년+<br>현재 주력: SEO · 서비스 기획 · AI 자동화</p></div><div class="timeline reveal">
 <article>
 <div class="time">2022.05 — 2023.05</div>
 <h3>실버아이</h3>
