@@ -400,10 +400,10 @@ body.portfolio-focus{background:#fff}
 .portfolio-editorial .visual-project-grid{gap:50px 30px}
 .portfolio-editorial .visual-cover{height:auto;aspect-ratio:1.25;position:relative;overflow:hidden;border-radius:3px;isolation:isolate}
 .visual-cover-label{position:absolute;top:22px;left:24px;z-index:2;font-size:10px;letter-spacing:.08em;font-weight:650}
-.visual-cover-eye{background:#111;color:#fff}
-.visual-cover-skin{background:#f3f3f3;color:#111}
+.visual-cover-eye{background:#4676f4;color:#fff}
+.visual-cover-skin{background:#e7ded5;color:#111}
 .visual-cover-search{background:#ff5a1f;color:#111}
-.visual-cover-agent{background:#111;color:#fff}
+.visual-cover-agent{background:#171c26;color:#fff}
 .cover-phones{position:absolute;inset:66px 30px -48px;display:flex;justify-content:center;align-items:flex-start;gap:22px;transform:rotate(-8deg)}
 .cover-phones .showcase-phone{width:39%;max-width:176px}
 .cover-phones .showcase-phone+ .showcase-phone{margin-top:42px}
@@ -456,3 +456,16 @@ body.portfolio-focus{background:#fff}
 .visual-cover-search .visual-cover-label::before{background:#111}
 .case-visual-gallery button:focus-visible{outline:2px solid var(--accent-ink);outline-offset:6px}
 .portfolio-editorial .planning-eyebrow{color:var(--accent-ink);font-weight:650}
+
+/* 다섯번째 사례 — 가로로 긴 User Flow 증빙이라 두 칸을 쓴다 */
+.portfolio-editorial .visual-project-span{grid-column:1/-1}
+.portfolio-editorial .visual-project-span .visual-cover{aspect-ratio:3.1}
+.visual-cover-product{background:#eceae7;color:#111}
+.visual-cover-product .product-cover-screen{position:absolute;top:50%;left:24px;right:24px;width:auto;transform:translateY(-42%);border-radius:3px;box-shadow:0 18px 40px #0006}
+@media(max-width:760px){
+.portfolio-editorial .visual-project-span .visual-cover{aspect-ratio:2}
+.visual-cover-product .product-cover-screen{left:16px;right:16px}
+}
+
+/* 카드 커버 — 구도는 이미지로 굽는다 (scripts/build-covers.py). 라벨·제목은 HTML 에 남겨 읽히게 한다. */
+.portfolio-editorial .visual-cover .cover-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
