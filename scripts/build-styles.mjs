@@ -3,7 +3,7 @@
 // 되돌리려면 PURGE 를 false 로 두면 된다 — 소스는 손상되지 않는다.
 import {readFileSync,writeFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
-import {buildCorpus,purgeStyles,verify} from './purge-styles.mjs';
+import {buildCorpus,purgeStyles,verify,unbalancedSelectors} from './purge-styles.mjs';
 
 const PURGE = true;
 const root=new URL('../',import.meta.url);
@@ -19,6 +19,13 @@ if(PURGE){
   const lost=verify(bundled,purged,corpus.text);
   if(lost.length){
     console.error('Purge aborted — 사용 중인 클래스가 사라졌습니다: '+lost.join(', '));
+    process.exit(1);
+  }
+  // 닫히지 않은 셀렉터 하나가 파일 끝까지를 통째로 버리게 만든다.
+  // 조용히 깨지면 사이트가 스타일 없이 나가므로, 여기서 세운다.
+  const broken=unbalancedSelectors(purged);
+  if(broken.length){
+    console.error('Purge aborted — 괄호가 닫히지 않은 셀렉터: '+broken.slice(0,5).join(' | '));
     process.exit(1);
   }
   css=purged;

@@ -886,7 +886,7 @@ body:has(.lightbox[open]){overflow:hidden}
 .selected-work .project-summary,.selected-work .project-facts dd{line-height:1.75}
 .selected-work .work-row:first-child .work-visual,.selected-work .work-row:nth-child(n+2) .work-visual{aspect-ratio:1.25}}
 /* assets/unified-design.css */
-/* The hero's orange,ink and paper carry through every portfolio page. */
+/* The hero's orange, ink and paper carry through every portfolio page. */
 :root{--electric:var(--orange);--cobalt:var(--orange);--grid-step:72px}
 body em,body i{font-style:normal!important}
 main{background-image:linear-gradient(#11111105 1px,transparent 1px),linear-gradient(90deg,#11111105 1px,transparent 1px);background-size:var(--grid-step) var(--grid-step)}
@@ -1651,7 +1651,7 @@ body.portfolio-focus{background:#fff}
 .portfolio-editorial .ed-project-copy>p{margin-bottom:20px}
 .portfolio-editorial .ed-card-link{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:650;margin-top:18px;line-height:1.7}
 .portfolio-editorial .ed-card-link b{color:var(--accent-ink);font-size:19px}
-.portfolio-editorial .ed-project:hover :is(.ed-card-link{color:var(--accent-ink)}
+.portfolio-editorial .ed-project:hover :is(.ed-card-link,.ed-inline-link){color:var(--accent-ink)}
 .portfolio-editorial .ed-project-wide .ed-project-cover{aspect-ratio:4/3}
 .portfolio-editorial .ed-project-wide .ed-cover-top{font-size:9px;inset:16px 18px auto}
 .portfolio-editorial .ed-project-wide .ed-cover-bottom{font-size:9px;left:18px;right:18px}

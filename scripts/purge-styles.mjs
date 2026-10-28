@@ -64,6 +64,46 @@ function splitRules(css) {
 
 const CLASS = /\.(-?[_a-zA-Z][\w-]*)/g;
 
+// 셀렉터 목록은 '괄호 밖' 쉼표에서만 나눈다.
+// `:is(.a,.b)` 를 통째로 쪼개면 `:is(.a` 라는 닫히지 않은 셀렉터가 남고,
+// CSS 파서는 거기서부터 파일 끝까지를 통째로 버린다 — 규칙 114개가 그렇게 죽었다.
+function splitSelectorList(head) {
+  const out = [];
+  let buf = '', depth = 0, quote = null;
+  for (let i = 0; i < head.length; i++) {
+    const c = head[i];
+    if (quote) {
+      if (c === quote && head[i - 1] !== '\\') quote = null;
+    } else if (c === '"' || c === "'") quote = c;
+    else if (c === '(' || c === '[') depth++;
+    else if (c === ')' || c === ']') depth--;
+    else if (c === ',' && depth === 0) { out.push(buf); buf = ''; continue; }
+    buf += c;
+  }
+  out.push(buf);
+  return out;
+}
+
+// 내보내기 전에 모든 셀렉터가 스스로 닫혀 있는지 본다. 하나라도 어긋나면 빌드를 세운다.
+export function unbalancedSelectors(css) {
+  const bad = [];
+  for (const sel of collectSelectors(css)) {
+    let round = 0, square = 0, quote = null;
+    for (let i = 0; i < sel.length; i++) {
+      const c = sel[i];
+      if (quote) { if (c === quote && sel[i - 1] !== '\\') quote = null; continue; }
+      if (c === '"' || c === "'") quote = c;
+      else if (c === '(') round++;
+      else if (c === ')') round--;
+      else if (c === '[') square++;
+      else if (c === ']') square--;
+      if (round < 0 || square < 0) break;
+    }
+    if (round !== 0 || square !== 0 || quote) bad.push(sel);
+  }
+  return bad;
+}
+
 function selectorIsDead(sel, corpus) {
   const names = sel.match(CLASS);
   if (!names) return false;
@@ -84,8 +124,9 @@ function purge(css, corpus, stats) {
       else stats.emptyAtRules++;
       continue;
     }
-    const alive = head.split(',').map(s => s.trim()).filter(s => s && !selectorIsDead(s, corpus));
-    const total = head.split(',').filter(s => s.trim()).length;
+    const parts = splitSelectorList(head).map(s => s.trim()).filter(Boolean);
+    const alive = parts.filter(s => !selectorIsDead(s, corpus));
+    const total = parts.length;
     if (!alive.length) { stats.rulesRemoved++; continue; }
     if (alive.length < total) stats.selectorsTrimmed += total - alive.length;
     kept.push(alive.join(',') + rule.slice(brace));
@@ -118,7 +159,7 @@ function collectSelectors(css, out = []) {
       collectSelectors(rule.slice(brace + 1, rule.lastIndexOf('}')), out);
       continue;
     }
-    for (const s of head.split(',')) if (s.trim()) out.push(s.trim());
+    for (const s of splitSelectorList(head)) if (s.trim()) out.push(s.trim());
   }
   return out;
 }
