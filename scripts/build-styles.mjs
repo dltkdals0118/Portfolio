@@ -28,6 +28,13 @@ if(PURGE){
     console.error('Purge aborted — 괄호가 닫히지 않은 셀렉터: '+broken.slice(0,5).join(' | '));
     process.exit(1);
   }
+  // `--ink:var(--ink)` 같은 순환 참조는 무효가 되어 그 속성이 통째로 초기값으로
+  // 떨어진다(글자색이 전부 검정이 됐다). 조용히 나가지 못하게 세운다.
+  const circular=[...purged.matchAll(/(--[\w-]+)\s*:\s*var\(\s*\1\s*[,)]/g)].map(m=>m[1]);
+  if(circular.length){
+    console.error('Build aborted — 순환 참조 토큰: '+[...new Set(circular)].join(', '));
+    process.exit(1);
+  }
   css=purged;
   console.log(`Purge: HTML ${corpus.htmlCount}개 + 로드되는 JS ${corpus.jsFiles.length}개 기준`);
   console.log(`  규칙 제거 ${stats.rulesRemoved} · 셀렉터 정리 ${stats.selectorsTrimmed} · @keyframes ${stats.keyframesRemoved} · 빈 @블록 ${stats.emptyAtRules}`);

@@ -68,11 +68,17 @@ def process(text, stats, path):
         head, body = m.group(1), m.group(2)
         out.append(text[pos:m.start()])
         pos = m.end()
+        # 토큰 정의 블록은 절대 건드리지 않는다.
+        # 한 번 놓쳐서 `--ink:var(--ink)` 라는 순환 참조를 만들었고,
+        # 순환 참조는 무효가 되어 글자색이 통째로 검정으로 떨어졌다.
+        if ":root" in head or head.strip().startswith("@property"):
+            out.append(head + "{" + body + "}")
+            continue
         nb = body
 
         def w_sub(mm):
             v = mm.group(1)
-            if v in WEIGHT and not WEIGHT_KEEP.search(head):
+            if v in WEIGHT and not (v in ("900", "950") and WEIGHT_KEEP.search(head)):
                 stats["weight"][f"{v}->{WEIGHT[v]}"] += 1
                 return "font-weight:" + WEIGHT[v]
             return mm.group(0)
