@@ -5,4 +5,5 @@
 
 /* 사례 상단 스테이지 — 화면 벽을 한 장으로 굽는다 (scripts/build-covers.py 의 build_boards). */
 .case-stage .stage-board{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.stage-eye-app{background:#4676f4;color:#fff}
+.stage-eye-app{background:#ff5a1f;color:#111}
+.stage-skin-app{background:#f7f4ee;color:#111}
