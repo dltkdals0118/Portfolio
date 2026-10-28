@@ -1734,30 +1734,15 @@ body.portfolio-focus{background:#fff}
 .planning-eyebrow{font-size:var(--fs-caption);color:var(--muted);margin:0 0 18px}
 .portfolio-editorial .planning-case h3{font-size:clamp(28px,3.1vw,40px);line-height:1.4;letter-spacing:-.03em;margin:0 0 20px;word-break:keep-all}
 .planning-case header>p:last-child{font-size:var(--fs-body);line-height:1.9;color:#555;max-width:640px;word-break:keep-all;margin:0}
-.planning-highlights{list-style:none;padding:0;margin:32px 0}
-.planning-highlights li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:20px;padding:12px 0;font-size:var(--fs-caption);line-height:1.8;word-break:keep-all}
-.planning-highlights strong{font-weight:600;color:var(--ink)}
-.planning-highlights span{color:#555}
-.planning-more{margin:12px 0 16px;color:var(--muted);font-size:var(--fs-caption)}
-.planning-more summary{cursor:pointer;min-height:44px;display:flex;align-items:center;gap:18px;list-style:none}
-.planning-more summary::-webkit-details-marker{display:none}
-.planning-more[open] summary>span{transform:rotate(45deg)}
-.planning-more>div{padding:8px 0 20px;max-width:680px;line-height:1.95;word-break:keep-all}
-.planning-more p{margin:12px 0}
-.planning-more strong{color:var(--ink)}
-.planning-more a{text-decoration:underline;text-underline-offset:4px}
 .planning-source{display:inline-flex;align-items:center;gap:24px;min-height:44px;font-size:var(--fs-caption);font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:6px}
-.planning-more summary:focus-visible,.planning-source:focus-visible{outline:2px solid #a5330c;outline-offset:4px}
+.planning-source:focus-visible{outline:2px solid #a5330c;outline-offset:4px}
 .portfolio-editorial .planning-support{display:block;margin-top:32px}
 .hero h1>span:last-child{font-size:.78em;line-height:1.08;letter-spacing:var(--ls-hero)}
 @media(max-width:760px){.planning-case{padding:32px 0 40px}
-.planning-highlights li{grid-template-columns:74px minmax(0,1fr);gap:12px;font-size:var(--fs-caption)}
 .portfolio-editorial .ed-project-grid>.planning-project-link{gap:12px;grid-template-columns:24px minmax(0,1fr) 18px;padding-top:24px}
 .portfolio-editorial .planning-project-link h3{font-size:var(--fs-h3)}}
 /* Visual portfolio: actual project screens take the lead. */
 body.portfolio-focus{background:#fff}
-.showcase-phone{position:relative;flex-shrink:0;background:#fff;border:6px solid #24272b;outline:1px solid var(--muted);border-radius:27px;aspect-ratio:393/852;overflow:hidden;box-shadow:12px 24px 32px #11111128}
-.showcase-phone img{width:100%;height:auto;max-width:none;display:block;object-fit:contain;object-position:top}
 .portfolio-focus .portfolio-editorial .ed-projects{background:#fff;padding-block:var(--section-y)}
 .portfolio-editorial .visual-project-grid{gap:50px 30px}
 .portfolio-editorial .visual-cover{height:auto;aspect-ratio:1.25;position:relative;overflow:hidden;border-radius:3px;isolation:isolate}
@@ -1766,8 +1751,6 @@ body.portfolio-focus{background:#fff}
 .visual-cover-skin{background:var(--paper);color:var(--ink)}
 .visual-cover-search{background:var(--ink);color:var(--paper)}
 .visual-cover-agent{background:var(--orange);color:var(--ink)}
-.cover-phones .showcase-phone{width:39%;max-width:176px}
-.cover-phones .showcase-phone+ .showcase-phone{margin-top:42px}
 .visual-cover-skin .cover-phones{left:45%;right:-5%;top:62px;transform:rotate(10deg)}
 .visual-cover-skin .showcase-phone{width:72%;max-width:206px}
 .portfolio-editorial .visual-project-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:21px 0 9px}
@@ -1781,16 +1764,6 @@ body.portfolio-focus{background:#fff}
 .portfolio-editorial .planning-case{max-width:none;padding-block:55px}
 .portfolio-editorial .planning-case>header,.portfolio-editorial .planning-highlights,.portfolio-editorial .planning-more,.portfolio-editorial .planning-source{max-width:var(--measure);margin-left:0;margin-right:auto}
 .portfolio-editorial .planning-case>header{margin-bottom:32px}
-.case-visual-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:38px;background:#f4f4f4;padding:52px 40px 36px;margin:0 0 12px;border-radius:3px}
-.case-visual-gallery figure{margin:0;min-width:0;text-align:center}
-.case-visual-gallery button{display:block;border:0;background:none;padding:0;width:100%;cursor:zoom-in;color:inherit}
-.case-visual-gallery .showcase-phone{width:100%;max-width:224px;margin:auto;border-width:5px;border-radius:29px;box-shadow:8px 18px 24px #1111111a}
-.screen-expand{display:block;font-size:var(--fs-overline);color:var(--muted);margin-top:17px}
-.case-visual-gallery figcaption{display:grid;gap:6px;margin-top:24px}
-.case-visual-gallery figcaption strong{font-size:var(--fs-caption);font-weight:600}
-.case-visual-gallery figcaption span{font-size:var(--fs-overline);line-height:1.6;color:var(--muted);word-break:keep-all}
-.case-visual-skin{background:#f4f4f4;grid-template-columns:1fr;padding:48px}
-.case-visual-skin .showcase-phone{max-width:260px;aspect-ratio:393/844}
 .visual-caption{text-align:right;color:var(--muted);font-size:var(--fs-overline);line-height:1.7;margin:12px 0 36px}
 @media(min-width:1000px){.portfolio-focus .section-rail{display:none}}
 @media(max-width:760px){.portfolio-editorial .visual-project-grid{grid-template-columns:1fr;gap:36px}
@@ -1799,14 +1772,11 @@ body.portfolio-focus{background:#fff}
 .portfolio-editorial .section-label{margin-bottom:24px}
 .portfolio-focus .portfolio-editorial .ed-projects{padding-top:52px}
 .portfolio-editorial .visual-project-heading h3{font-size:var(--fs-h3)}
-.case-visual-gallery{gap:36px;grid-template-columns:1fr;padding:36px 24px}
-.case-visual-gallery .showcase-phone{max-width:230px}
 .visual-caption{text-align:left}}
 @media(prefers-reduced-motion:reduce){.visual-project *{transition:none!important}}
 .visual-cover-label{display:flex;align-items:center;gap:9px}
 .visual-cover-label::before{content:"";width:6px;height:6px;background:var(--orange,var(--orange));border-radius:50%}
 .visual-cover-eye .visual-cover-label::before,.visual-cover-agent .visual-cover-label::before{background:var(--ink)}
-.case-visual-gallery button:focus-visible{outline:2px solid var(--accent-ink);outline-offset:6px}
 .portfolio-editorial .planning-eyebrow{color:var(--accent-ink);font-weight:600}
 /* 다섯번째 사례 — 가로로 긴 User Flow 증빙이라 두 칸을 쓴다 */
 .portfolio-editorial .visual-project-span{grid-column:1/-1}
