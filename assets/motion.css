@@ -13,7 +13,7 @@
 .practice-media .video-shell{aspect-ratio:854/720;height:auto}
 .project-card>.video-shell{margin-top:28px;height:auto;aspect-ratio:16/10;border-radius:12px}
 .project-demo{margin-top:44px;border-top:1px solid var(--line);padding-top:28px}
-.project-demo h3{font-size:var(--fs-h3);line-height:1.5;margin:0 0 18px}
+.project-demo h3{font-size:24px;line-height:1.5;margin:0 0 18px}
 .project-demo .video-shell{aspect-ratio:16/10;height:auto;border-radius:18px}
 @media(max-width:720px){
  .stat-card:first-child{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;min-height:130px;align-items:center;padding:24px;border-radius:20px}
@@ -26,15 +26,15 @@
  .proof-grid>.proof-card:first-child,.proof-grid>.proof-card-wide{grid-column:1/-1}
  .proof-grid>.proof-card:not(:first-child):not(.proof-card-wide){padding:14px}
  .proof-grid>.proof-card:not(:first-child):not(.proof-card-wide) .evidence-tile{height:228px}
- .proof-grid>.proof-card:not(:first-child):not(.proof-card-wide) h3{font-size:var(--fs-body);line-height:1.45;margin-top:20px}
- .proof-grid>.proof-card:not(:first-child):not(.proof-card-wide) p{font-size:var(--fs-overline);line-height:1.75}
+ .proof-grid>.proof-card:not(:first-child):not(.proof-card-wide) h3{font-size:17px;line-height:1.45;margin-top:20px}
+ .proof-grid>.proof-card:not(:first-child):not(.proof-card-wide) p{font-size:12px;line-height:1.75}
  .proof-grid>.proof-card:not(:first-child):not(.proof-card-wide) .proof-card-meta{font-size:8px;gap:4px}
  .proof-grid>.proof-card:first-child .evidence-tile{height:360px}
  .aeo-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding:0 2px 16px;scrollbar-width:thin;scrollbar-color:#aaa transparent}
  .aeo-grid>.aeo-card{flex:0 0 88%;min-width:0;scroll-snap-align:start}
  .aeo-grid>.aeo-card:last-child{display:block}
  .aeo-grid .evidence-aeo{height:340px}
- .touch-swipe-hint{display:block;font-size:var(--fs-overline);color:#706b63;line-height:1.7;margin:0 0 18px}
+ .touch-swipe-hint{display:block;font-size:11px;color:#706b63;line-height:1.7;margin:0 0 18px}
  .project-grid{gap:32px}
  .project-card.project-orange{border-radius:24px;padding:24px}
  .project-card.project-dark{width:calc(100% + 44px);margin-inline:-22px;border:0;border-radius:0;padding:36px 22px 42px;min-height:0}
@@ -44,9 +44,9 @@
  .project-light .project-no{grid-column:1/-1;margin-bottom:24px}
  .project-light .project-media{margin:0;height:245px;width:100%;align-self:start;border-radius:12px;border:1px solid #1112}
  .project-light .project-copy{padding:0;margin:0;align-self:center}
- .project-light .project-copy h3{font-size:var(--fs-h3);line-height:1.4}
+ .project-light .project-copy h3{font-size:20px;line-height:1.4}
  .project-light .project-copy p{font-size:9px}
- .project-light .project-copy li{font-size:var(--fs-overline);line-height:1.7}
+ .project-light .project-copy li{font-size:11px;line-height:1.7}
  .figma-showcase{margin-top:56px}
  .workflow-caption{font-size:7px;left:10px;bottom:6px}
 }

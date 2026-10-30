@@ -21,7 +21,7 @@ main{background-image:linear-gradient(#11111105 1px,transparent 1px),linear-grad
 .selected-work .work-row:nth-child(3){background:#eeeae2;color:var(--ink)}.selected-work .work-row:nth-child(3) .work-visual{background:#e7e2d8}
 .selected-work .work-row:nth-child(3) .work-number{color:var(--orange)}
 .selected-work .work-row:nth-child(3) .project-summary,.selected-work .work-row:nth-child(3) .project-facts dd,.selected-work .work-row:nth-child(3) .work-result>span{color:#57524d}
-.selected-work .work-row:nth-child(3) .project-facts dt,.selected-work .work-row:nth-child(3) .work-tags{color:var(--muted)}
+.selected-work .work-row:nth-child(3) .project-facts dt,.selected-work .work-row:nth-child(3) .work-tags{color:#79726b}
 .selected-work .work-row:nth-child(3) .visual-note{color:#57524d}
 .selected-work .work-visual{border-radius:12px}.selected-work .work-row{transition:transform .3s ease,box-shadow .3s ease;outline:1px solid transparent}
 .selected-work .work-result b{display:flex;justify-content:space-between;gap:12px;transition:color .2s}.selected-work .work-row:focus-visible{outline:2px solid var(--orange);outline-offset:5px}
