@@ -154,6 +154,7 @@
 // The same readable viewer serves search, documents and workflow screenshots.
 (() => {
   const dialog = document.querySelector('[data-lightbox-dialog]');
+  if (!dialog) return;
   const img = dialog.querySelector('img');
   const viewport = dialog.querySelector('.lightbox-viewport');
   const canvas = dialog.querySelector('.lightbox-canvas');
@@ -163,6 +164,11 @@
   const out = dialog.querySelector('[data-zoom-out]');
   const more = dialog.querySelector('[data-zoom-in]');
   const close = dialog.querySelector('.lightbox-close');
+  const zoomButtons = [...dialog.querySelectorAll('.lightbox-tools button')];
+  const setLoading = loading => {
+    viewport.setAttribute('aria-busy', String(loading));
+    zoomButtons.forEach(button => { button.disabled = true; });
+  };
   let scale = 1;
   let fitScale = 1;
   let fitMode = true;
@@ -188,16 +194,24 @@
     if (!dialog.open || !img.naturalWidth) return;
     fitScale = Math.min(1, (viewport.clientWidth - 32) / img.naturalWidth, (viewport.clientHeight - 32) / img.naturalHeight);
     fitMode = true;
+    viewport.setAttribute('aria-busy', 'false');
+    zoomButtons.forEach(button => { button.disabled = false; });
+    hint.textContent = '확대한 뒤 좌우·상하로 스크롤해 확인하세요.';
     render(fitScale);
   };
   img.addEventListener('load', fit);
-  img.addEventListener('error', () => { hint.textContent = '이미지를 불러오지 못했습니다. 닫은 뒤 다시 열어 주세요.'; });
+  img.addEventListener('error', () => { setLoading(false); level.textContent = '—'; hint.textContent = '이미지를 불러오지 못했습니다. 닫은 뒤 다시 열어 주세요.'; });
   document.querySelectorAll('[data-lightbox]').forEach(button => {
     button.addEventListener('click', () => {
       trigger = button;
       title.textContent = button.getAttribute('aria-label') || '포트폴리오 증빙';
       img.alt = button.querySelector('img')?.alt || title.textContent;
-      hint.textContent = '확대한 뒤 좌우·상하로 스크롤해 확인하세요.';
+      setLoading(true);
+      hint.textContent = '이미지를 불러오는 중입니다.';
+      level.textContent = '—';
+      canvas.style.width = '';
+      canvas.style.height = '';
+      viewport.scrollTop = viewport.scrollLeft = 0;
       img.style.width = '0px';
       img.style.height = '0px';
       img.src = button.dataset.lightbox;
