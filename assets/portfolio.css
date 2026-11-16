@@ -1660,18 +1660,18 @@ body.portfolio-focus{background:#fff}
 .lightbox-tools button:disabled{opacity:.4;cursor:default}
 
 /* assets/character3d.css */
-/* 히어로 마스코트 — 3D 캐릭터.
-   hero-bottom 의 경계선 위에 서게 한다. 선 위에 서야 떠 있지 않고 놓여 보인다.
-   모델 정본은 LIFE 쪽이다(LIFE/app/assets3d/life_boy.blend). */
+/* 히어로 오피스 장면 — 책상에서 타자 치는 캐릭터.
+   hero-bottom 의 경계선 위에 놓는다. 선 위에 놓여야 떠 있지 않고 앉아 보인다.
+   장면은 가로로 길다(책상). 세로형 상자에 넣으면 책상이 잘린다. */
 .hero-mascot{
-  --mascot-h:clamp(188px,23.5vw,336px);
+  --scene-w:clamp(260px,34vw,520px);
   position:relative;align-self:flex-end;
-  height:var(--mascot-h);width:calc(var(--mascot-h) * .64);
-  /* 캔버스는 발 아래 3% 를 비워 두고 그린다. 그만큼 내려 선에 발을 붙인다. */
-  margin:0 clamp(0px,4vw,70px) calc(var(--mascot-h) * -.03 - 2px) 0;
+  width:var(--scene-w);height:calc(var(--scene-w) * .60);
+  /* 장면 아래쪽 여백만큼 내려 바닥선에 맞춘다 */
+  margin:0 clamp(0px,2vw,44px) calc(var(--scene-w) * -.035) 0;
   pointer-events:none;
   opacity:0;transition:opacity .6s ease-out}
 .hero-mascot[data-ready]{opacity:1}
-@media (max-width:720px){
-  .hero-mascot{--mascot-h:clamp(150px,41vw,220px);margin-right:0;align-self:flex-end}}
+@media (max-width:860px){
+  .hero-mascot{--scene-w:clamp(230px,46vw,360px);margin-right:0}}
 @media (prefers-reduced-motion:reduce){.hero-mascot{transition:none}}
