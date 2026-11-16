@@ -1658,3 +1658,20 @@ body.portfolio-focus{background:#fff}
  .site-header .section-menu-toggle,.site-header .header-cta{min-height:44px}
 }
 .lightbox-tools button:disabled{opacity:.4;cursor:default}
+
+/* assets/character3d.css */
+/* 히어로 마스코트 — 3D 캐릭터.
+   hero-bottom 의 경계선 위에 서게 한다. 선 위에 서야 떠 있지 않고 놓여 보인다.
+   모델 정본은 LIFE 쪽이다(LIFE/app/assets3d/life_boy.blend). */
+.hero-mascot{
+  --mascot-h:clamp(188px,23.5vw,336px);
+  position:relative;align-self:flex-end;
+  height:var(--mascot-h);width:calc(var(--mascot-h) * .64);
+  /* 캔버스는 발 아래 3% 를 비워 두고 그린다. 그만큼 내려 선에 발을 붙인다. */
+  margin:0 clamp(0px,4vw,70px) calc(var(--mascot-h) * -.03 - 2px) 0;
+  pointer-events:none;
+  opacity:0;transition:opacity .6s ease-out}
+.hero-mascot[data-ready]{opacity:1}
+@media (max-width:720px){
+  .hero-mascot{--mascot-h:clamp(150px,41vw,220px);margin-right:0;align-self:flex-end}}
+@media (prefers-reduced-motion:reduce){.hero-mascot{transition:none}}
