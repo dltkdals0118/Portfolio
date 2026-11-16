@@ -11,7 +11,7 @@
 //
 // esbuild 는 npx 로 받는다(이 저장소에 설치하지 않는다).
 
-import {existsSync} from 'node:fs';
+import {existsSync, readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {resolve} from 'node:path';
@@ -20,23 +20,36 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const threeDir = process.env.THREE_DIR
   || resolve(root, '../LIFE/app/node_modules/three');
 
+const entry = resolve(root, 'assets/character3d.src.js');
 const three = resolve(threeDir, 'build/three.module.js');
-const gltf = resolve(threeDir, 'examples/jsm/loaders/GLTFLoader.js');
 
-for (const [label, path] of [['three', three], ['GLTFLoader', gltf]]) {
+// 소스가 쓰는 addon 을 **읽어서** 연결한다. 목록을 손으로 적으면 addon 을
+// 하나 더 쓰는 날 빌드가 깨진다(실제로 RoomEnvironment 에서 깨졌다).
+const addons = [...new Set(
+  [...readFileSync(entry, 'utf8').matchAll(/from '(three\/addons\/[^']+)'/g)].map(m => m[1]),
+)];
+
+const aliases = [`--alias:three=${three}`];
+for (const spec of addons) {
+  const path = resolve(threeDir, spec.replace('three/addons/', 'examples/jsm/'));
   if (!existsSync(path)) {
-    console.error(`${label} 을 찾지 못했습니다: ${path}`);
-    console.error('THREE_DIR 로 three 설치 경로를 지정하거나, LIFE 앱에서 `npm install` 을 먼저 하십시오.');
+    console.error(`addon 을 찾지 못했습니다: ${spec} -> ${path}`);
     process.exit(1);
   }
+  aliases.push(`--alias:${spec}=${path}`);
 }
 
+if (!existsSync(three)) {
+  console.error(`three 를 찾지 못했습니다: ${three}`);
+  console.error('THREE_DIR 로 three 설치 경로를 지정하거나, LIFE 앱에서 `npm install` 을 먼저 하십시오.');
+  process.exit(1);
+}
+console.log('addons:', addons.join(', ') || '(없음)');
+
 execFileSync('npx', [
-  '--yes', 'esbuild',
-  resolve(root, 'assets/character3d.src.js'),
+  '--yes', 'esbuild', entry,
   '--bundle', '--minify', '--format=esm', '--target=es2020',
-  `--alias:three=${three}`,
-  `--alias:three/addons/loaders/GLTFLoader.js=${gltf}`,
+  ...aliases,
   `--outfile=${resolve(root, 'assets/character3d.js')}`,
 ], {stdio: 'inherit', shell: process.platform === 'win32'});
 

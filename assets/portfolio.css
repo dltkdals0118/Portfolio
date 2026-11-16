@@ -1662,16 +1662,16 @@ body.portfolio-focus{background:#fff}
 /* assets/character3d.css */
 /* 히어로 오피스 장면 — 책상에서 타자 치는 캐릭터.
    hero-bottom 의 경계선 위에 놓는다. 선 위에 놓여야 떠 있지 않고 앉아 보인다.
-   장면은 가로로 길다(책상). 세로형 상자에 넣으면 책상이 잘린다. */
+   장면은 가로로 길다(책상). 세로형 상자에 넣으면 책상이 잘린다.
+   pointer-events 를 살려 둔다 — 올리면 이쪽을 보고 누르면 반응한다. */
 .hero-mascot{
-  --scene-w:clamp(260px,34vw,520px);
+  --scene-w:clamp(320px,42vw,680px);
   position:relative;align-self:flex-end;
   width:var(--scene-w);height:calc(var(--scene-w) * .60);
-  /* 장면 아래쪽 여백만큼 내려 바닥선에 맞춘다 */
-  margin:0 clamp(0px,2vw,44px) calc(var(--scene-w) * -.035) 0;
-  pointer-events:none;
+  margin:0 clamp(0px,1.5vw,30px) calc(var(--scene-w) * -.035) 0;
+  cursor:pointer;touch-action:manipulation;
   opacity:0;transition:opacity .6s ease-out}
 .hero-mascot[data-ready]{opacity:1}
 @media (max-width:860px){
-  .hero-mascot{--scene-w:clamp(230px,46vw,360px);margin-right:0}}
+  .hero-mascot{--scene-w:clamp(280px,64vw,420px);margin-right:0;align-self:center}}
 @media (prefers-reduced-motion:reduce){.hero-mascot{transition:none}}
